@@ -1,0 +1,105 @@
+@font-face {
+  font-family: 'bold';
+  src: url('./assets/fonts/bold.ttf');
+}
+
+@font-face {
+  font-family: 'normal';
+  src: url('./assets/fonts/light.ttf');
+}
+
+
+:root {
+  --gray: #20272f;
+  --black: #171c22;
+  --green: #2ad883;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  height: auto;
+  width: 100%;
+  font-family: normal;
+  background-color: var(--black);
+}
+
+header {
+  height: 50px;
+  background-color: var(--green);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000; 
+}
+
+button {
+  border: none;
+  color: var(--black);
+  font-family: bold;
+  background-color: var(--green);
+}
+
+.hero-page {
+  width: 100%;
+  height: 100vh;
+  color: white;
+  /* background-image: url('./assets/images/bg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-color: #171c22;
+  display: flex;
+}
+
+.left-side-hero {
+  flex: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+.left-side-hero button {
+  font-family: bold;
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
+}
+
+.left-side-hero button:hover {
+  background-color: white;
+  color: var(--black);
+}
+
+.left-side-hero h2 {
+  font-family: normal;
+  font-size: calc(20pt);
+}
+
+.left-side-hero h1 {
+  font-family: bold;
+  font-size: calc(40pt);
+  color: #2ad883;
+}
+
+.right-side-hero {
+  flex: 40%;
+  display: flex;
+  align-items: end;
+  justify-content: flex-start;
+}
+
+.right-side-hero img {
+  height: 99%;
+}
+
+
