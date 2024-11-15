@@ -24,16 +24,7 @@
   height: auto;
   width: 100%;
   font-family: normal;
-  background-color: var(--black);
-}
-
-header {
-  height: 50px;
-  background-color: var(--green);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000; 
+  position: relative;
 }
 
 button {
@@ -43,16 +34,83 @@ button {
   background-color: var(--green);
 }
 
+header {
+  height: 80px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--black);
+}
+
+header img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.dark-mode-navigation-button {
+  height: 40px;
+  width: auto;
+  font-family: bold;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  background-color: transparent;
+  color: white;
+}
+
+.light-mode-navigation-button {
+  height: 40px;
+  width: auto;
+  font-family: bold;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  background-color: transparent;
+  color: var(--black);
+}
+
+.dark-mode-icon {
+  color: white;
+  background-color: transparent;
+}
+
+.light-mode-icon {
+  color: var(--black);
+  background-color: transparent;
+}
+
+.dark-mode-icon:hover {
+  transform: rotate(120deg);
+}
+
+header button:hover {
+  color: var(--green);
+  width: auto;
+  height: 40px;
+}
+
 .hero-page {
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   color: white;
   /* background-image: url('./assets/images/bg.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; */
-  background-color: #171c22;
+  background-color: var(--green);
   display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.content-hero-page {
+  background-color: var(--black);
+  width: 100%;
+  height: 100%;
 }
 
 .left-side-hero {
@@ -85,21 +143,180 @@ button {
   font-size: calc(20pt);
 }
 
+.left-side-hero b {
+  font-family: bold;
+}
+
 .left-side-hero h1 {
   font-family: bold;
   font-size: calc(40pt);
   color: #2ad883;
 }
 
+.hamburgerIcon {
+  display: none;
+}
+
+.hamburgerIcon:hover {
+  transform: scale(110%);
+}
+
+.social-icon-dark-mode {
+  color: white;
+}
+
+.social-icon:hover {
+  color: var(--green);
+}
+
 .right-side-hero {
   flex: 40%;
   display: flex;
-  align-items: end;
+  align-items: center;
   justify-content: flex-start;
 }
 
 .right-side-hero img {
-  height: 99%;
+  height: 75%;
 }
 
+.footer {
+  background-color: #2ad883;
+  height: 20%;
+}
+
+.project-page {
+  background-color: var(--black);
+  height: 100vh;
+}
+
+.content-project-page {
+  background-color: var(--green);
+  height: 100%;
+}
+
+.title {
+  font-family: bold;
+  color: #171c22;
+  font-size: 5rem;
+}
+
+
+/* Customize the scrollbar track */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black); /* Color of the scrollbar track */
+  border-radius: 4px; /* Rounded corners */
+}
+
+/* Customize the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #2ad883; /* Color of the scroll thumb */
+  border-radius: 4px;
+  border: 2px solid #f1f1f1; /* Adds space between thumb and track */
+}
+
+/* Add a hover effect for the thumb */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #1eb473;
+}
+
+/* Firefox scrollbar customization */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--green) var(--black);
+}
+
+
+@media (max-width: 768px) {
+  #content-hero-page {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .left-side-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 2;
+  }
+
+  .left-side-hero h2 {
+    font-size: 20pt;
+  }
+
+  .left-side-hero h1 {
+    font-size: 30pt;
+  }
+
+  .left-side-hero p {
+    font-size: 10pt;
+  }
+
+  .hamburgerIcon {
+    display: flex;
+    background-color: transparent;
+  }
+
+  .dark-mode-navigation-button,
+  .light-mode-navigation-button
+  {
+    display: none;
+  }
+
+  .right-side-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 1;
+  }
+
+  .right-side-hero img{
+    height: 350px;
+  }
+}
+
+
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 

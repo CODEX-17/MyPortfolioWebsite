@@ -1,0 +1,41 @@
+@font-face {
+    font-family: bold;
+    src: url('./fonts/bold.ttf');
+}
+
+@font-face {
+    font-family: normal;
+    src: url('./fonts/regular.ttf');
+}
+
+.sidebar {
+    position: fixed;
+    width: 90%;
+    height: 100%;
+    background-color: #1eb473;
+    z-index: 5;
+    top: 0;
+    padding: 2%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    box-shadow: 6px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar h1 {
+    font-family: bold;
+    margin: 0;
+}
+
+.closeBtn {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    cursor: pointer;
+   
+}
+
+.closeBtn:hover {
+    opacity: 0.5;
+}
