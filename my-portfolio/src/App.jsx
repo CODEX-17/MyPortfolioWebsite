@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import rumar from './assets/images/rumar-green-bg.png';
 import logoDefault from './assets/images/rp.png'
 import logoWhite from './assets/images/rp-white.png'
@@ -12,7 +12,7 @@ import { FaSquareInstagram } from "react-icons/fa6";
 import { BsTelegram } from "react-icons/bs";
 import Email from './components/email';
 import { IoMdSunny } from "react-icons/io";
-import { MdDarkMode } from "react-icons/md";
+import { MdDarkMode, MdBuildCircle } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
 import Sidebar from './components/Sidebar';
 
@@ -20,7 +20,40 @@ function App() {
 
   const [darkMode, setDarkMode] = useState(true)
   const [isShowSideBar, setIsShowSideBar] = useState(false)
+  const [currentSection, setCurrentSection] = useState('hero-page')
+  const sectionHeroRef = useRef(null)
+  const sectionAboutRef = useRef(null)
 
+
+  const scrollToSection = (sectionRef) => {
+    sectionRef.current.scrollIntoView({ behavior: "smooth" })
+  }
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null, // Use the viewport as the root
+      threshold: 0.6, // Trigger when 60% of the section is visible
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Update currentSection based on the section currently in view
+          setCurrentSection(entry.target.dataset.section);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    const sections = [sectionHeroRef.current, sectionAboutRef.current];
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      // Clean up the observer when the component unmounts
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
 
   return (
     <div className='body' style={{ backgroundColor: darkMode ? '#171c22' : '#ffffff' }}>
@@ -32,12 +65,12 @@ function App() {
         />
       }
       
-
       <motion.header
         className="header h-20 px-5"
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0, backgroundColor: darkMode ? '#171c22' : 'white'}}
-        transition={{ duration: 0.8, ease: 'easeInOut' }}
+        animate={{ opacity: 1, y: 0}}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
+        style={{ backgroundColor: 'transparent' }}
       >
         <motion.img 
           src={darkMode ? logoWhite : logoDefault} 
@@ -56,8 +89,20 @@ function App() {
         
         <div className="logo d-flex align-items-center gap-5">
       
-            <button className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}>Home</button>
-            <button className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}>About Me</button>
+            <button 
+              className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}
+              style={{ backgroundColor: currentSection === 'hero-page' ? 'rgba(128, 128, 128, 0.100)' : '', border: 'none'}}
+              onClick={() => {scrollToSection(sectionHeroRef), setCurrentSection('hero-page')}}
+            >Home
+            </button>
+
+            <button 
+              className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}
+              style={{ backgroundColor: currentSection === 'about-page' ? 'rgba(128, 128, 128, 0.100)' : '', border: 'none'}}
+              onClick={() => {scrollToSection(sectionAboutRef), setCurrentSection('about-page')}}
+            >About Me
+            </button>
+
             <button className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}>Projects</button>
             <button className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}>Contact Me</button>
     
@@ -105,15 +150,17 @@ function App() {
         </div>
       </motion.header>
 
-      <section className='hero-page' style={{ transition: 'opacity 0.3s ease' }}>
-        <motion.div 
-          className='content-hero-page' 
-          style={{ backgroundColor: darkMode ? '#171c22' : 'white' }}
-          animate={{ backgroundColor: darkMode ? '#171c22' : '#ffffff' }}
-          transition={{ duration: 0.5, ease: 'easeInOut' }}
-        >
+      <motion.section 
+        className='hero-page' 
+        data-section="hero-page"
+        ref={sectionHeroRef} 
+        style={{ backgroundColor: darkMode ? '#171c22' : 'white', transition: 'opacity 0.3s ease' }}
+        animate={{ backgroundColor: darkMode ? '#171c22' : '#ffffff' }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
+      >
+        <div className='content-hero-page'>
           <div className='container d-flex' id='content-hero-page' style={{ height: '90%', backgroundColor: 'transparent' }}>
-            <motion.div 
+            <div 
               className='left-side-hero'
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -125,7 +172,7 @@ function App() {
               <h2 className='fs-3' style={{ color: !darkMode ? '#171c22' : 'white' }} ><b>Hi!</b>, I'm</h2>
               <h1 className='fs-1'>Rumar Pamparo</h1>
               <p style={{ color: !darkMode ? '#171c22' : 'white' }} className='fs-6'>A fresh graduate and <b>Fullstack Web Developer</b> based in the Philippines. I have a passion for building web applications, freelancing, and solving complex problems as I grow in my career.</p>
-              <button className='download-btn'>
+              <button className='download-btn' style={{ color: darkMode ? '#171c22' : 'white' }}>
                 <HiOutlineDownload size={15} /> Download CV
               </button>
               <div className='d-flex gap-2 mt-5'>
@@ -194,8 +241,7 @@ function App() {
                   <BsTelegram color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
                 </motion.div>
               </div>
-              
-            </motion.div>
+            </div>
             <div className='right-side-hero'>
               <motion.img
               src={rumar}
@@ -216,20 +262,71 @@ function App() {
               />
             </div>
           </div>
-        </motion.div>
-      </section>
+        </div>
+      </motion.section>
 
-      <section className='project-page'>
-        <div className='content-project-page'>
-          <div className='container'>
-            <div className='d-flex align-items-center justify-content-center pt-5'>
-              <h1 className='title'>PROJECTS</h1>
-              {/* <Email/> */}
+      <motion.section 
+        className='about-page'
+        data-section="about-page"
+        ref={sectionAboutRef}
+        style={{ backgroundColor: darkMode ? '#171c22' : 'white' }}
+        animate={{ backgroundColor: darkMode ? '#171c22' : '#ffffff' }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
+      >
+        <div className='content-about-page'>
+
+          <div className='content-about-page-head'>
+            <h1 className='title'>About me.</h1>
+            <h1 className='title' style={{ color: darkMode ? 'white' : '#171c22' }}>"Love what you do,<b>live what you love.</b>"</h1>
+          </div>
+
+          <div className='content-about-page-body'> 
+
+            <div className='content-about-page-container'>
+              <img src={!darkMode ? logoDefault : logoWhite} alt="logo"/>
+            </div>
+
+            <div className='content-about-page-container' >
+              <p style={{ color: darkMode ? 'white' : '#171c22' }}><b>Hello!</b> I'm a recent graduate with a passion for building and designing web applications and a growing interest in mobile app development.
+                I also enjoy exploring the creative side of graphic design, merging functionality with visual appeal to create engaging, user-friendly digital experiences.
+                Eager to dive into new challenges and expand my skill set, I'm always ready to bring ideas to life.</p>
+            </div>
+
+            <div className='content-about-page-container'>
+
+              
+              <h3>What I Do?</h3>
+              <div className='about-card-list'>
+                <div className='about-card'>
+                  <MdBuildCircle size={50}/>
+                  <div className='d-flex flex-column'>
+                    <h4 className='mt-4'>Web Developer</h4>
+                    <p style={{ color: darkMode ? 'white' : '#171c22' }}>Landing page, Management Sytems,
+                    Capstone Projects </p>
+                  </div>
+                </div>
+                <div className='about-card'>
+                  <MdBuildCircle size={50}/>
+                  <div className='d-flex flex-column'>
+                    <h4 className='mt-4'>Web Developer</h4>
+                    <p style={{ color: darkMode ? 'white' : '#171c22' }}>Landing page, Management Sytems,
+                    Capstone Projects </p>
+                  </div>
+                </div>
+                <div className='about-card'>
+                  <MdBuildCircle size={50}/>
+                  <div className='d-flex flex-column'>
+                    <h4 className='mt-4'>Web Developer</h4>
+                    <p style={{ color: darkMode ? 'white' : '#171c22' }}>Landing page, Management Sytems,
+                    Capstone Projects </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
           
-      </section>
+      </motion.section>
 
       <section className='section bg-primary'>
           Section 2 content

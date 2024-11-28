@@ -34,6 +34,21 @@ button {
   background-color: var(--green);
 }
 
+h1 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.title {
+  font-family: bold;
+  color: var(--green);
+  font-size: 3rem;
+}
+
+.title b {
+  color: var(--green);
+}
+
 header {
   height: 80px;
   backdrop-filter: blur(8px);
@@ -44,7 +59,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--black);
+  background-color: none;
 }
 
 header img {
@@ -61,6 +76,13 @@ header img {
   font-size: 0.9rem;
   background-color: transparent;
   color: white;
+  width: 100px;
+}
+
+.dark-mode-navigation-button:hover {
+  width: 100px;
+  background-color: rgba(128, 128, 128, 0.100);
+  color: white;
 }
 
 .light-mode-navigation-button {
@@ -71,16 +93,27 @@ header img {
   font-size: 0.9rem;
   background-color: transparent;
   color: var(--black);
+  width: 100px;
 }
+
+.light-mode-navigation-button:hover {
+  width: 100px;
+  background-color: rgba(128, 128, 128, 0.100);
+  color: var(--black);
+}
+
+.navigation-button-active {
+  background-color: rgba(128, 128, 128, 0.100);
+}
+
+
 
 .dark-mode-icon {
   color: white;
-  background-color: transparent;
 }
 
 .light-mode-icon {
   color: var(--black);
-  background-color: transparent;
 }
 
 .dark-mode-icon:hover {
@@ -88,19 +121,14 @@ header img {
 }
 
 header button:hover {
-  color: var(--green);
   width: auto;
   height: 40px;
 }
 
 .hero-page {
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   color: white;
-  /* background-image: url('./assets/images/bg.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
   background-color: var(--green);
   display: flex;
   flex-direction: column;
@@ -108,7 +136,6 @@ header button:hover {
 }
 
 .content-hero-page {
-  background-color: var(--black);
   width: 100%;
   height: 100%;
 }
@@ -181,26 +208,106 @@ header button:hover {
 }
 
 .footer {
-  background-color: #2ad883;
+  background-color: var(--green);
   height: 20%;
 }
 
-.project-page {
-  background-color: var(--black);
+.about-page {
   height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.content-project-page {
-  background-color: var(--green);
+.content-about-page {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #1eb473;
+}
+
+.content-about-page-body {
+  display: flex;
+  justify-content: space-between;
+  gap: 5%;
   height: 100%;
 }
 
-.title {
-  font-family: bold;
-  color: #171c22;
-  font-size: 5rem;
+.content-about-page-head {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5%;
 }
 
+.content-about-page-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.about-card-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.content-about-page-container img {
+  width: 80%;
+  height: auto;
+}
+
+.content-about-page-container p {
+  font-size: 1.5rem;
+}
+
+.content-about-page-container b {
+  color: #1eb473;
+  font-family: bold;
+}
+
+.content-about-page p {
+  color: white;
+  font-size: 2rem;
+}
+
+.content-about-page h3 {
+  font-family: bold;
+  color: white;
+  text-align: justify;
+}
+
+.about-card {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+  padding: 20px;
+  border: 2px solid var(--green);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.about-card h4 {
+  font-size: 1.5rem;
+  font-family: bold;
+  margin: 0;
+}
+
+.about-card p {
+  font-size: 1rem;
+}
 
 /* Customize the scrollbar track */
 ::-webkit-scrollbar {
@@ -231,7 +338,47 @@ header button:hover {
 }
 
 
+@media (max-width: 1440px) {
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .content-about-page-container p {
+    font-size: 1.5rem;
+  }
+
+  .about-card p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .content-about-page-container p {
+    font-size: 1.3rem;
+  }
+
+  .content-about-page-container img {
+    width: 100%;
+  }
+
+  .about-card h4 {
+    font-size: 1rem;
+  }
+
+  .about-card p {
+    font-size: .8rem;
+  }
+}
+
+
 @media (max-width: 768px) {
+
   #content-hero-page {
     display: flex;
     flex-direction: column;
@@ -278,6 +425,50 @@ header button:hover {
   .right-side-hero img{
     height: 350px;
   }
+
+  .about-page {
+    height: 100%;
+  }
+
+  .content-about-page-head h1{
+    font-size: 1.3rem;
+    margin-bottom: 5%;
+  }
+
+  .content-about-page-body {
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .content-about-page-container {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .content-about-page-container img {
+    width: 40%;
+  }
+
+  .content-about-page-container p {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .about-card {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: row;
+  }
+
+  .about-card p{
+    font-size: .8rem;
+    text-align: start;
+  }
+
 }
 
 
