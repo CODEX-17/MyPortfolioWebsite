@@ -5,7 +5,7 @@ import logoWhite from './assets/images/rp-white.png'
 import './App.css';
 import { HiOutlineDownload } from "react-icons/hi";
 import { motion } from 'framer-motion';
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaReact } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { IoLogoLinkedin } from "react-icons/io5";
 import { FaSquareInstagram } from "react-icons/fa6";
@@ -16,6 +16,8 @@ import { MdDarkMode, MdBuildCircle } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
 import Sidebar from './components/Sidebar';
 
+import samplePic from './assets/images/bg.jpg'
+
 function App() {
 
   const [darkMode, setDarkMode] = useState(true)
@@ -23,6 +25,7 @@ function App() {
   const [currentSection, setCurrentSection] = useState('hero-page')
   const sectionHeroRef = useRef(null)
   const sectionAboutRef = useRef(null)
+  const sectionProjectsRef = useRef(null)
 
 
   const scrollToSection = (sectionRef) => {
@@ -46,7 +49,7 @@ function App() {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    const sections = [sectionHeroRef.current, sectionAboutRef.current];
+    const sections = [sectionHeroRef.current, sectionAboutRef.current, sectionProjectsRef.current];
     sections.forEach((section) => observer.observe(section));
 
     return () => {
@@ -103,7 +106,13 @@ function App() {
             >About Me
             </button>
 
-            <button className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}>Projects</button>
+            <button 
+              className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}
+              style={{ backgroundColor: currentSection === 'projects-page' ? 'rgba(128, 128, 128, 0.100)' : '', border: 'none'}}
+              onClick={() => {scrollToSection(sectionProjectsRef), setCurrentSection('projects-page')}}
+            >Projects
+            </button>
+
             <button className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}>Contact Me</button>
     
             <motion.button 
@@ -328,9 +337,122 @@ function App() {
           
       </motion.section>
 
-      <section className='section bg-primary'>
-          Section 2 content
-      </section>
+      <motion.section 
+        className='projects-page' 
+        data-section="projects-page"
+        ref={sectionProjectsRef} 
+        style={{ backgroundColor: darkMode ? '#171c22' : 'white', transition: 'opacity 0.3s ease' }}
+        animate={{ backgroundColor: darkMode ? '#171c22' : '#ffffff' }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }} 
+      >
+        <div className='content-projects-page'>
+          <div className='head-project-page'>
+            <h1 className='title'>My Projects.</h1>
+          </div>
+          <div className='body-project-page'>
+            <div className='projects-card-list'>
+              <div className='projects-card'>
+                <div className='projects-card-head'>
+                  <h3>E-SchoolApp</h3>
+                  <p>(Web Application)</p>
+                </div>
+                <img src={samplePic} alt="thumbnail" className='projects-card-thumbnail'/>
+                <div className='projects-card-details'>
+                  <div className='projects-card-technology-list'>
+                    <div className='technology-card'>
+                      <FaReact/>
+                      React
+                    </div>
+                    <div className='technology-card'>
+                      <FaReact/>
+                      React
+                    </div>
+                  </div>
+                  <div className='projects-card-description'>
+                    <div className='d-flex flex-column'>
+                      <b>Description:</b>
+                      <p> A web application that communication and collaboration platform for student and teacher.</p>
+                    </div>
+                    <div className='d-flex flex-column'>
+                      <b>Key Features:</b>
+                      <p>Create Classes, Posting of assignments and Activities, Posting of learning materials,  Create Quiz, Real-time Chat.</p>
+                    </div>
+                  </div>
+                  <div className='d-flex w-100 mt-2'>
+                    <button>Repository</button>
+                  </div>
+                </div>
+              </div>
+
+              <div className='projects-card'>
+                <div className='projects-card-head'>
+                  <h3>E-SchoolApp</h3>
+                  <p>(Web Application)</p>
+                </div>
+                <img src={samplePic} alt="thumbnail" className='projects-card-thumbnail'/>
+                <div className='projects-card-details'>
+                  <div className='projects-card-technology-list'>
+                    <div className='technology-card'>
+                      <FaReact/>
+                      React
+                    </div>
+                    <div className='technology-card'>
+                      <FaReact/>
+                      React
+                    </div>
+                  </div>
+                  <div className='projects-card-description'>
+                    <div className='d-flex flex-column'>
+                      <b>Description:</b>
+                      <p> A web application that communication and collaboration platform for student and teacher.</p>
+                    </div>
+                    <div className='d-flex flex-column'>
+                      <b>Key Features:</b>
+                      <p>Create Classes, Posting of assignments and Activities, Posting of learning materials,  Create Quiz, Real-time Chat.</p>
+                    </div>
+                  </div>
+                  <div className='d-flex w-100 mt-2'>
+                    <button>Repository</button>
+                  </div>
+                </div>
+              </div>
+
+              <div className='projects-card'>
+                <div className='projects-card-head'>
+                  <h3>E-SchoolApp</h3>
+                  <p>(Web Application)</p>
+                </div>
+                <img src={samplePic} alt="thumbnail" className='projects-card-thumbnail'/>
+                <div className='projects-card-details'>
+                  <div className='projects-card-technology-list'>
+                    <div className='technology-card'>
+                      <FaReact/>
+                      React
+                    </div>
+                    <div className='technology-card'>
+                      <FaReact/>
+                      React
+                    </div>
+                  </div>
+                  <div className='projects-card-description'>
+                    <div className='d-flex flex-column'>
+                      <b>Description:</b>
+                      <p> A web application that communication and collaboration platform for student and teacher.</p>
+                    </div>
+                    <div className='d-flex flex-column'>
+                      <b>Key Features:</b>
+                      <p>Create Classes, Posting of assignments and Activities, Posting of learning materials,  Create Quiz, Real-time Chat.</p>
+                    </div>
+                  </div>
+                  <div className='d-flex w-100 mt-2'>
+                    <button>Repository</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.section>
     </div>
   );
 }
