@@ -186,7 +186,11 @@ function App() {
               </button>
               <div className='d-flex gap-2 mt-5'>
                 <motion.div
-                   whileHover={{
+                  whileHover={{
+                    opacity: 0.5,
+                    rotate: 120,
+                  }}
+                  whileTap={{
                     opacity: 0.5,
                     rotate: 120,
                   }}
@@ -199,7 +203,11 @@ function App() {
                 </motion.div>
                 
                 <motion.div
-                   whileHover={{
+                  whileHover={{
+                    opacity: 0.5,
+                    rotate: 120,
+                  }}
+                  whileTap={{
                     opacity: 0.5,
                     rotate: 120,
                   }}
@@ -216,6 +224,10 @@ function App() {
                     opacity: 0.5,
                     rotate: 120,
                   }}
+                  whileTap={{
+                    opacity: 0.5,
+                    rotate: 120,
+                  }}
                   transition={{
                     duration: 0.3,
                     ease: "easeInOut",
@@ -229,6 +241,10 @@ function App() {
                     opacity: 0.5,
                     rotate: 120,
                   }}
+                  whileTap={{
+                    opacity: 0.5,
+                    rotate: 120,
+                  }}
                   transition={{
                     duration: 0.3,
                     ease: "easeInOut",
@@ -239,6 +255,10 @@ function App() {
 
                 <motion.div
                    whileHover={{
+                    opacity: 0.5,
+                    rotate: 120,
+                  }}
+                  whileTap={{
                     opacity: 0.5,
                     rotate: 120,
                   }}
@@ -303,7 +323,6 @@ function App() {
 
             <div className='content-about-page-container'>
 
-              
               <h3>What I Do?</h3>
               <div className='about-card-list'>
                 <div className='about-card'>

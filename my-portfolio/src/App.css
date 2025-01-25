@@ -240,10 +240,12 @@ header button:hover {
 
 .content-about-page-head {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   align-items: center;
   justify-content: space-between;
   margin-top: 5%;
+  text-align: center;
 }
 
 .content-about-page-container {
@@ -652,6 +654,10 @@ header button:hover {
   .projects-card {
     width: 100%;
     padding: 15px;
+  }
+
+  .content-about-page-head {
+    justify-content: center;
   }
 }
 
