@@ -34,10 +34,6 @@ button {
   background-color: var(--green);
 }
 
-button:hover {
-  opacity: 0.5;
-}
-
 h1 {
   font-size: 1rem;
   margin: 0;
@@ -85,6 +81,12 @@ header img {
   width: 100px;
 }
 
+.dark-mode-navigation-button:hover {
+  width: 100px;
+  background-color: rgba(128, 128, 128, 0.100);
+  color: white;
+}
+
 .light-mode-navigation-button {
   height: 40px;
   width: auto;
@@ -94,6 +96,12 @@ header img {
   background-color: transparent;
   color: var(--black);
   width: 100px;
+}
+
+.light-mode-navigation-button:hover {
+  width: 100px;
+  background-color: rgba(128, 128, 128, 0.100);
+  color: var(--black);
 }
 
 .navigation-button-active {

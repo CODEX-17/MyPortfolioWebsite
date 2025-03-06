@@ -34,18 +34,27 @@ function App() {
   const [isShowSideBar, setIsShowSideBar] = useState(false)
   const [currentSection, setCurrentSection] = useState('hero-page')
 
+  const options = {
+    threshold: 0.3, // Section should be at least 30% visible to trigger
+  }
 
-  const { ref, inView} = useInView({
-    triggerOnce: false, // Ensures animation triggers only once
-    threshold: 0.2, // Adjust when the animation starts (0 = as soon as visible)
-  })
+  const { ref: heroRef, inView: heroInView } = useInView(options)
+  const { ref: aboutRef, inView: aboutInView } = useInView(options)
+  const { ref: projectsRef, inView: projectsInView } = useInView(options)
+
+  useEffect(() => {
+    if (heroInView) setCurrentSection('hero-page')
+    else if (aboutInView) setCurrentSection('about-page')
+    else if (projectsInView) setCurrentSection('projects-page')
+  },[heroInView, aboutInView, projectsInView])
 
   //Section Scroll
   const sectionHeroRef = useRef(null)
   const sectionAboutRef = useRef(null)
   const sectionProjectsRef = useRef(null)
 
-  const scrollToSection = (sectionRef) => {
+  const scrollToSection = (sectionRef, data) => {
+    setCurrentSection(data)
     sectionRef.current.scrollIntoView({ behavior: "smooth" })
   }
 
@@ -87,21 +96,21 @@ function App() {
             <button 
               className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}
               style={{ backgroundColor: currentSection === 'hero-page' ? 'rgba(128, 128, 128, 0.100)' : '', border: 'none'}}
-              onClick={() => {scrollToSection(sectionHeroRef), setCurrentSection('hero-page')}}
+              onClick={() => scrollToSection(sectionHeroRef, 'hero-page')}
             >Home
             </button>
 
             <button 
               className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}
               style={{ backgroundColor: currentSection === 'about-page' ? 'rgba(128, 128, 128, 0.100)' : '', border: 'none'}}
-              onClick={() => {scrollToSection(sectionAboutRef), setCurrentSection('about-page')}}
+              onClick={() => scrollToSection(sectionAboutRef, 'about-page')}
             >About Me
             </button>
 
             <button 
               className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}
               style={{ backgroundColor: currentSection === 'projects-page' ? 'rgba(128, 128, 128, 0.100)' : '', border: 'none'}}
-              onClick={() => {scrollToSection(sectionProjectsRef), setCurrentSection('projects-page')}}
+              onClick={() => scrollToSection(sectionProjectsRef,'projects-page')}
             >Projects
             </button>
 
@@ -168,7 +177,7 @@ function App() {
         animate={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5' }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
       >
-        <div className='content-hero-page'>
+        <div className='content-hero-page' ref={heroRef}>
           <div className='container d-flex' id='content-hero-page' style={{ height: '90%', backgroundColor: 'transparent' }}>
             <div 
               className='left-side-hero'
@@ -290,11 +299,12 @@ function App() {
             </div>
             <div className='right-side-hero'>
               <motion.img
-              src={rumar}
+                src={rumar}
                 alt="Rumar Pamparo" 
                 className="profile-img"
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 whileHover={{ scale: 1.1 }}
                 transition={{
                   duration: 0.3,
@@ -315,7 +325,7 @@ function App() {
       <motion.section 
         className='about-page'
         data-section="about-page"
-        ref={ref}
+        ref={sectionAboutRef}
         style={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5' }}
         initial={{ opacity: 0, y: 200 }} // Initial state (hidden)
         whileInView={{
@@ -324,7 +334,7 @@ function App() {
           transition: { duration: 1 }
         }}
       >
-        <div className='content-about-page'>
+        <div className='content-about-page' ref={aboutRef}>
 
           <div className='content-about-page-head'>
             <motion.h1 
@@ -336,7 +346,7 @@ function App() {
               initial={{ opacity: 0, x: 200 }} 
               whileInView={{ opacity: 1, x: 0, transition: { duration: 0.5 } }} 
               className='title'
-              style={{ color: theme === 'dark' ? COLORS.dark : '#fff' }}
+              style={{ color: darkMode ? '#fff' : COLORS.dark }}
             >"Love what you do,<b>live what you love.</b>"</motion.h1>
           </div>
 
@@ -395,7 +405,7 @@ function App() {
         animate={{ backgroundColor: darkMode ? '#171c22' : '#ffffff' }}
         transition={{ duration: 0.5, ease: 'easeInOut' }} 
       >
-        <div className='content-projects-page'>
+        <div className='content-projects-page' ref={projectsRef}>
           <div className='head-project-page'>
             <h1 className='title'>My Projects.</h1>
           </div>
