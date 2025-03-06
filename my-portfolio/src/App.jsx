@@ -1,19 +1,15 @@
 import { useRef, useState, useEffect, useContext } from 'react';
-import rumar from './assets/images/rumar-green-bg.png';
+
 import logoDefault from './assets/images/rp.png'
 import logoWhite from './assets/images/rp-white.png'
 import './App.css';
-import { HiOutlineDownload } from "react-icons/hi";
 import { motion } from 'framer-motion';
 import { 
   FaGithub, 
   FaReact, 
   FaFacebook,
-
 } from "react-icons/fa";
-import { IoLogoLinkedin } from "react-icons/io5";
-import { FaSquareInstagram } from "react-icons/fa6";
-import { BsTelegram } from "react-icons/bs";
+
 import { IoMdSunny } from "react-icons/io";
 import { MdDarkMode, MdBuildCircle } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
@@ -23,6 +19,10 @@ import samplePic from './assets/images/bg.jpg'
 import { useInView } from "react-intersection-observer";
 import { ThemeContext } from '../context/ThemeContext';
 import { COLORS } from './constants/colors';
+import HeroPage from './sections/Hero/HeroPage';
+import About from './sections/About/About';
+
+
 
 
 function App() {
@@ -176,150 +176,12 @@ function App() {
         style={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5', transition: 'opacity 0.3s ease' }}
         animate={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5' }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
+        
       >
-        <div className='content-hero-page' ref={heroRef}>
-          <div className='container d-flex' id='content-hero-page' style={{ height: '90%', backgroundColor: 'transparent' }}>
-            <div 
-              className='left-side-hero'
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                ease: 'easeOut',
-              }}
-            >
-              <h2 className='fs-3' style={{ color: !darkMode ? '#171c22' : 'white' }} ><b>Hi!</b>, I'm</h2>
-              <h1 className='fs-1'>Rumar Pamparo</h1>
-              <p style={{ color: !darkMode ? '#171c22' : 'white' }} className='fs-6'>A fresh graduate and <b>Fullstack Web Developer</b> based in the Philippines. I have a passion for building web applications, freelancing, and solving complex problems as I grow in my career.</p>
-              <button style={{ color: darkMode ? '#171c22' : 'white' }}>
-                <motion.div
-                  initial={{ y: -5 }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
-                  style={{ display: "inline-block" }} // Ensures the icon animates properly
-                >
-                  <HiOutlineDownload size={15} />
-                </motion.div>
-                {" "}Download CV
-              </button>
-              <div className='d-flex gap-2 mt-5'>
-                <motion.div
-                  initial={{ rotate: 120 }}
-                  animate={{
-                    type: "spring",
-                    stiffness: 200,
-                    rotate: 0,
-                  }}
-                  whileHover={{
-                    opacity: 0.5,
-                    rotate: 120,
-                  }}
-                  whileTap={{
-                    opacity: 0.5,
-                    rotate: 120,
-                  }}
-                  transition={{
-                    duration: 1,
-                    ease: "easeInOut",
-                    type: "spring",
-                    stiffness: 200,
-                  }} 
-                >
-                  <FaGithub color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'}/>
-                </motion.div>
-                
-                <motion.div
-                  whileHover={{
-                    opacity: 0.5,
-                    rotate: 120,
-                  }}
-                  whileTap={{
-                    opacity: 0.5,
-                    rotate: 120,
-                  }}
-                  transition={{
-                    duration: 0.3,
-                    ease: "easeInOut",
-                  }} 
-                >
-                  <FaFacebook color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
-                </motion.div>
-
-                <motion.div
-                   whileHover={{
-                    opacity: 0.5,
-                    rotate: 120,
-                  }}
-                  whileTap={{
-                    opacity: 0.5,
-                    rotate: 120,
-                  }}
-                  transition={{
-                    duration: 0.3,
-                    ease: "easeInOut",
-                  }} 
-                >
-                  <IoLogoLinkedin color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
-                </motion.div>
-
-                <motion.div
-                   whileHover={{
-                    opacity: 0.5,
-                    rotate: 120,
-                  }}
-                  whileTap={{
-                    opacity: 0.5,
-                    rotate: 120,
-                  }}
-                  transition={{
-                    duration: 0.3,
-                    ease: "easeInOut",
-                  }} 
-                >
-                  <FaSquareInstagram color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
-                </motion.div>
-
-                <motion.div
-                   whileHover={{
-                    opacity: 0.5,
-                    rotate: 120,
-                  }}
-                  whileTap={{
-                    opacity: 0.5,
-                    rotate: 120,
-                  }}
-                  transition={{
-                    duration: 0.3,
-                    ease: "easeInOut",
-                  }} 
-                >
-                  <BsTelegram color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
-                </motion.div>
-              </div>
-            </div>
-            <div className='right-side-hero'>
-              <motion.img
-                src={rumar}
-                alt="Rumar Pamparo" 
-                className="profile-img"
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                whileHover={{ scale: 1.1 }}
-                transition={{
-                  duration: 0.3,
-                  ease: [0, 0.71, 0.2, 1.01],
-                  scale: {
-                    type: "spring",
-                    damping: 5,
-                    stiffness: 100,
-                    restDelta: 0.001
-                  }
-                }}
-              />
-            </div>
-          </div>
-        </div>
+        <HeroPage
+          heroRef={heroRef}
+          darkMode={darkMode}
+        />
       </motion.section>
 
       <motion.section 
@@ -327,73 +189,17 @@ function App() {
         data-section="about-page"
         ref={sectionAboutRef}
         style={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5' }}
-        initial={{ opacity: 0, y: 200 }} // Initial state (hidden)
+        initial={{ opacity: 0, y: 200 }}
         whileInView={{
           opacity: 1, 
           y: 0,
           transition: { duration: 1 }
         }}
       >
-        <div className='content-about-page' ref={aboutRef}>
-
-          <div className='content-about-page-head'>
-            <motion.h1 
-              initial={{ opacity: 0, x: -200 }} 
-              whileInView={{ opacity: 1, x: 0, transition: { duration: 0.5 } }} 
-              className='title'
-            >About me.</motion.h1>
-            <motion.h1 
-              initial={{ opacity: 0, x: 200 }} 
-              whileInView={{ opacity: 1, x: 0, transition: { duration: 0.5 } }} 
-              className='title'
-              style={{ color: darkMode ? '#fff' : COLORS.dark }}
-            >"Love what you do,<b>live what you love.</b>"</motion.h1>
-          </div>
-
-          <div className='content-about-page-body'> 
-
-            <div className='content-about-page-container'>
-              <img src={!darkMode ? logoDefault : logoWhite} alt="logo"/>
-            </div>
-
-            <div className='content-about-page-container' >
-              <p style={{ color: darkMode ? 'white' : '#171c22' }}><b>Hello!</b> I'm a recent graduate with a passion for building and designing web applications and a growing interest in mobile app development.
-                I also enjoy exploring the creative side of graphic design, merging functionality with visual appeal to create engaging, user-friendly digital experiences.
-                Eager to dive into new challenges and expand my skill set, I'm always ready to bring ideas to life.</p>
-            </div>
-
-            <div className='content-about-page-container'>
-
-              <h3>What I Do?</h3>
-              <div className='about-card-list'>
-                <div className='about-card'>
-                  <MdBuildCircle size={50}/>
-                  <div className='d-flex flex-column'>
-                    <h4 className='mt-4'>Web Developer</h4>
-                    <p style={{ color: darkMode ? 'white' : '#171c22' }}>Landing page, Management Sytems,
-                    Capstone Projects </p>
-                  </div>
-                </div>
-                <div className='about-card'>
-                  <MdBuildCircle size={50}/>
-                  <div className='d-flex flex-column'>
-                    <h4 className='mt-4'>Web Developer</h4>
-                    <p style={{ color: darkMode ? 'white' : '#171c22' }}>Landing page, Management Sytems,
-                    Capstone Projects </p>
-                  </div>
-                </div>
-                <div className='about-card'>
-                  <MdBuildCircle size={50}/>
-                  <div className='d-flex flex-column'>
-                    <h4 className='mt-4'>Web Developer</h4>
-                    <p style={{ color: darkMode ? 'white' : '#171c22' }}>Landing page, Management Sytems,
-                    Capstone Projects </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <About
+          aboutRef={aboutRef}
+          darkMode={darkMode}
+        />
           
       </motion.section>
 

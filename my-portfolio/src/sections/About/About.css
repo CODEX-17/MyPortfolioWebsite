@@ -1,0 +1,171 @@
+.content-about-page {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: #1eb473;
+  }
+  
+  .content-about-page-body {
+    display: flex;
+    justify-content: space-between;
+    gap: 5%;
+    height: 100%;
+  }
+  
+  .content-about-page-head {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5%;
+    text-align: center;
+  }
+  
+  .content-about-page-container {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .about-card-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .content-about-page-container img {
+    width: 80%;
+    height: auto;
+  }
+  
+  .content-about-page-container p {
+    font-size: 1.5rem;
+  }
+  
+  .content-about-page-container b {
+    color: #1eb473;
+    font-family: bold;
+  }
+  
+  .content-about-page p {
+    color: white;
+    font-size: 2rem;
+  }
+  
+  .content-about-page h3 {
+    font-family: bold;
+    color: white;
+    text-align: justify;
+  }
+  
+  .about-card {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px solid var(--green);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .about-card h4 {
+    font-size: 1.5rem;
+    font-family: bold;
+    margin: 0;
+  }
+  
+  .about-card p {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 1440px) {
+
+    .title {
+      font-size: 2rem;
+    }
+  
+    .content-about-page-container p {
+      font-size: 1.5rem;
+    }
+  
+    .about-card p {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+
+    .title {
+      font-size: 2rem;
+    }
+  
+    .content-about-page-container p {
+      font-size: 1.3rem;
+    }
+  
+    .content-about-page-container img {
+      width: 100%;
+    }
+  
+    .about-card h4 {
+      font-size: 1rem;
+    }
+  
+    .about-card p {
+      font-size: .8rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .content-about-page-head h1{
+        font-size: 1.3rem;
+        margin-bottom: 5%;
+      }
+    
+      .content-about-page-body {
+        flex-direction: column;
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+    
+      .content-about-page-container {
+        width: 100%;
+        margin-top: 20px;
+      }
+    
+      .content-about-page-container img {
+        width: 40%;
+      }
+    
+      .content-about-page-container p {
+        text-align: center;
+        font-size: 1rem;
+      }
+    
+      .about-card {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-direction: row;
+      }
+    
+      .about-card p{
+        font-size: .8rem;
+        text-align: start;
+      }
+  }
+  

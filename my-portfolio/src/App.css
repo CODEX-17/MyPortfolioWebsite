@@ -81,6 +81,14 @@ header img {
   width: 100px;
 }
 
+.hamburgerIcon {
+  display: none;
+}
+
+.hamburgerIcon:hover {
+  transform: scale(110%);
+}
+
 .dark-mode-navigation-button:hover {
   width: 100px;
   background-color: rgba(128, 128, 128, 0.100);
@@ -127,9 +135,6 @@ header button:hover {
 
 /* HEADER CSS */
 
-
-/* HERO PAGE CSS */
-
 .hero-page {
   width: 100%;
   height: 100vh;
@@ -140,79 +145,6 @@ header button:hover {
   position: relative;
 }
 
-.content-hero-page {
-  width: 100%;
-  height: 100%;
-}
-
-.left-side-hero {
-  flex: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100%;
-}
-
-.left-side-hero button {
-  font-family: bold;
-  width: 200px;
-  height: 40px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2%;
-}
-
-.left-side-hero button:hover {
-  background-color: white;
-  color: var(--black);
-}
-
-.left-side-hero h2 {
-  font-family: normal;
-  font-size: calc(20pt);
-}
-
-.left-side-hero b {
-  font-family: bold;
-}
-
-.left-side-hero h1 {
-  font-family: bold;
-  font-size: calc(40pt);
-  color: #2ad883;
-}
-
-.hamburgerIcon {
-  display: none;
-}
-
-.hamburgerIcon:hover {
-  transform: scale(110%);
-}
-
-.social-icon-dark-mode {
-  color: white;
-}
-
-.social-icon:hover {
-  color: var(--green);
-}
-
-.right-side-hero {
-  flex: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.right-side-hero img {
-  height: 75%;
-}
-
-/* HERO PAGE CSS */
 
 /* ABOUT PAGE CSS */
 
@@ -222,99 +154,6 @@ header button:hover {
   display: flex;
   justify-content: center;
 }
-
-.content-about-page {
-  width: 90%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: #1eb473;
-}
-
-.content-about-page-body {
-  display: flex;
-  justify-content: space-between;
-  gap: 5%;
-  height: 100%;
-}
-
-.content-about-page-head {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 5%;
-  text-align: center;
-}
-
-.content-about-page-container {
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.about-card-list {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  
-}
-
-.content-about-page-container img {
-  width: 80%;
-  height: auto;
-}
-
-.content-about-page-container p {
-  font-size: 1.5rem;
-}
-
-.content-about-page-container b {
-  color: #1eb473;
-  font-family: bold;
-}
-
-.content-about-page p {
-  color: white;
-  font-size: 2rem;
-}
-
-.content-about-page h3 {
-  font-family: bold;
-  color: white;
-  text-align: justify;
-}
-
-.about-card {
-  width: 80%;
-  height: auto;
-  border-radius: 10px;
-  padding: 20px;
-  border: 2px solid var(--green);
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-.about-card h4 {
-  font-size: 1.5rem;
-  font-family: bold;
-  margin: 0;
-}
-
-.about-card p {
-  font-size: 1rem;
-}
-
 
 /* ABOUT PAGE CSS */
 
@@ -481,13 +320,6 @@ header button:hover {
     font-size: 2rem;
   }
 
-  .content-about-page-container p {
-    font-size: 1.5rem;
-  }
-
-  .about-card p {
-    font-size: 1rem;
-  }
 }
 
 @media (max-width: 1024px) {
@@ -496,51 +328,12 @@ header button:hover {
     font-size: 2rem;
   }
 
-  .content-about-page-container p {
-    font-size: 1.3rem;
-  }
-
-  .content-about-page-container img {
-    width: 100%;
-  }
-
-  .about-card h4 {
-    font-size: 1rem;
-  }
-
-  .about-card p {
-    font-size: .8rem;
-  }
 }
 
 
 @media (max-width: 768px) {
 
-  #content-hero-page {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .left-side-hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    order: 2;
-  }
-
-  .left-side-hero h2 {
-    font-size: 20pt;
-  }
-
-  .left-side-hero h1 {
-    font-size: 30pt;
-  }
-
-  .left-side-hero p {
-    font-size: 10pt;
-  }
-
+  
   .hamburgerIcon {
     display: flex;
     background-color: transparent;
@@ -552,60 +345,11 @@ header button:hover {
     display: none;
   }
 
-  .right-side-hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    order: 1;
-  }
-
-  .right-side-hero img{
-    height: 350px;
-  }
-
   .about-page {
     height: 100%;
   }
 
-  .content-about-page-head h1{
-    font-size: 1.3rem;
-    margin-bottom: 5%;
-  }
-
-  .content-about-page-body {
-    flex-direction: column;
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
-
-  .content-about-page-container {
-    width: 100%;
-    margin-top: 20px;
-  }
-
-  .content-about-page-container img {
-    width: 40%;
-  }
-
-  .content-about-page-container p {
-    text-align: center;
-    font-size: 1rem;
-  }
-
-  .about-card {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-direction: row;
-  }
-
-  .about-card p{
-    font-size: .8rem;
-    text-align: start;
-  }
-
+  
   .content-projects-page {
     margin-top: 5%;
   }
@@ -660,9 +404,6 @@ header button:hover {
     justify-content: center;
   }
 }
-
-
-
 
 
 @keyframes pop {
