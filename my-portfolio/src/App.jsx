@@ -1,65 +1,57 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useContext } from 'react';
 import rumar from './assets/images/rumar-green-bg.png';
 import logoDefault from './assets/images/rp.png'
 import logoWhite from './assets/images/rp-white.png'
 import './App.css';
 import { HiOutlineDownload } from "react-icons/hi";
 import { motion } from 'framer-motion';
-import { FaGithub, FaReact } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
+import { 
+  FaGithub, 
+  FaReact, 
+  FaFacebook,
+
+} from "react-icons/fa";
 import { IoLogoLinkedin } from "react-icons/io5";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { BsTelegram } from "react-icons/bs";
-import Email from './components/email';
 import { IoMdSunny } from "react-icons/io";
 import { MdDarkMode, MdBuildCircle } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
 import Sidebar from './components/Sidebar';
-
 import samplePic from './assets/images/bg.jpg'
+
+import { useInView } from "react-intersection-observer";
+import { ThemeContext } from '../context/ThemeContext';
+import { COLORS } from './constants/colors';
+
 
 function App() {
 
-  const [darkMode, setDarkMode] = useState(true)
+  const { theme, setTheme } = useContext(ThemeContext)
+
+  const darkMode = theme === 'dark' ? true : false
+
   const [isShowSideBar, setIsShowSideBar] = useState(false)
   const [currentSection, setCurrentSection] = useState('hero-page')
+
+
+  const { ref, inView} = useInView({
+    triggerOnce: false, // Ensures animation triggers only once
+    threshold: 0.2, // Adjust when the animation starts (0 = as soon as visible)
+  })
+
+  //Section Scroll
   const sectionHeroRef = useRef(null)
   const sectionAboutRef = useRef(null)
   const sectionProjectsRef = useRef(null)
-
 
   const scrollToSection = (sectionRef) => {
     sectionRef.current.scrollIntoView({ behavior: "smooth" })
   }
 
-  useEffect(() => {
-    const observerOptions = {
-      root: null, // Use the viewport as the root
-      threshold: 0.6, // Trigger when 60% of the section is visible
-    };
-
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Update currentSection based on the section currently in view
-          setCurrentSection(entry.target.dataset.section);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    const sections = [sectionHeroRef.current, sectionAboutRef.current, sectionProjectsRef.current];
-    sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      // Clean up the observer when the component unmounts
-      sections.forEach((section) => observer.unobserve(section));
-    };
-  }, []);
 
   return (
-    <div className='body' style={{ backgroundColor: darkMode ? '#171c22' : '#ffffff' }}>
+    <div className='body' style={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5' }}>
       {
         isShowSideBar && 
         <Sidebar 
@@ -134,7 +126,16 @@ function App() {
               <TiThMenu size={20} color={darkMode ? 'white' : '#171c22'}/>
             </motion.button>
           
-          <motion.button 
+          <motion.button
+              initial={{
+                opacity: 0,
+                rotate: 120,
+              }}
+              animate={{
+                opacity: 1,
+                rotate: 300,
+                transition: { duration: 1 },
+              }}
               whileHover={{
                 opacity: 0.5,
                 rotate: 120,
@@ -148,7 +149,7 @@ function App() {
                 ease: "easeInOut",
               }} 
               style={{ backgroundColor: 'transparent' }}
-              onClick={() => setDarkMode(!darkMode)}
+              onClick={() => setTheme((data) => data === 'dark' ? 'light' : 'dark')}
               > 
             {
               darkMode ? 
@@ -162,9 +163,9 @@ function App() {
       <motion.section 
         className='hero-page' 
         data-section="hero-page"
-        ref={sectionHeroRef} 
-        style={{ backgroundColor: darkMode ? '#171c22' : 'white', transition: 'opacity 0.3s ease' }}
-        animate={{ backgroundColor: darkMode ? '#171c22' : '#ffffff' }}
+        ref={sectionHeroRef}
+        style={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5', transition: 'opacity 0.3s ease' }}
+        animate={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5' }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
       >
         <div className='content-hero-page'>
@@ -181,11 +182,25 @@ function App() {
               <h2 className='fs-3' style={{ color: !darkMode ? '#171c22' : 'white' }} ><b>Hi!</b>, I'm</h2>
               <h1 className='fs-1'>Rumar Pamparo</h1>
               <p style={{ color: !darkMode ? '#171c22' : 'white' }} className='fs-6'>A fresh graduate and <b>Fullstack Web Developer</b> based in the Philippines. I have a passion for building web applications, freelancing, and solving complex problems as I grow in my career.</p>
-              <button className='download-btn' style={{ color: darkMode ? '#171c22' : 'white' }}>
-                <HiOutlineDownload size={15} /> Download CV
+              <button style={{ color: darkMode ? '#171c22' : 'white' }}>
+                <motion.div
+                  initial={{ y: -5 }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
+                  style={{ display: "inline-block" }} // Ensures the icon animates properly
+                >
+                  <HiOutlineDownload size={15} />
+                </motion.div>
+                {" "}Download CV
               </button>
               <div className='d-flex gap-2 mt-5'>
                 <motion.div
+                  initial={{ rotate: 120 }}
+                  animate={{
+                    type: "spring",
+                    stiffness: 200,
+                    rotate: 0,
+                  }}
                   whileHover={{
                     opacity: 0.5,
                     rotate: 120,
@@ -195,8 +210,10 @@ function App() {
                     rotate: 120,
                   }}
                   transition={{
-                    duration: 0.3,
+                    duration: 1,
                     ease: "easeInOut",
+                    type: "spring",
+                    stiffness: 200,
                   }} 
                 >
                   <FaGithub color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'}/>
@@ -278,6 +295,7 @@ function App() {
                 className="profile-img"
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
+                whileHover={{ scale: 1.1 }}
                 transition={{
                   duration: 0.3,
                   ease: [0, 0.71, 0.2, 1.01],
@@ -297,16 +315,29 @@ function App() {
       <motion.section 
         className='about-page'
         data-section="about-page"
-        ref={sectionAboutRef}
-        style={{ backgroundColor: darkMode ? '#171c22' : 'white' }}
-        animate={{ backgroundColor: darkMode ? '#171c22' : '#ffffff' }}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
+        ref={ref}
+        style={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5' }}
+        initial={{ opacity: 0, y: 200 }} // Initial state (hidden)
+        whileInView={{
+          opacity: 1, 
+          y: 0,
+          transition: { duration: 1 }
+        }}
       >
         <div className='content-about-page'>
 
           <div className='content-about-page-head'>
-            <h1 className='title'>About me.</h1>
-            <h1 className='title' style={{ color: darkMode ? 'white' : '#171c22' }}>"Love what you do,<b>live what you love.</b>"</h1>
+            <motion.h1 
+              initial={{ opacity: 0, x: -200 }} 
+              whileInView={{ opacity: 1, x: 0, transition: { duration: 0.5 } }} 
+              className='title'
+            >About me.</motion.h1>
+            <motion.h1 
+              initial={{ opacity: 0, x: 200 }} 
+              whileInView={{ opacity: 1, x: 0, transition: { duration: 0.5 } }} 
+              className='title'
+              style={{ color: theme === 'dark' ? COLORS.dark : '#fff' }}
+            >"Love what you do,<b>live what you love.</b>"</motion.h1>
           </div>
 
           <div className='content-about-page-body'> 
