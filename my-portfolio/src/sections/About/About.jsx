@@ -53,6 +53,7 @@ const About = ({ aboutRef, darkMode }) => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
+                style={{ color: darkMode ? '#fff' : COLORS.dark }}
             >What I Do?</motion.h3>
 
             <div className='about-card-list'>
@@ -60,6 +61,7 @@ const About = ({ aboutRef, darkMode }) => {
                     className='about-card'
                     initial={{ opacity: 0, x: 200 }}
                     whileInView={{ opacity: 1, x: 0, }}
+                    whileHover={{ scale: 1.1, transition: { delay: 0, duration: 0.5 } }}
                     transition={{ 
                         delay: 0.5,
                         type: "spring",
@@ -79,6 +81,7 @@ const About = ({ aboutRef, darkMode }) => {
                     className='about-card'
                     initial={{ opacity: 0, x: 200 }}
                     whileInView={{ opacity: 1, x: 0, }}
+                    whileHover={{ scale: 1.1, transition: { delay: 0, duration: 0.5 } }}
                     transition={{ 
                         delay: 0.5,
                         type: "spring",
@@ -97,6 +100,7 @@ const About = ({ aboutRef, darkMode }) => {
                     className='about-card'
                     initial={{ opacity: 0, x: 200 }}
                     whileInView={{ opacity: 1, x: 0, }}
+                    whileHover={{ scale: 1.1, transition: { delay: 0, duration: 0.5 } }}
                     transition={{ 
                         delay: 0.5,
                         type: "spring",

@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from 'framer-motion';
+import { delay, motion } from 'framer-motion';
 import { HiOutlineDownload } from "react-icons/hi";
 import { 
     FaGithub, 
@@ -25,9 +25,21 @@ const HeroPage = ({ heroRef, darkMode }) => {
             ease: 'easeOut',
           }}
         >
-          <h2 className='fs-3' style={{ color: !darkMode ? '#171c22' : 'white' }} ><b>Hi!</b>, I'm</h2>
+          <motion.h2 
+            className='fs-3' 
+            style={{ color: !darkMode ? '#171c22' : 'white' }} 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+          ><b>Hi!</b>, I'm</motion.h2>
           <h1 className='fs-1'>Rumar Pamparo</h1>
-          <p style={{ color: !darkMode ? '#171c22' : 'white' }} className='fs-6'>A fresh graduate and <b>Fullstack Web Developer</b> based in the Philippines. I have a passion for building web applications, freelancing, and solving complex problems as I grow in my career.</p>
+          <motion.p 
+            style={{ color: !darkMode ? '#171c22' : 'white' }} 
+            className='fs-6'
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+          >A fresh graduate and <b>Fullstack Web Developer</b> based in the Philippines. I have a passion for building web applications, freelancing, and solving complex problems as I grow in my career.</motion.p>
           
           <button style={{ color: darkMode ? '#171c22' : 'white' }}>
             <motion.div
@@ -44,11 +56,11 @@ const HeroPage = ({ heroRef, darkMode }) => {
           <div className='d-flex gap-2 mt-5'>
             <motion.div
               initial={{ rotate: 120 }}
-              animate={{
+              whileInView={{ 
                 type: "spring",
                 stiffness: 200,
                 rotate: 0,
-              }}
+               }}
               whileHover={{
                 opacity: 0.5,
                 rotate: 120,
@@ -64,13 +76,14 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 type: "spring",
                 stiffness: 200,
               }} 
+              onClick={() => window.location.href = 'https://github.com/CODEX-17'}
             >
               <FaGithub color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'}/>
             </motion.div>
             
             <motion.div
              initial={{ rotate: 120 }}
-             animate={{
+             whileInView={{
                type: "spring",
                stiffness: 200,
                rotate: 0,
@@ -96,7 +109,7 @@ const HeroPage = ({ heroRef, darkMode }) => {
 
             <motion.div
               initial={{ rotate: 120 }}
-              animate={{
+              whileInView={{
                 type: "spring",
                 stiffness: 200,
                 rotate: 0,
@@ -122,7 +135,7 @@ const HeroPage = ({ heroRef, darkMode }) => {
 
             <motion.div
               initial={{ rotate: 120 }}
-              animate={{
+              whileInView={{
                 type: "spring",
                 stiffness: 200,
                 rotate: 0,
@@ -148,7 +161,7 @@ const HeroPage = ({ heroRef, darkMode }) => {
 
             <motion.div
               initial={{ rotate: 120 }}
-              animate={{
+              whileInView={{
                 type: "spring",
                 stiffness: 200,
                 rotate: 0,
