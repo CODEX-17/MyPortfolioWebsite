@@ -1,0 +1,190 @@
+  .title {
+    font-family: bold;
+    color: var(--green);
+    font-size: 3rem;
+  }
+ 
+ .content-projects-page {
+    width: 90%;
+    height: 100%;
+    padding: 20px;
+  }
+  
+  .body-project-page {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .projects-card-list {
+    display: flex;
+    width: 100%;
+    margin-top: 5%;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .projects-card {
+    width: 350px;
+    height: 500px;
+    background-color: white;
+    box-shadow: 0 3px 10px rgb(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .projects-card-head {
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .projects-card-head h3 {
+    font-family: bold;
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  .projects-card-head p {
+    font-size: .8rem;
+    margin: 0;
+  }
+
+  .image-container {
+    width: 100%;
+    height: 200px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid gray;
+  }
+  
+  .image-thumbnail {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .projects-card-technology-list {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .technology-card {
+    background-color: #47ccf5;
+    width: auto;
+    font-size: .8rem;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    gap: 5px;
+  }
+  
+  .projects-card-description {
+    margin-top: 10px;
+  }
+  
+  .projects-card-description p {
+    font-size: .8rem;
+    margin: 0;
+  }
+  
+  .projects-card-description b {
+    font-family: bold;
+    font-size: 1rem;
+  }
+  
+  .projects-card-details button {
+    background-color: var(--black);
+    color: white;
+    font-family: bold;
+    font-size: .8rem;
+    width: 100%;
+    border-radius: 5px;
+    height: 40px;
+  }
+  
+  .projects-card-details button:hover {
+    opacity: 0.5;
+  }
+
+
+  .see-more-link {
+    user-select: none;
+    cursor: pointer;
+    margin-bottom: 0;
+    margin-right: 10;
+  }
+
+
+  @media (max-width: 768px) {
+      .content-projects-page {
+        margin-top: 5%;
+      }
+    
+      .projects-card-list {
+        flex-direction: column;
+      }
+
+      .head-project-page {
+        text-align: center;
+      }
+
+      .head-project-page .title {
+        font-size: 2rem;
+      }
+    
+      .projects-card {
+        padding: 20px;
+        width: 80%;
+        height: auto;
+      }
+    
+      .projects-card-head {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+    
+      .technology-card {
+        width: 80px;
+        font-size: .8rem;
+      }
+    
+      .projects-card-head h3 {
+        font-size: 1rem;
+      }
+    
+      .projects-card-head p {
+        font-size: .8rem;
+      }
+    
+      .projects-card-description b{
+        font-size: .8rem;
+      }
+    
+      .projects-card-description p {
+        font-size: .7rem;
+      }
+    
+  }
+
+  @media (max-width: 425px) {
+    .projects-card {
+      width: 100%;
+      padding: 15px;
+    }
+  
+  }
+  
+  

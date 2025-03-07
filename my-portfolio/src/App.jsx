@@ -4,23 +4,20 @@ import logoDefault from './assets/images/rp.png'
 import logoWhite from './assets/images/rp-white.png'
 import './App.css';
 import { motion } from 'framer-motion';
-import { 
-  FaGithub, 
-  FaReact, 
-  FaFacebook,
-} from "react-icons/fa";
+
 
 import { IoMdSunny } from "react-icons/io";
 import { MdDarkMode, MdBuildCircle } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
 import Sidebar from './components/Sidebar';
-import samplePic from './assets/images/bg.jpg'
+
 
 import { useInView } from "react-intersection-observer";
 import { ThemeContext } from '../context/ThemeContext';
 import { COLORS } from './constants/colors';
 import HeroPage from './sections/Hero/HeroPage';
 import About from './sections/About/About';
+import Projects from './sections/Projects/Projects';
 
 
 
@@ -207,117 +204,14 @@ function App() {
         className='projects-page' 
         data-section="projects-page"
         ref={sectionProjectsRef} 
-        style={{ backgroundColor: darkMode ? '#171c22' : 'white', transition: 'opacity 0.3s ease' }}
-        animate={{ backgroundColor: darkMode ? '#171c22' : '#ffffff' }}
+        style={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5', transition: 'opacity 0.3s ease' }}
+        animate={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5' }}
         transition={{ duration: 0.5, ease: 'easeInOut' }} 
       >
-        <div className='content-projects-page' ref={projectsRef}>
-          <div className='head-project-page'>
-            <h1 className='title'>My Projects.</h1>
-          </div>
-          <div className='body-project-page'>
-            <div className='projects-card-list'>
-              <div className='projects-card'>
-                <div className='projects-card-head'>
-                  <h3>E-SchoolApp</h3>
-                  <p>(Web Application)</p>
-                </div>
-                <img src={samplePic} alt="thumbnail" className='projects-card-thumbnail'/>
-                <div className='projects-card-details'>
-                  <div className='projects-card-technology-list'>
-                    <div className='technology-card'>
-                      <FaReact/>
-                      React
-                    </div>
-                    <div className='technology-card'>
-                      <FaReact/>
-                      React
-                    </div>
-                  </div>
-                  <div className='projects-card-description'>
-                    <div className='d-flex flex-column'>
-                      <b>Description:</b>
-                      <p> A web application that communication and collaboration platform for student and teacher.</p>
-                    </div>
-                    <div className='d-flex flex-column'>
-                      <b>Key Features:</b>
-                      <p>Create Classes, Posting of assignments and Activities, Posting of learning materials,  Create Quiz, Real-time Chat.</p>
-                    </div>
-                  </div>
-                  <div className='d-flex w-100 mt-2'>
-                    <button>Repository</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className='projects-card'>
-                <div className='projects-card-head'>
-                  <h3>E-SchoolApp</h3>
-                  <p>(Web Application)</p>
-                </div>
-                <img src={samplePic} alt="thumbnail" className='projects-card-thumbnail'/>
-                <div className='projects-card-details'>
-                  <div className='projects-card-technology-list'>
-                    <div className='technology-card'>
-                      <FaReact/>
-                      React
-                    </div>
-                    <div className='technology-card'>
-                      <FaReact/>
-                      React
-                    </div>
-                  </div>
-                  <div className='projects-card-description'>
-                    <div className='d-flex flex-column'>
-                      <b>Description:</b>
-                      <p> A web application that communication and collaboration platform for student and teacher.</p>
-                    </div>
-                    <div className='d-flex flex-column'>
-                      <b>Key Features:</b>
-                      <p>Create Classes, Posting of assignments and Activities, Posting of learning materials,  Create Quiz, Real-time Chat.</p>
-                    </div>
-                  </div>
-                  <div className='d-flex w-100 mt-2'>
-                    <button>Repository</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className='projects-card'>
-                <div className='projects-card-head'>
-                  <h3>E-SchoolApp</h3>
-                  <p>(Web Application)</p>
-                </div>
-                <img src={samplePic} alt="thumbnail" className='projects-card-thumbnail'/>
-                <div className='projects-card-details'>
-                  <div className='projects-card-technology-list'>
-                    <div className='technology-card'>
-                      <FaReact/>
-                      React
-                    </div>
-                    <div className='technology-card'>
-                      <FaReact/>
-                      React
-                    </div>
-                  </div>
-                  <div className='projects-card-description'>
-                    <div className='d-flex flex-column'>
-                      <b>Description:</b>
-                      <p> A web application that communication and collaboration platform for student and teacher.</p>
-                    </div>
-                    <div className='d-flex flex-column'>
-                      <b>Key Features:</b>
-                      <p>Create Classes, Posting of assignments and Activities, Posting of learning materials,  Create Quiz, Real-time Chat.</p>
-                    </div>
-                  </div>
-                  <div className='d-flex w-100 mt-2'>
-                    <button>Repository</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Projects 
+          projectsRef={projectsRef} 
+          darkMode={darkMode}
+        />
       </motion.section>
     </div>
   );
