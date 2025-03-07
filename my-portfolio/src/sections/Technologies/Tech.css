@@ -1,0 +1,17 @@
+.content-tech-section {
+    width: 90%;
+    height: 100%;
+    padding: 20px;
+}
+
+.head-tech-section {
+    width: 100%;
+    text-align: start;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+}

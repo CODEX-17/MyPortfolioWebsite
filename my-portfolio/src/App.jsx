@@ -18,6 +18,7 @@ import { COLORS } from './constants/colors';
 import HeroPage from './sections/Hero/HeroPage';
 import About from './sections/About/About';
 import Projects from './sections/Projects/Projects';
+import Tech from './sections/Technologies/Tech';
 
 
 
@@ -210,6 +211,17 @@ function App() {
       >
         <Projects 
           projectsRef={projectsRef} 
+          darkMode={darkMode}
+        />
+      </motion.section>
+
+      <motion.section 
+        className='tech-section'
+        style={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5', transition: 'opacity 0.3s ease' }}
+        animate={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5' }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }} 
+      >
+        <Tech
           darkMode={darkMode}
         />
       </motion.section>

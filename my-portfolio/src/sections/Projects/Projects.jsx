@@ -7,6 +7,7 @@ import { SiExpress } from "react-icons/si";
 import { TbBrandMysql } from "react-icons/tb";
 import { GrLinkNext } from "react-icons/gr";
 import { COLORS } from '../../constants/colors';
+import { FaEye } from "react-icons/fa";
 
 const Projects = ({ projectsRef, darkMode }) => {
   return (
@@ -16,13 +17,28 @@ const Projects = ({ projectsRef, darkMode }) => {
         </div>
         <div className='body-project-page'>
             <div className='projects-card-list'>
-                <div className='projects-card'>
+                <motion.div 
+                    initial={{ opacity: 1, scale: .5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ type: "spring", duration: 1 }}
+                    viewport={{ once: false, amount: .8 }} // Animation continues while scrolling
+                    className='projects-card'
+                >
                     <div className='projects-card-head'>
                         <h3>E-SchoolApp</h3>
                         <p>(Web Application)</p>
                     </div>
-                    <div className='image-container'>
-                        <img src={eSchoolLoginPic} alt="thumbnail" className='image-thumbnail'/>
+                    <div 
+                        className='image-container'
+                    >
+                        <motion.img 
+                            initial={{ opacity: 1, zIndex: 4 }}
+                            whileHover={{ opacity: 0.5, zIndex: 0 }}
+                            src={eSchoolLoginPic} 
+                            alt="thumbnail" 
+                            className='image-thumbnail'
+                        />
+                        <FaEye size={30} style={{ position: 'absolute', zIndex: 2 }}/>
                     </div>
                     <div className='projects-card-details'>
                         <div className='projects-card-technology-list'>
@@ -59,9 +75,15 @@ const Projects = ({ projectsRef, darkMode }) => {
                         <button>Repository</button>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
-                <div className='projects-card'>
+                <motion.div 
+                    initial={{ opacity: 1, scale: .5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ type: "spring", duration: 1 }}
+                    // Animation continues while scrolling
+                    className='projects-card'
+                >
                     <div className='projects-card-head'>
                         <h3>E-SchoolApp</h3>
                         <p>(Web Application)</p>
@@ -94,9 +116,15 @@ const Projects = ({ projectsRef, darkMode }) => {
                         <button>Repository</button>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
-                <div className='projects-card'>
+                <motion.div 
+                    initial={{ opacity: 1, scale: .5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ type: "spring", duration: 1 }}
+                    viewport={{ once: false, amount: .8 }} // Animation continues while scrolling
+                    className='projects-card'
+                >
                     <div className='projects-card-head'>
                         <h3>E-SchoolApp</h3>
                         <p>(Web Application)</p>
@@ -129,8 +157,9 @@ const Projects = ({ projectsRef, darkMode }) => {
                         <button>Repository</button>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
+
             <motion.div 
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
