@@ -16,6 +16,7 @@ import NPMIcon from '../../assets/images/npm-icons.png'
 import CanvaIcons from '../../assets/images/canva-icons.png'
 import IonicIcon from '../../assets/images/ionic-icons.png'
 import GitIcon from '../../assets/images/git-icons.png'
+import { COLORS } from '../../constants/colors'
 
 
 const Tech = ({ darkMode }) => {
@@ -111,8 +112,8 @@ const Tech = ({ darkMode }) => {
         <div className='body-tech-section row'>
         {techList.map((data, index) => (
           <div 
-            className="col-md-3 col-sm-6 col-12 mb-md-2" 
-            key={index}
+            className="col-md-3 col-sm-6 col-12 mb-md-2 d-flex align-items-center justify-content-center" 
+            key={index} 
             onClick={() => window.location.href = data.link}
           >
             <div className="card">
