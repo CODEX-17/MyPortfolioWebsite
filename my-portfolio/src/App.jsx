@@ -19,6 +19,7 @@ import HeroPage from './sections/Hero/HeroPage';
 import About from './sections/About/About';
 import Projects from './sections/Projects/Projects';
 import Tech from './sections/Technologies/Tech';
+import Contact from './sections/Contact/Contact';
 
 
 
@@ -222,6 +223,17 @@ function App() {
         transition={{ duration: 0.5, ease: 'easeInOut' }} 
       >
         <Tech
+          darkMode={darkMode}
+        />
+      </motion.section>
+
+      <motion.section 
+        className='contact-section'
+        style={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5', transition: 'opacity 0.3s ease' }}
+        animate={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5' }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }} 
+      >
+        <Contact
           darkMode={darkMode}
         />
       </motion.section>

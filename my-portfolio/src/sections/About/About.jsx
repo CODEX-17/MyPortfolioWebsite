@@ -25,13 +25,13 @@ const About = ({ aboutRef, darkMode }) => {
         >"Love what you do,<b>live what you love.</b>"</motion.h1>
         </div>
 
-        <div className='content-about-page-body'> 
+        <div className='content-about-page-body row align-items-center'> 
 
         <motion.div
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, type: "spring", stiffness: 200, duration: 1 }}
-            className='content-about-page-container'
+            className='content-about-page-container col-md-4 col-sm-12'
         >
             <img src={!darkMode ? logoDefault : logoWhite} alt="logo"/>
         </motion.div>
@@ -40,14 +40,14 @@ const About = ({ aboutRef, darkMode }) => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
-            className='content-about-page-container' 
+            className='content-about-page-container col-md-4 col-sm-12' 
         >
             <p style={{ color: darkMode ? 'white' : '#171c22' }}><b>Hello!</b> I'm a recent graduate with a passion for building and designing web applications and a growing interest in mobile app development.
             I also enjoy exploring the creative side of graphic design, merging functionality with visual appeal to create engaging, user-friendly digital experiences.
             Eager to dive into new challenges and expand my skill set, I'm always ready to bring ideas to life.</p>
         </motion.div>
 
-        <div className='content-about-page-container'>
+        <div className='content-about-page-container col-md-4 col-sm-12'>
 
             <motion.h3
                 initial={{ opacity: 0 }}
