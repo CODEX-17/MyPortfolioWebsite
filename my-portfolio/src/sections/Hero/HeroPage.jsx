@@ -15,9 +15,9 @@ const HeroPage = ({ heroRef, darkMode }) => {
 
   return (
     <div className='content-hero-page' ref={heroRef}>
-      <div className='container d-flex' id='content-hero-page' style={{ height: '90%', backgroundColor: 'transparent' }}>
+      <div className='container d-flex align-items-center row' id='content-hero-page' style={{ height: '90%', backgroundColor: 'transparent' }}>
         <div 
-          className='left-side-hero'
+          className='left-side-hero col-md-7'
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -186,7 +186,7 @@ const HeroPage = ({ heroRef, darkMode }) => {
             </motion.div>
           </div>
         </div>
-        <div className='right-side-hero'>
+        <div className='right-side-hero col-md-5 '>
           <motion.img
             src={rumar}
             alt="Rumar Pamparo" 

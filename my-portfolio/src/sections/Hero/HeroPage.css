@@ -4,15 +4,18 @@
 .content-hero-page {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .left-side-hero {
-    flex: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    width: 100%;
+    justify-content: flex-start;
 }
 
 .left-side-hero button {
@@ -54,20 +57,22 @@
 }
   
 .right-side-hero {
-    flex: 40%;
+    height: fit-content;
+    width: fit-content;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
 }
   
 .right-side-hero img {
-    height: 75%;
+    height: 600px;
 }
   
   /* HERO PAGE CSS */
 
 @media (max-width: 768px) {
-    #content-hero-page {
+
+    .content-hero-page {
         display: flex;
         flex-direction: column;
         text-align: center;
