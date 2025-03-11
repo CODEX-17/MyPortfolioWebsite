@@ -10,7 +10,7 @@ import { FaTelegram } from "react-icons/fa6";
 const Contact = ({ darkMode }) => {
   return ( 
     <div className='content-contact-section container'>
-        <div className='head-contact-section w-100 d-flex flex-wrap align-items-center justify-content-center mb-4'>
+        <div className='head-contact-section w-100 d-flex flex-column align-items-center justify-content-center mb-4'>
             <h1 
                 className='title'
                 style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}

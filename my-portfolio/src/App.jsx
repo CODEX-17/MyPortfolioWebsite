@@ -19,9 +19,6 @@ import Footer from './sections/Footer/Footer';
 import { COLORS } from './constants/colors';
 
 
-
-
-
 function App() {
 
   const { theme, setTheme } = useContext(ThemeContext)
@@ -57,21 +54,15 @@ function App() {
 
 
   return (
-    <div className='body' style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}>
-      {
-        isShowSideBar && 
-        <Sidebar 
-          setIsShowSideBar={setIsShowSideBar} 
-          darkMode={darkMode}
-        />
-      }
-      
-      <motion.header
-        className="header h-20 px-5"
+    <div 
+      style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, overflow: 'hidden' }}
+    >
+      <motion.nav
+        className="nav h-20 px-5"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0}}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
-        style={{ backgroundColor: 'transparent' }}
+        style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
       >
         <motion.img 
           src={darkMode ? logoWhite : logoDefault} 
@@ -164,7 +155,21 @@ function App() {
             }
           </motion.button>
         </div>
-      </motion.header>
+      </motion.nav>
+      <div 
+        className='content' 
+        style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
+      >
+
+      {
+        isShowSideBar && 
+        <Sidebar 
+          setIsShowSideBar={setIsShowSideBar} 
+          darkMode={darkMode}
+        />
+      }
+      
+
 
       <motion.section 
         className='hero-page' 
@@ -241,7 +246,9 @@ function App() {
       >
         <Footer/>
       </footer>
+      </div>
     </div>
+    
   );
 }
 

@@ -20,18 +20,21 @@
   padding: 0;
 }
 
-.body, html {
-  height: 100%;
+body, html {
+  height: 100vh;
   min-height: 100vh;
   width: 100vw;
   font-family: normal;
   position: static;
+  overflow: hidden;
 }
 
-section {
-  width: 100%;
-  z-index: 1;
+.content {
+  height: calc(100vh - 80px); /* Full height minus navbar */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden;
 }
+
 
 button {
   border: none;
@@ -61,15 +64,16 @@ h1 {
 
 
 
-/* HEADER CSS */
+/* nav CSS */
 
-header {
+nav {
   height: 80px;
   backdrop-filter: blur(100px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: transparent;
   position: sticky !important;
   top: 0 !important;
+  left: 0;
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -80,7 +84,7 @@ header {
 
 
 
-header img {
+nav img {
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -144,12 +148,12 @@ header img {
   transform: rotate(120deg);
 }
 
-header button:hover {
+nav button:hover {
   width: auto;
   height: 40px;
 }
 
-/* HEADER CSS */
+/* nav CSS */
 
 .hero-page {
   width: 100vw;
@@ -164,7 +168,7 @@ header button:hover {
 .projects-page,
 .tech-section,
 .contact-section {
-  height: 100%;
+  height: auto;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -234,7 +238,7 @@ header button:hover {
 
 @media (max-width: 768px) {
 
-  header {
+  nav {
     position: sticky;
     top: 0;
     z-index: 1000;
