@@ -10,7 +10,7 @@ import { FaLaptopCode } from "react-icons/fa";
 
 const About = ({ aboutRef, darkMode }) => {
   return (
-    <div className='content-about-page container-fluid h-100' ref={aboutRef}>
+    <div className='content-about-page' ref={aboutRef}>
         <div className='content-about-page-head'>
             <motion.h1 
                 initial={{ opacity: 0, x: -200 }} 
