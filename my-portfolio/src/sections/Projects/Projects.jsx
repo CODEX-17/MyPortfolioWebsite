@@ -13,7 +13,10 @@ const Projects = ({ projectsRef, darkMode }) => {
   return (
      <div className='content-projects-page' ref={projectsRef}>
         <div className='head-project-page'>
-            <h1 className='title'>My Projects.</h1>
+            <h1 
+                className='title' 
+                style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}
+            >My Projects.</h1>
         </div>
         <div className='body-project-page'>
             <div className='projects-card-list'>

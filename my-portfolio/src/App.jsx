@@ -4,22 +4,20 @@ import logoDefault from './assets/images/rp.png'
 import logoWhite from './assets/images/rp-white.png'
 import './App.css';
 import { motion } from 'framer-motion';
-
-
 import { IoMdSunny } from "react-icons/io";
 import { MdDarkMode, MdBuildCircle } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
 import Sidebar from './components/Sidebar';
-
-
 import { useInView } from "react-intersection-observer";
 import { ThemeContext } from '../context/ThemeContext';
-import { COLORS } from './constants/colors';
 import HeroPage from './sections/Hero/HeroPage';
 import About from './sections/About/About';
 import Projects from './sections/Projects/Projects';
 import Tech from './sections/Technologies/Tech';
 import Contact from './sections/Contact/Contact';
+import Footer from './sections/Footer/Footer';
+import { COLORS } from './constants/colors';
+
 
 
 
@@ -59,7 +57,7 @@ function App() {
 
 
   return (
-    <div className='body' style={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5' }}>
+    <div className='body' style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}>
       {
         isShowSideBar && 
         <Sidebar 
@@ -131,7 +129,7 @@ function App() {
                 ease: "easeInOut",
               }} 
             >
-              <TiThMenu size={20} color={darkMode ? 'white' : '#171c22'}/>
+              <TiThMenu size={20} color={darkMode ? 'white' : COLORS.dark}/>
             </motion.button>
           
           <motion.button
@@ -172,8 +170,8 @@ function App() {
         className='hero-page' 
         data-section="hero-page"
         ref={sectionHeroRef}
-        style={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5', transition: 'opacity 0.3s ease' }}
-        animate={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5' }}
+        style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
+        animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
         
       >
@@ -187,7 +185,7 @@ function App() {
         className='about-page'
         data-section="about-page"
         ref={sectionAboutRef}
-        style={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5' }}
+        style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
         initial={{ opacity: 0, y: 200 }}
         whileInView={{
           opacity: 1, 
@@ -206,8 +204,8 @@ function App() {
         className='projects-page' 
         data-section="projects-page"
         ref={sectionProjectsRef} 
-        style={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5', transition: 'opacity 0.3s ease' }}
-        animate={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5' }}
+        style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
+        animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
         transition={{ duration: 0.5, ease: 'easeInOut' }} 
       >
         <Projects 
@@ -218,8 +216,8 @@ function App() {
 
       <motion.section 
         className='tech-section'
-        style={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5', transition: 'opacity 0.3s ease' }}
-        animate={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5' }}
+        style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
+        animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
         transition={{ duration: 0.5, ease: 'easeInOut' }} 
       >
         <Tech
@@ -229,14 +227,20 @@ function App() {
 
       <motion.section 
         className='contact-section'
-        style={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5', transition: 'opacity 0.3s ease' }}
-        animate={{ backgroundColor: darkMode ? '#171c22' : '#f5f5f5' }}
+        style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
+        animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
         transition={{ duration: 0.5, ease: 'easeInOut' }} 
       >
         <Contact
           darkMode={darkMode}
         />
       </motion.section>
+      <footer 
+        className='footer' 
+        style={{ backgroundColor: darkMode ? COLORS.green : COLORS.darkGreen }}
+      >
+        <Footer/>
+      </footer>
     </div>
   );
 }

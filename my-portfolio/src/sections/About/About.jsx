@@ -16,13 +16,14 @@ const About = ({ aboutRef, darkMode }) => {
             initial={{ opacity: 0, x: -200 }} 
             whileInView={{ opacity: 1, x: 0, transition: { duration: 0.5 } }} 
             className='title'
+            style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}
         >About me.</motion.h1>
         <motion.h1 
             initial={{ opacity: 0, x: 200 }} 
             whileInView={{ opacity: 1, x: 0, transition: { duration: 0.5 } }} 
             className='title'
             style={{ color: darkMode ? '#fff' : COLORS.dark }}
-        >"Love what you do,<b>live what you love.</b>"</motion.h1>
+        >"Love what you do,<b style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}>live what you love.</b>"</motion.h1>
         </div>
 
         <div className='content-about-page-body row align-items-center'> 
@@ -42,7 +43,7 @@ const About = ({ aboutRef, darkMode }) => {
             transition={{ delay: 0.5, duration: 1 }}
             className='content-about-page-container col-md-4 col-sm-12' 
         >
-            <p style={{ color: darkMode ? 'white' : '#171c22' }}><b>Hello!</b> I'm a recent graduate with a passion for building and designing web applications and a growing interest in mobile app development.
+            <p style={{ color: darkMode ? 'white' : '#171c22' }}><b style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}>Hello!</b> I'm a recent graduate with a passion for building and designing web applications and a growing interest in mobile app development.
             I also enjoy exploring the creative side of graphic design, merging functionality with visual appeal to create engaging, user-friendly digital experiences.
             Eager to dive into new challenges and expand my skill set, I'm always ready to bring ideas to life.</p>
         </motion.div>
@@ -67,7 +68,11 @@ const About = ({ aboutRef, darkMode }) => {
                         type: "spring",
                         stiffness: 100,
                         duration: 1,
-                     }}
+                    }}
+                    style={{ 
+                        color: darkMode ? COLORS.green : COLORS.darkGreen,
+                        borderColor: darkMode ? COLORS.green : COLORS.darkGreen,
+                    }}
                 >
                     <FaLaptopCode size={50}/>
                     <div className='d-flex flex-column'>
@@ -88,7 +93,10 @@ const About = ({ aboutRef, darkMode }) => {
                         stiffness: 100,
                         duration: 1,
                      }}
-      
+                    style={{ 
+                        color: darkMode ? COLORS.green : COLORS.darkGreen,
+                        borderColor: darkMode ? COLORS.green : COLORS.darkGreen,
+                    }}
                 >
                     <SiCssdesignawards size={50}/>
                     <div className='d-flex flex-column'>
@@ -107,7 +115,10 @@ const About = ({ aboutRef, darkMode }) => {
                         stiffness: 100,
                         duration: 1,
                      }}
-                  
+                    style={{ 
+                        color: darkMode ? COLORS.green : COLORS.darkGreen,
+                        borderColor: darkMode ? COLORS.green : COLORS.darkGreen,
+                    }}
                 >
                     <HiSpeakerphone size={50}/>
                     <div className='d-flex flex-column'>

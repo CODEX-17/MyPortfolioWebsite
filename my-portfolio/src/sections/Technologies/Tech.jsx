@@ -107,7 +107,10 @@ const Tech = ({ darkMode }) => {
   return (
     <div className='content-tech-section'>
         <div className='head-tech-section'>
-            <h1 className='title'>Technologies I use.</h1>
+            <h1 
+              className='title' 
+              style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}
+            >Technologies I use.</h1>
         </div>
         <div className='body-tech-section row'>
         {techList.map((data, index) => (
@@ -123,7 +126,10 @@ const Tech = ({ darkMode }) => {
           </div>
         ))}
         <div className='text-center mt-2'>
-          <h1 className='title fs-5'>...and many others!</h1>
+          <h1 
+            className='title fs-5'
+            style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}
+          >...and many others!</h1>
         </div>
         </div>
     </div>

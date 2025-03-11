@@ -11,13 +11,16 @@ const Contact = ({ darkMode }) => {
   return ( 
     <div className='content-contact-section container'>
         <div className='head-contact-section w-100 d-flex flex-wrap align-items-center justify-content-center mb-4'>
-            <h1 className='title'>Contact me.</h1>
+            <h1 
+                className='title'
+                style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}
+            >Contact me.</h1>
             <p 
                 className='fs-6 text-center'
                 style={{ color: darkMode ? COLORS.white : COLORS.dark }}
             >Excited to bring fresh ideas and creative solutions to your team! Let’s connect and see how I can help drive your next project to success.</p>
         </div>
-        <div className='body-contact-section w-100 d-flex flex-wrap gap-5 align-items-center justify-content-center '>
+        <div className='body-contact-section mb-5 w-100 d-flex flex-wrap gap-5 align-items-center justify-content-center '>
             <div 
                 className="card flex-glow-1"
                 style={{ 
@@ -44,7 +47,9 @@ const Contact = ({ darkMode }) => {
                     </div>
                     <div className="d-flex w-100 justify-content-between">
                         <p style={{ fontSize: '.7rem', fontFamily: 'normal' }}>0/500</p>
-                        <button>Send <IoSend size={10}/></button>
+                        <button
+                            style={{ backgroundColor: darkMode ? COLORS.green : COLORS.darkGreen }}
+                        >Send <IoSend size={10}/></button>
                     </div>
                 </form>
                 
@@ -55,10 +60,10 @@ const Contact = ({ darkMode }) => {
                     style={{ color: darkMode ? COLORS.white : COLORS.dark }}
                 >or contact me with...</h1>
                 <div className="d-flex gap-2">
-                    <MdEmail size={27} color={COLORS.green} cursor={'pointer'}/>
-                    <FaFacebook size={23} color={COLORS.green} cursor={'pointer'}/>
-                    <AiFillInstagram size={25} color={COLORS.green} cursor={'pointer'}/>
-                    <FaTelegram size={25} color={COLORS.green} cursor={'pointer'}/>
+                    <MdEmail size={27} color={darkMode ? COLORS.green : COLORS.darkGreen} cursor={'pointer'}/>
+                    <FaFacebook size={23} color={darkMode ? COLORS.green : COLORS.darkGreen} cursor={'pointer'}/>
+                    <AiFillInstagram size={25} color={darkMode ? COLORS.green : COLORS.darkGreen} cursor={'pointer'}/>
+                    <FaTelegram size={25} color={darkMode ? COLORS.green : COLORS.darkGreen} cursor={'pointer'}/>
                 </div> 
             </div>
         </div>

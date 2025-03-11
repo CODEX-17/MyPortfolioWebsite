@@ -67,7 +67,7 @@ header {
   height: 80px;
   backdrop-filter: blur(100px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: transparent;
   position: sticky !important;
   top: 0 !important;
   z-index: 9999;
@@ -157,33 +157,29 @@ header button:hover {
   color: white;
   position: relative;
   overflow-x: hidden;
+  background-color: transparent;
 }
 
-.about-page {
+.about-page,
+.projects-page,
+.tech-section,
+.contact-section {
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
+  background-color: transparent;
   overflow-x: hidden;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
 }
 
-.projects-page {
-  height: 100%;
+.footer {
+  background-color: rgb(11, 89, 55);
   width: 100%;
-  display: flex;
-  justify-content: center;
-  overflow-x: hidden;
 }
-
-.tech-section {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  overflow-x: hidden;
-  align-items: center;
-}
-
 
 
 /* SCROLL CSS */

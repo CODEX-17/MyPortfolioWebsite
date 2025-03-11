@@ -10,6 +10,7 @@ import { FaSquareInstagram } from "react-icons/fa6";
 import { BsTelegram } from "react-icons/bs";
 import rumar from '../../assets/images/rumar-green-bg.png';
 import './HeroPage.css'
+import { COLORS } from '../../constants/colors';
 
 const HeroPage = ({ heroRef, darkMode }) => {
 
@@ -32,7 +33,10 @@ const HeroPage = ({ heroRef, darkMode }) => {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
           ><b>Hi!</b>, I'm</motion.h2>
-          <h1 className='fs-1'>Rumar Pamparo</h1>
+          <h1 
+            className='fs-1'
+            style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}
+          >Rumar Pamparo</h1>
           <motion.p 
             style={{ color: !darkMode ? '#171c22' : 'white' }} 
             className='fs-6'
@@ -41,12 +45,17 @@ const HeroPage = ({ heroRef, darkMode }) => {
             transition={{ delay: 0.5, duration: 1 }}
           >A fresh graduate and <b>Fullstack Web Developer</b> based in the Philippines. I have a passion for building web applications, freelancing, and solving complex problems as I grow in my career.</motion.p>
           
-          <button style={{ color: darkMode ? '#171c22' : 'white' }}>
+          <button 
+            style={{ 
+              color: darkMode ? '#171c22' : 'white', 
+              backgroundColor: darkMode ? COLORS.green : COLORS.darkGreen 
+            }}
+          >
             <motion.div
               initial={{ y: -5 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
-              style={{ display: "inline-block" }} // Ensures the icon animates properly
+              style={{ display: "inline-block" }}
             >
               <HiOutlineDownload size={15} />
             </motion.div>

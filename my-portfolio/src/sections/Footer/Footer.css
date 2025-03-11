@@ -1,0 +1,23 @@
+.content-footer-section {
+    width: 90%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content-footer-section img {
+    width: 100px;
+}
+
+.content-footer-section h1 {
+    font-family: bold;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.content-footer-section p {
+    margin: 0;
+    font-size: .8rem;
+}
