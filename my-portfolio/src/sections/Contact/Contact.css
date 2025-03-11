@@ -12,3 +12,63 @@
     width: 100%;
     text-align: start;
 }
+
+.head-tech-section p {
+    font-size: 1.5rem;
+}
+
+.body-contact-section .card {
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 20px;
+    width: 500px;
+    background-color: transparent;
+}
+
+.card label {
+    font-size: .8rem;
+    font-family: bold;
+}
+
+.card b {
+   color: red;
+}
+
+.card form input {
+    width: 100%;
+    background-color: rgb(229, 229, 229);
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    outline: none;
+    padding: 10;
+    padding-left: 10;
+}
+
+.card form textarea {
+    width: 100%;
+    background-color: rgb(229, 229, 229);
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    padding: 10;
+    min-height: 200px;
+    padding-left: 10;
+}
+
+.card button {
+    width: 100px;
+    height: 30px;
+    border-radius: 50px;
+    font-family: bold;
+    font-size: .8rem;
+    color: #fff;
+   
+}
+
+@media (max-width: 425px) {
+    .head-contact-section p {
+        font-size: 1rem;
+    }
+}
+

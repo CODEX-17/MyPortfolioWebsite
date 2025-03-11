@@ -112,13 +112,13 @@ const Tech = ({ darkMode }) => {
         <div className='body-tech-section row'>
         {techList.map((data, index) => (
           <div 
-            className="col-md-3 col-sm-6 col-12 mb-md-2 d-flex align-items-center justify-content-center" 
+            className="col-lg-3 col-md-4 col-sm-6 col-12 mb-md-2 d-flex align-items-center justify-content-center" 
             key={index} 
             onClick={() => window.location.href = data.link}
           >
             <div className="card">
               <img src={data.icon} alt={data.name}/>
-              <p className="mt-2">{data.name}</p>
+              <p className="mt-2 fs-7 fs-sm-4 fs-md-5">{data.name}</p>
             </div>
           </div>
         ))}
