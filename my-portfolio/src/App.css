@@ -30,6 +30,7 @@ body, html {
 }
 
 .content {
+  width: 100%;
   height: calc(100vh - 80px); /* Full height minus navbar */
   overflow-y: auto; /* Enable vertical scrolling */
   overflow-x: hidden;
@@ -156,7 +157,7 @@ nav button:hover {
 /* nav CSS */
 
 .hero-page {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   color: white;
   position: relative;
@@ -173,7 +174,7 @@ nav button:hover {
   display: flex;
   justify-content: center;
   background-color: transparent;
-  overflow-x: hidden;
+  overflow: hidden;
   border: none;
   outline: none;
   margin: 0;
@@ -255,9 +256,6 @@ nav button:hover {
     display: none;
   }
 
-  .about-page {
-    height: 100%;
-  }
 
   
   

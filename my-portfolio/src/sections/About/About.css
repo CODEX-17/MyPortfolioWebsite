@@ -25,8 +25,8 @@
   .content-about-page-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,9 +42,9 @@
     
   }
   
-
   .content-about-page-container img {
-    width: 80%;
+    max-width: 300px;
+    width: 300px;
     height: auto;
   }
   
