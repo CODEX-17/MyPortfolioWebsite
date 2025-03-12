@@ -13,17 +13,18 @@
     width: 90%;
     height: 100%;
     background-color: #1eb473;
-    z-index: 5;
+    z-index: 9999;
     top: 0;
     padding: 2%;
     overflow-y: hidden;
     overflow-x: hidden;
-    box-shadow: 6px 0px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 6px 0px 15px rgba(0, 0, 0, 0.02);
 }
 
 .sidebar h1 {
     font-family: bold;
     margin: 0;
+    font-size: .8rem;
 }
 
 .closeBtn {

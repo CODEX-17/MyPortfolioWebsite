@@ -25,7 +25,7 @@ const Contact = ({ darkMode }) => {
                 className="card flex-glow-1"
                 style={{ 
                     color: darkMode ? COLORS.white : COLORS.dark,
-                    borderColor: darkMode ? COLORS.white : COLORS.dark,
+               
                 }}
             >
                 <form action="">
@@ -46,7 +46,7 @@ const Contact = ({ darkMode }) => {
                         </div>
                     </div>
                     <div className="d-flex w-100 justify-content-between">
-                        <p style={{ fontSize: '.7rem', fontFamily: 'normal' }}>0/500</p>
+                        <p style={{ fontSize: '.7rem', fontFamily: 'normal' }}>00/500</p>
                         <button
                             style={{ backgroundColor: darkMode ? COLORS.green : COLORS.darkGreen }}
                         >Send <IoSend size={10}/></button>

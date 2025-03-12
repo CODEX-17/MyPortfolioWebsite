@@ -48,6 +48,7 @@ function App() {
   const sectionProjectsRef = useRef(null)
 
   const scrollToSection = (sectionRef, data) => {
+    setIsShowSideBar(false)
     setCurrentSection(data)
     sectionRef.current.scrollIntoView({ behavior: "smooth" })
   }
@@ -57,6 +58,22 @@ function App() {
     <div 
       style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, overflow: 'hidden' }}
     >
+
+      {
+        isShowSideBar && 
+        <div className="sidebar-menu">
+          <Sidebar 
+            setIsShowSideBar={setIsShowSideBar} 
+            darkMode={darkMode}
+            scrollToSection={scrollToSection}
+            sectionHeroRef={sectionHeroRef}
+            sectionAboutRef={sectionAboutRef}
+            sectionProjectsRef={sectionProjectsRef}
+          />
+        </div>
+        
+      }
+
       <motion.nav
         className="nav h-20 px-5"
         initial={{ opacity: 0, y: -20 }}
@@ -156,20 +173,12 @@ function App() {
           </motion.button>
         </div>
       </motion.nav>
+      
+
       <div 
         className='content' 
         style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
       >
-
-      {
-        isShowSideBar && 
-        <Sidebar 
-          setIsShowSideBar={setIsShowSideBar} 
-          darkMode={darkMode}
-        />
-      }
-      
-
 
       <motion.section 
         className='hero-page' 
