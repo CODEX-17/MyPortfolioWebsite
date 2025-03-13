@@ -22,11 +22,10 @@ import { COLORS } from './constants/colors';
 function App() {
 
   const { theme, setTheme } = useContext(ThemeContext)
-
   const darkMode = theme === 'dark' ? true : false
 
   const [isShowSideBar, setIsShowSideBar] = useState(false)
-  const [currentSection, setCurrentSection] = useState('hero-page')
+  const [currentSection, setCurrentSection] = useState('hero-section')
 
   const options = {
     threshold: 0.3, // Section should be at least 30% visible to trigger
@@ -35,17 +34,20 @@ function App() {
   const { ref: heroRef, inView: heroInView } = useInView(options)
   const { ref: aboutRef, inView: aboutInView } = useInView(options)
   const { ref: projectsRef, inView: projectsInView } = useInView(options)
+  const { ref: contactRef, inView: contactInView } = useInView(options)
 
   useEffect(() => {
-    if (heroInView) setCurrentSection('hero-page')
-    else if (aboutInView) setCurrentSection('about-page')
-    else if (projectsInView) setCurrentSection('projects-page')
-  },[heroInView, aboutInView, projectsInView])
+    if (heroInView) setCurrentSection('hero-section')
+    else if (aboutInView) setCurrentSection('about-section')
+    else if (projectsInView) setCurrentSection('projects-section')
+    else if (contactInView) setCurrentSection('contact-section')
+  },[heroInView, aboutInView, projectsInView, contactInView])
 
   //Section Scroll
   const sectionHeroRef = useRef(null)
   const sectionAboutRef = useRef(null)
   const sectionProjectsRef = useRef(null)
+  const sectionContactRef = useRef(null)
 
   const scrollToSection = (sectionRef, data) => {
     setIsShowSideBar(false)
@@ -69,6 +71,7 @@ function App() {
             sectionHeroRef={sectionHeroRef}
             sectionAboutRef={sectionAboutRef}
             sectionProjectsRef={sectionProjectsRef}
+            sectionContactRef={sectionContactRef}
           />
         </div>
         
@@ -100,45 +103,38 @@ function App() {
       
             <button 
               className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}
-              style={{ backgroundColor: currentSection === 'hero-page' ? 'rgba(128, 128, 128, 0.100)' : '', border: 'none'}}
-              onClick={() => scrollToSection(sectionHeroRef, 'hero-page')}
+              style={{ backgroundColor: currentSection === 'hero-section' ? 'rgba(128, 128, 128, 0.100)' : '', border: 'none'}}
+              onClick={() => scrollToSection(sectionHeroRef, 'hero-section')}
             >Home
             </button>
 
             <button 
               className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}
-              style={{ backgroundColor: currentSection === 'about-page' ? 'rgba(128, 128, 128, 0.100)' : '', border: 'none'}}
-              onClick={() => scrollToSection(sectionAboutRef, 'about-page')}
+              style={{ backgroundColor: currentSection === 'about-section' ? 'rgba(128, 128, 128, 0.100)' : '', border: 'none'}}
+              onClick={() => scrollToSection(sectionAboutRef, 'about-section')}
             >About Me
             </button>
 
             <button 
               className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}
-              style={{ backgroundColor: currentSection === 'projects-page' ? 'rgba(128, 128, 128, 0.100)' : '', border: 'none'}}
-              onClick={() => scrollToSection(sectionProjectsRef,'projects-page')}
+              style={{ backgroundColor: currentSection === 'projects-section' ? 'rgba(128, 128, 128, 0.100)' : '', border: 'none'}}
+              onClick={() => scrollToSection(sectionProjectsRef,'projects-section')}
             >Projects
             </button>
 
-            <button className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}>Contact Me</button>
+            <button 
+              className={darkMode ? 'dark-mode-navigation-button' : 'light-mode-navigation-button'}
+              style={{ backgroundColor: currentSection === 'contact-section' ? 'rgba(128, 128, 128, 0.100)' : '', border: 'none'}}
+              onClick={() => scrollToSection(sectionContactRef,'contact-section')}
+            >Contact Me</button>
     
-            <motion.button 
+            <button 
               className='hamburgerIcon' 
               onClick={() => setIsShowSideBar(true)}
-              whileHover={{
-                opacity: 0.5,
-                rotate: 120,
-              }}
-              whileTap={{
-                opacity: 0.5,
-                rotate: 120,
-              }}
-              transition={{
-                duration: 0.3,
-                ease: "easeInOut",
-              }} 
+              
             >
               <TiThMenu size={20} color={darkMode ? 'white' : COLORS.dark}/>
-            </motion.button>
+            </button>
           
           <motion.button
               initial={{
@@ -181,8 +177,8 @@ function App() {
       >
 
       <motion.section 
-        className='hero-page' 
-        data-section="hero-page"
+        className='hero-section' 
+        data-section="hero-section"
         ref={sectionHeroRef}
         style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
         animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
@@ -196,8 +192,8 @@ function App() {
       </motion.section>
 
       <motion.section 
-        className='about-page'
-        data-section="about-page"
+        className='about-section'
+        data-section="about-section"
         ref={sectionAboutRef}
         style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
         initial={{ opacity: 0, y: 200 }}
@@ -215,8 +211,8 @@ function App() {
       </motion.section>
 
       <motion.section 
-        className='projects-page' 
-        data-section="projects-page"
+        className='projects-section' 
+        data-section="projects-section"
         ref={sectionProjectsRef} 
         style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
         animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
@@ -241,11 +237,13 @@ function App() {
 
       <motion.section 
         className='contact-section'
+        ref={sectionContactRef}
         style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
         animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
         transition={{ duration: 0.5, ease: 'easeInOut' }} 
       >
         <Contact
+          contactRef={contactRef}
           darkMode={darkMode}
         />
       </motion.section>
@@ -253,7 +251,13 @@ function App() {
         className='footer' 
         style={{ backgroundColor: darkMode ? COLORS.green : COLORS.darkGreen }}
       >
-        <Footer/>
+        <Footer
+          darkMode={darkMode}
+          scrollToSection={scrollToSection}
+          sectionHeroRef={sectionHeroRef}
+          sectionAboutRef={sectionAboutRef}
+          sectionProjectsRef={sectionProjectsRef}
+        />
       </footer>
       </div>
     </div>

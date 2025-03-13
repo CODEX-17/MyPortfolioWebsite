@@ -4,7 +4,7 @@
     font-size: 3rem;
   }
  
- .content-projects-page {
+ .content-projects-section {
     width: 90%;
     height: 100%;
     padding: 20px;
@@ -134,7 +134,7 @@
 
 
   @media (max-width: 768px) {
-      .content-projects-page {
+      .content-projects-section {
         margin-top: 5%;
       }
     

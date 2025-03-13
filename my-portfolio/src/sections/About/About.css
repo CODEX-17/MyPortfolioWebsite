@@ -1,4 +1,4 @@
-.content-about-page {
+.content-about-section {
     width: 90%;
     height: 100%;
     display: flex;
@@ -7,13 +7,13 @@
     font-family: 'normal';
   }
   
-  .content-about-page-body {
+  .content-about-section-body {
     display: flex;
     justify-content: space-between;
     height: 100%;
   }
   
-  .content-about-page-head {
+  .content-about-section-head {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -23,7 +23,7 @@
     text-align: center;
   }
   
-  .content-about-page-container {
+  .content-about-section-container {
     display: flex;
     flex-direction: column;
     width: auto;
@@ -43,27 +43,27 @@
     
   }
   
-  .content-about-page-container img {
+  .content-about-section-container img {
     max-width: 300px;
     width: 300px;
     height: auto;
   }
   
-  .content-about-page-container p {
+  .content-about-section-container p {
     font-size: 1.5rem;
   }
   
-  .content-about-page-container b {
+  .content-about-section-container b {
     color: #1eb473;
     font-family: bold;
   }
   
-  .content-about-page p {
+  .content-about-section p {
     color: white;
     font-size: 2rem;
   }
   
-  .content-about-page h3 {
+  .content-about-section h3 {
     font-family: bold;
     color: white;
     text-align: justify;
@@ -98,7 +98,7 @@
       font-size: 2rem;
     }
   
-    .content-about-page-container p {
+    .content-about-section-container p {
       font-size: 1.5rem;
     }
   
@@ -113,11 +113,11 @@
       font-size: 2rem;
     }
   
-    .content-about-page-container p {
+    .content-about-section-container p {
       font-size: 1.3rem;
     }
   
-    .content-about-page-container img {
+    .content-about-section-container img {
       width: 100%;
     }
   
@@ -132,32 +132,32 @@
 
   @media (max-width: 768px) {
 
-    .content-about-page-head {
+    .content-about-section-head {
       flex-direction: column;
     }
 
-    .content-about-page-head h1{
+    .content-about-section-head h1{
         font-size: 1.3rem;
         margin-bottom: 5%;
       }
     
-      .content-about-page-body {
+      .content-about-section-body {
         flex-direction: column;
         width: 100%;
         display: flex;
         align-items: center;
       }
     
-      .content-about-page-container {
+      .content-about-section-container {
         width: 100%;
         margin-top: 20px;
       }
     
-      .content-about-page-container img {
+      .content-about-section-container img {
         width: 40%;
       }
     
-      .content-about-page-container p {
+      .content-about-section-container p {
         text-align: center;
         font-size: 1rem;
       }
@@ -178,7 +178,7 @@
   
   @media (max-width: 425px) {
   
-    .content-about-page-head {
+    .content-about-section-head {
       justify-content: center;
     }
   }

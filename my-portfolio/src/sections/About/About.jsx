@@ -10,8 +10,8 @@ import { FaLaptopCode } from "react-icons/fa";
 
 const About = ({ aboutRef, darkMode }) => {
   return (
-    <div className='content-about-page' ref={aboutRef}>
-        <div className='content-about-page-head'>
+    <div className='content-about-section' ref={aboutRef}>
+        <div className='content-about-section-head'>
             <motion.h1 
                 initial={{ opacity: 0, x: -200 }} 
                 whileInView={{ opacity: 1, x: 0, transition: { duration: 0.5 } }} 
@@ -32,7 +32,7 @@ const About = ({ aboutRef, darkMode }) => {
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, type: "spring", stiffness: 200, duration: 1 }}
-            className='content-about-page-container col-lg-4 col-md-6 col-12'
+            className='content-about-section-container col-lg-4 col-md-6 col-12'
         >
             <img src={!darkMode ? logoDefault : logoWhite} alt="logo"/>
         </motion.div>
@@ -41,14 +41,14 @@ const About = ({ aboutRef, darkMode }) => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
-            className='content-about-page-container col-lg-4 col-md-6 col-12'
+            className='content-about-section-container col-lg-4 col-md-6 col-12'
         >
             <p style={{ color: darkMode ? 'white' : '#171c22' }}><b style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}>Hello!</b> I'm a recent graduate with a passion for building and designing web applications and a growing interest in mobile app development.
             I also enjoy exploring the creative side of graphic design, merging functionality with visual appeal to create engaging, user-friendly digital experiences.
             Eager to dive into new challenges and expand my skill set, I'm always ready to bring ideas to life.</p>
         </motion.div>
 
-        <div className='content-about-page-container col-lg-4 col-md-6 col-12'>
+        <div className='content-about-section-container col-lg-4 col-md-6 col-12'>
 
             <motion.h3
                 initial={{ opacity: 0 }}

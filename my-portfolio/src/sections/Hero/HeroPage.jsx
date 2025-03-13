@@ -15,8 +15,8 @@ import { COLORS } from '../../constants/colors';
 const HeroPage = ({ heroRef, darkMode }) => {
 
   return (
-    <div className='content-hero-page' ref={heroRef}>
-      <div className='container d-flex align-items-center row' id='content-hero-page' style={{ height: '90%', backgroundColor: 'transparent' }}>
+    <div className='content-hero-section' ref={heroRef}>
+      <div className='container d-flex align-items-center row' id='content-hero-section' style={{ height: '90%', backgroundColor: 'transparent' }}>
         <div 
           className='left-side-hero col-md-7'
           initial={{ opacity: 0, y: 20 }}

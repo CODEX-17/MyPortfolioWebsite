@@ -7,9 +7,9 @@ import { FaFacebook } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaTelegram } from "react-icons/fa6";
 
-const Contact = ({ darkMode }) => {
+const Contact = ({ contactRef, darkMode }) => {
   return ( 
-    <div className='content-contact-section container'>
+    <div className='content-contact-section container' ref={contactRef}>
         <div className='head-contact-section w-100 d-flex flex-column align-items-center justify-content-center mb-4'>
             <h1 
                 className='title'

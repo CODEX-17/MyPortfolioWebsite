@@ -9,7 +9,8 @@ const Sidebar = ({
     scrollToSection,
     sectionAboutRef,
     sectionProjectsRef,
-    sectionHeroRef
+    sectionHeroRef,
+    sectionContactRef
 }) => {
   return (
     <motion.div
@@ -37,22 +38,22 @@ const Sidebar = ({
             <motion.h1 
                 initial={{ x: 0 }}
                 whileTap={{ x: 10, opacity: 0.5 }}
-                className='fs-6' onClick={() => scrollToSection(sectionHeroRef, 'hero-page')}
+                className='fs-6' onClick={() => scrollToSection(sectionHeroRef, 'hero-section')}
             >Home</motion.h1>
             <motion.h1 
                 initial={{ x: 0 }}
                 whileTap={{ x: 10, opacity: 0.5 }}
-                className='fs-6' onClick={() => scrollToSection(sectionAboutRef, 'about-page')}
+                className='fs-6' onClick={() => scrollToSection(sectionAboutRef, 'about-section')}
             >About Me</motion.h1>
             <motion.h1 
                 initial={{ x: 0 }}
                 whileTap={{ x: 10, opacity: 0.5 }}
-                className='fs-6' onClick={() => scrollToSection(sectionProjectsRef, 'projects-page')}
+                className='fs-6' onClick={() => scrollToSection(sectionProjectsRef, 'projects-section')}
             >Projects</motion.h1>
             <motion.h1 
                 initial={{ x: 0 }}
                 whileTap={{ x: 10, opacity: 0.5 }}
-                className='fs-6' onClick={() => scrollToSection(sectionProjectsRef, 'projects-page')}
+                className='fs-6' onClick={() => scrollToSection(sectionContactRef, 'contact-section')}
             >Contact Me</motion.h1>
         </div>
         

@@ -1,7 +1,7 @@
 
 /* HERO PAGE CSS */
 
-.content-hero-page {
+.content-hero-section {
     width: 100%;
     height: 100%;
     display: flex;
@@ -73,7 +73,7 @@
 
 @media (max-width: 768px) {
 
-    .content-hero-page {
+    .content-hero-section {
         display: flex;
         flex-direction: column;
         text-align: center;

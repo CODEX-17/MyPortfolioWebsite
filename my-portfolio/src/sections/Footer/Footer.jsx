@@ -4,7 +4,12 @@ import whiteLogo from '../../assets/images/rp-white.png'
 import { COLORS } from '../../constants/colors'
 import { MdOutlineCopyright } from "react-icons/md";
 
-const Footer = () => {
+const Footer = ({ 
+    scrollToSection,
+    sectionAboutRef,
+    sectionProjectsRef,
+    sectionHeroRef
+ }) => {
 
   return (
     <div className='content-footer-section'>
@@ -16,15 +21,15 @@ const Footer = () => {
             <div className="d-flex gap-4">
                 <div className="d-flex flex-column">
                     <h1>Important Links</h1>
-                    <p>Home</p>
-                    <p>Porjects</p>
-                    <p>About me</p>
+                    <p onClick={() => scrollToSection(sectionHeroRef, 'hero-section')}>Home</p>
+                    <p onClick={() => scrollToSection(sectionProjectsRef, 'projects-section')}>Porjects</p>
+                    <p onClick={() => scrollToSection(sectionAboutRef, 'about-section')}>About me</p>
                 </div>
                 <div className="d-flex flex-column">
                     <h1>Social</h1>
-                    <p>Github</p>
-                    <p>Facebook</p>
-                    <p>Instagram</p>
+                    <p onClick={() => window.location.href = 'https://github.com/CODEX-17'}>Github</p>
+                    <p onClick={() => window.location.href = 'https://www.facebook.com/rumar.pamparo'}>Facebook</p>
+                    <p onClick={() => window.location.href = 'https://www.instagram.com/pamparorumar/'}>Instagram</p>
                 </div>
             </div>
         </div>

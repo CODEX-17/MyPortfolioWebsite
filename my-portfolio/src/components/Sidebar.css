@@ -25,6 +25,8 @@
     font-family: bold;
     margin: 0;
     font-size: .8rem;
+    user-select: none;
+    cursor: pointer;
 }
 
 .closeBtn {

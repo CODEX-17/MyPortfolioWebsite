@@ -8,15 +8,20 @@ import { TbBrandMysql } from "react-icons/tb";
 import { GrLinkNext } from "react-icons/gr";
 import { COLORS } from '../../constants/colors';
 import { FaEye } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const Projects = ({ projectsRef, darkMode }) => {
+
+  const navigate = useNavigate()
+
   return (
-     <div className='content-projects-page' ref={projectsRef}>
+     <div className='content-projects-section' ref={projectsRef}>
         <div className='head-project-page'>
             <h1 
                 className='title' 
                 style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}
             >My Projects.</h1>
+            <p className="fs-6" style={{ color: darkMode ? COLORS.white : COLORS.dark }}>Highlights Projects</p>
         </div>
         <div className='body-project-page'>
             <div className='projects-card-list'>
@@ -175,7 +180,7 @@ const Projects = ({ projectsRef, darkMode }) => {
                      initial={{ marginRight: 10 }}
                      whileHover={{ marginRight: 0, }}
                      transition={{ type: "spring", duration: 0.5, stiffness: 200 }}
-                     
+                     onClick={() => navigate('/projects')}
                 >
                     See more projects
                     
