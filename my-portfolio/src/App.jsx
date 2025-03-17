@@ -21,7 +21,7 @@ import { COLORS } from './constants/colors';
 
 function App() {
 
-  const { theme, setTheme } = useContext(ThemeContext)
+  const { theme, handleTheme } = useContext(ThemeContext)
   const darkMode = theme === 'dark' ? true : false
 
   const [isShowSideBar, setIsShowSideBar] = useState(false)
@@ -159,7 +159,7 @@ function App() {
                 ease: "easeInOut",
               }} 
               style={{ backgroundColor: 'transparent' }}
-              onClick={() => setTheme((data) => data === 'dark' ? 'light' : 'dark')}
+              onClick={() => handleTheme(theme === 'dark' ? 'light' : 'dark')}
               > 
             {
               darkMode ? 
@@ -195,8 +195,10 @@ function App() {
         className='about-section'
         data-section="about-section"
         ref={sectionAboutRef}
-        style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
-        initial={{ opacity: 0, y: 200 }}
+        style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
+        animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
+        initial={{ opacity: 0, y: 200, backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
         whileInView={{
           opacity: 1, 
           y: 0,

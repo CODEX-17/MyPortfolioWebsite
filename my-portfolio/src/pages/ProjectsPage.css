@@ -1,0 +1,49 @@
+.projects-content {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 20px;
+    color: #171c22;
+    font-family: normal;
+    display: flex;
+    flex-direction: column;
+}
+
+.projects-content .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.projects-content footer {
+    background-color: transparent;
+}
+
+.projects-content .projects-card-list {
+    height: 90%;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    overflow-y: auto;
+    color: white;
+}
+
+.projects-content .card {
+    padding: 10px;
+}
+
+.projects-content h4 {
+    font-size: 1rem;
+    margin: 0;
+    font-family: bold;
+    
+}
+
+.projects-content h3 {
+    font-size: 1.5rem;
+    font-family: bold;
+    user-select: none;
+    cursor: pointer;
+    margin: 0;
+}
