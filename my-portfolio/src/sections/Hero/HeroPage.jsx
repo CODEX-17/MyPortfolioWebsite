@@ -112,6 +112,7 @@ const HeroPage = ({ heroRef, darkMode }) => {
                type: "spring",
                stiffness: 200,
              }} 
+             onClick={() => window.location.href = 'https://www.facebook.com/rumar.pamparo'}
             >
               <FaFacebook color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
             </motion.div>
@@ -138,6 +139,7 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 type: "spring",
                 stiffness: 200,
               }} 
+              onClick={() => window.location.href = 'https://www.linkedin.com/in/rumar-pamparo-7613352b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app&fbclid=IwZXh0bgNhZW0CMTEAAR2gj4Gj5ofRHOjb2eb0RpvqPQs7p_hVh1eNUezI3fZzYW-DgZ34skAFIHw_aem_l79Dba71O87htwEywkKSJA'}
             >
               <IoLogoLinkedin color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
             </motion.div>
@@ -164,6 +166,7 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 type: "spring",
                 stiffness: 200,
               }} 
+              onClick={() => window.location.href = 'https://www.instagram.com/pamparorumar/'}
             >
               <FaSquareInstagram color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
             </motion.div>
@@ -190,7 +193,9 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 type: "spring",
                 stiffness: 200,
               }} 
+              onClick={() => window.location.href = 'https://t.me/C_0_D_3_X'}
             >
+
               <BsTelegram color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
             </motion.div>
           </div>
