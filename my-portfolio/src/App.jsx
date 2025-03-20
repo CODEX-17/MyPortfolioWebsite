@@ -58,7 +58,11 @@ function App() {
 
   return (
     <div 
-      style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, overflow: 'hidden' }}
+      style={{ 
+        backgroundColor: darkMode ? COLORS.dark : COLORS.light, 
+        height: '100%',
+        width: '100%',
+      }}
     >
 
       {
@@ -173,94 +177,95 @@ function App() {
 
       <div 
         className='content' 
-        style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
       >
 
-      <motion.section 
-        className='hero-section' 
-        data-section="hero-section"
-        ref={sectionHeroRef}
-        style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
-        animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
-        
-      >
-        <HeroPage
-          heroRef={heroRef}
-          darkMode={darkMode}
-        />
-      </motion.section>
-
-      <motion.section 
-        className='about-section'
-        data-section="about-section"
-        ref={sectionAboutRef}
-        style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
-        animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
-        initial={{ opacity: 0, y: 200, backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
-        whileInView={{
-          opacity: 1, 
-          y: 0,
-          transition: { duration: 1 }
-        }}
-      >
-        <About
-          aboutRef={aboutRef}
-          darkMode={darkMode}
-        />
+        <motion.section 
+          className='hero-section' 
+          data-section="hero-section"
+          ref={sectionHeroRef}
+          style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
+          animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
           
-      </motion.section>
+        >
+          <HeroPage
+            heroRef={heroRef}
+            darkMode={darkMode}
+          />
+        </motion.section>
 
-      <motion.section 
-        className='projects-section' 
-        data-section="projects-section"
-        ref={sectionProjectsRef} 
-        style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
-        animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
-        transition={{ duration: 0.5, ease: 'easeInOut' }} 
-      >
-        <Projects 
-          projectsRef={projectsRef} 
-          darkMode={darkMode}
-        />
-      </motion.section>
+        <motion.section 
+          className='about-section'
+          data-section="about-section"
+          ref={sectionAboutRef}
+          style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
+          animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          initial={{ opacity: 0, y: 200, backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
+          whileInView={{
+            opacity: 1, 
+            y: 0,
+            transition: { duration: 1 }
+          }}
+        >
+          <About
+            aboutRef={aboutRef}
+            darkMode={darkMode}
+          />
+            
+        </motion.section>
 
-      <motion.section 
-        className='tech-section'
-        style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
-        animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
-        transition={{ duration: 0.5, ease: 'easeInOut' }} 
-      >
-        <Tech
-          darkMode={darkMode}
-        />
-      </motion.section>
+        <motion.section 
+          className='projects-section' 
+          data-section="projects-section"
+          ref={sectionProjectsRef} 
+          style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
+          animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }} 
+        >
+          <Projects 
+            projectsRef={projectsRef} 
+            darkMode={darkMode}
+          />
+        </motion.section>
 
-      <motion.section 
-        className='contact-section'
-        ref={sectionContactRef}
-        style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
-        animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
-        transition={{ duration: 0.5, ease: 'easeInOut' }} 
-      >
-        <Contact
-          contactRef={contactRef}
-          darkMode={darkMode}
-        />
-      </motion.section>
-      <footer 
-        className='footer' 
-        style={{ backgroundColor: darkMode ? COLORS.green : COLORS.darkGreen }}
-      >
-        <Footer
-          darkMode={darkMode}
-          scrollToSection={scrollToSection}
-          sectionHeroRef={sectionHeroRef}
-          sectionAboutRef={sectionAboutRef}
-          sectionProjectsRef={sectionProjectsRef}
-        />
-      </footer>
+        <motion.section 
+          className='tech-section'
+          style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
+          animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }} 
+        >
+          <Tech
+            darkMode={darkMode}
+          />
+        </motion.section>
+
+        <motion.section 
+          className='contact-section'
+          ref={sectionContactRef}
+          style={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light, transition: 'opacity 0.3s ease' }}
+          animate={{ backgroundColor: darkMode ? COLORS.dark : COLORS.light }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }} 
+        >
+          <Contact
+            contactRef={contactRef}
+            darkMode={darkMode}
+          />
+        </motion.section>
+
+        <footer 
+          className='footer' 
+          style={{ backgroundColor: darkMode ? COLORS.green : COLORS.darkGreen }}
+        >
+          <Footer
+            darkMode={darkMode}
+            scrollToSection={scrollToSection}
+            sectionHeroRef={sectionHeroRef}
+            sectionAboutRef={sectionAboutRef}
+            sectionProjectsRef={sectionProjectsRef}
+          />
+        </footer>
+      
       </div>
     </div>
     

@@ -72,6 +72,12 @@
    
 }
 
+#errorMessage {
+    color: rgb(214, 91, 91);
+    font-family: normal;
+    font-size: .8rem;
+}
+
 @media (max-width: 425px) {
     .head-contact-section p {
         font-size: 1rem;

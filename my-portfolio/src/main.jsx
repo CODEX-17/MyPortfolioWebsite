@@ -12,7 +12,11 @@ const rootSelector = document.getElementById('root');
 const root = ReactDOM.createRoot(rootSelector)
 
 root.render(
-  <BrowserRouter>
+  <BrowserRouter
+    future={{
+      v7_startTransition: true,
+    }}
+  >
     <React.StrictMode>
       <ThemeContextProvider>
         <Routes>

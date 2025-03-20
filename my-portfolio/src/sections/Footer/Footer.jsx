@@ -3,6 +3,8 @@ import './Footer.css'
 import whiteLogo from '../../assets/images/rp-white.png'
 import { COLORS } from '../../constants/colors'
 import { MdOutlineCopyright } from "react-icons/md";
+import { FaCode } from "react-icons/fa";
+import { motion } from 'framer-motion';
 
 const Footer = ({ 
     scrollToSection,
@@ -14,9 +16,19 @@ const Footer = ({
   return (
     <div className='content-footer-section'>
         <div className="d-flex w-100 justify-content-between align-items-center pl-4 pr-4">
-            <div className="d-flex flex-column">
+            <div 
+                className="d-flex flex-column"
+                onClick={() => window.location.href = 'https://github.com/CODEX-17/MyPortfolioWebsite.git'}
+            >
                 <img src={whiteLogo} alt="logo" />
-                <h3 className='fs-6' style={{ color: COLORS.white }}>Source Code</h3>
+                <motion.h3 
+                    className='fs-6' 
+                    style={{ userSelect: 'none', cursor: 'pointer' }}
+                    initial={{ color: COLORS.white }}
+                    whileHover={{ opacity: 0.5 }}
+                    whileTap={{ opacity: 0.5 }}
+                >Source Code <FaCode/>
+                </motion.h3>
             </div>
             <div className="d-flex gap-4">
                 <div className="d-flex flex-column">

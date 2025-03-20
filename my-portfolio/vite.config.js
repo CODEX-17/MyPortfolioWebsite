@@ -7,5 +7,8 @@ export default defineConfig({
   server: {
     host: '0.0.0.0', // Allows access from the network
     port: 3000, // Port for the server
+    mimeTypes: {
+      'ttf': 'font/ttf',
+    }
   },
 })
