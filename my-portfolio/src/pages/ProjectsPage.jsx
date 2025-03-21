@@ -18,7 +18,7 @@ const ProjectsPage = () => {
   const darkMode = theme === 'dark' ? true : false 
   const navigate = useNavigate()
 
-  const [selected, setSelected] = useState('all')
+  const [selected, setSelected] = useState('All')
 
   const menuItems = [
    'All',
