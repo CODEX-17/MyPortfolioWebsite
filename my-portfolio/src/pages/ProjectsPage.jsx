@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './ProjectsPage.css'
 import Footer from '../sections/Footer/Footer'
 import { ThemeContext } from '../../context/ThemeContext'
@@ -6,8 +6,15 @@ import { COLORS } from '../constants/colors'
 import { motion } from "framer-motion";
 import { GoHomeFill } from "react-icons/go";
 import { IoMdSunny } from "react-icons/io";
-import { MdDarkMode } from "react-icons/md";
 import { useNavigate } from 'react-router-dom'
+import { 
+  MdPhoneAndroid, 
+  MdComputer, 
+  MdDarkMode, 
+  MdOutlineDesignServices,
+  MdOutlinePhonelink 
+} from "react-icons/md";
+
 import GitHubCommits from './GithubCommits'
 
 
@@ -18,13 +25,39 @@ const ProjectsPage = () => {
   const darkMode = theme === 'dark' ? true : false 
   const navigate = useNavigate()
 
-  const [selected, setSelected] = useState('All')
+  
 
   const menuItems = [
-   'All',
-   'Website',
-   'Mobile'
+    {
+      title: 'All',
+      icon: <MdOutlinePhonelink color={ darkMode ? COLORS.light : COLORS.dark } size={20}/>
+    },
+    {
+      title: 'Website',
+      icon: <MdComputer color={ darkMode ? COLORS.light : COLORS.dark } size={20}/>
+    },
+    {
+      title: 'Mobile',
+      icon: <MdPhoneAndroid color={ darkMode ? COLORS.light : COLORS.dark } size={20}/>
+    },
+    {
+      title: 'Digital Artwork',
+      icon: <MdOutlineDesignServices color={ darkMode ? COLORS.light : COLORS.dark } size={20}/>
+    },
   ]
+
+  const [selected, setSelected] = useState(menuItems[0])
+
+  const [width, setWidth] = useState(window.innerWidth);
+
+
+  //For Screen Size
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth)
+
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   return (
     <motion.div 
@@ -77,20 +110,27 @@ const ProjectsPage = () => {
           </div>
           
           <div 
-            className='menu-list'
+            className='menu-list gap-5 mt-5 mb-2 '
             style={{ color: darkMode ? COLORS.white : COLORS.dark }}
           >
-            {menuItems.map((item) => (
-              <div key={item} className="menu-item" onClick={() => setSelected(item)}>
-                <p 
-                  className={selected === item ? "active" : ""}
-                  style={{ color: 
-                    selected === item ? 
-                      (darkMode ? COLORS.white : COLORS.dark) : (
-                        'gray'
-                      )}}
-                >{item}</p>
-                {selected === item && (
+            {menuItems.map((item, index) => (
+              <div key={index} className="menu-item" onClick={() => setSelected(item.title)}>
+                <div className='d-flex gap-2 align-items-center'>
+                  {item.icon}
+                  {
+                    width > 425 &&
+                    <p 
+                      className={selected === item.title ? "active" : ""}
+                      style={{ color: 
+                        selected === item.title ? 
+                          (darkMode ? COLORS.white : COLORS.dark) : (
+                            'gray'
+                          )}}
+                    >{item.title}</p>
+                  }
+                  
+                </div>
+                {selected == item.title && (
                   <motion.div
                     layoutId="underline"
                     className="underline"
