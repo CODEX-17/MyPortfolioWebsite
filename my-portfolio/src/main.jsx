@@ -5,8 +5,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { ThemeContextProvider } from '../context/ThemeContext.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProjectsPage from './pages/ProjectsPage.jsx'
-
-
+import './App.css'
 
 const rootSelector = document.getElementById('root');
 const root = ReactDOM.createRoot(rootSelector)
@@ -17,13 +16,12 @@ root.render(
       v7_startTransition: true,
     }}
   >
-    <React.StrictMode>
       <ThemeContextProvider>
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/projects" element={<ProjectsPage />} />
         </Routes>
       </ThemeContextProvider>
-    </React.StrictMode>,
+
   </BrowserRouter>
 )

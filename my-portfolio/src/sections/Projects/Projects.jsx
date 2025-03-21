@@ -36,7 +36,7 @@ const Projects = ({ projectsRef, darkMode }) => {
                 >
                     <div className='projects-card-head'>
                         <h3>E-SchoolApp</h3>
-                        <p>(Web Application)</p>
+                        <p>(Web Application - Capstone Project)</p>
                     </div>
                     <div 
                         className='image-container'
@@ -125,11 +125,11 @@ const Projects = ({ projectsRef, darkMode }) => {
                         <div className='projects-card-description'>
                             <div className='d-flex flex-column'>
                                 <b>Description:</b>
-                                <p>A web app that simplifies scholarship applications and management for students and administrators.</p>
+                                <p>A web app that simplifies scholarship applications and management for scholars and administrators.</p>
                             </div>
                             <div className='d-flex flex-column'>
                                 <b>Key Features:</b>
-                                <p>Account creation, admin posting and updates, and a dashboard for monitoring scholarships, available slots, and program details.</p>
+                                <p>Account creation, admin posting and updates, dashboard for monitoring scholarships, available slots, and program details.</p>
                             </div>
                         </div>
                         <div className='d-flex w-100 mt-2 bg-info'>
@@ -148,7 +148,7 @@ const Projects = ({ projectsRef, darkMode }) => {
                 >
                     <div className='projects-card-head'>
                         <h3>NFRDI Procurement Dashboard</h3>
-                        <p>(Web Application)</p>
+                        <p>(Web Application - Internship Project)</p>
                     </div>
                     <div className='image-container'>
                         <img src={NFRDIPic} alt="thumbnail" className='image-thumbnail'/>

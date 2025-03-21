@@ -69,6 +69,13 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 type: "spring",
                 stiffness: 200,
                 rotate: 0,
+                transition: {
+                  delay: 0.2,
+                  duration: 1,
+                  ease: "easeInOut",
+                  type: "spring",
+                  stiffness: 200,
+                }
                }}
               whileHover={{
                 opacity: 0.5,
@@ -79,7 +86,6 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 rotate: 120,
               }}
               transition={{
-                delay: 0.2,
                 duration: 1,
                 ease: "easeInOut",
                 type: "spring",
@@ -96,6 +102,13 @@ const HeroPage = ({ heroRef, darkMode }) => {
                type: "spring",
                stiffness: 200,
                rotate: 0,
+               transition: {
+                delay: 0.4,
+                duration: 1,
+                ease: "easeInOut",
+                type: "spring",
+                stiffness: 200,
+              }
              }}
              whileHover={{
                opacity: 0.2,
@@ -106,7 +119,6 @@ const HeroPage = ({ heroRef, darkMode }) => {
                rotate: 120,
              }}
              transition={{
-               delay: 0.4,
                duration: 1,
                ease: "easeInOut",
                type: "spring",
@@ -123,6 +135,13 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 type: "spring",
                 stiffness: 200,
                 rotate: 0,
+                transition: {
+                  delay: 0.6,
+                  duration: 1,
+                  ease: "easeInOut",
+                  type: "spring",
+                  stiffness: 200,
+                }
               }}
               whileHover={{
                 opacity: 0.5,
@@ -133,7 +152,6 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 rotate: 120,
               }}
               transition={{
-                delay: 0.6,
                 duration: 1,
                 ease: "easeInOut",
                 type: "spring",
@@ -150,6 +168,13 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 type: "spring",
                 stiffness: 200,
                 rotate: 0,
+                transition: {
+                  delay: 0.8,
+                  duration: 1,
+                  ease: "easeInOut",
+                  type: "spring",
+                  stiffness: 200,
+                }
               }}
               whileHover={{
                 opacity: 0.5,
@@ -159,13 +184,6 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 opacity: 0.5,
                 rotate: 120,
               }}
-              transition={{
-                delay: 0.8,
-                duration: 1,
-                ease: "easeInOut",
-                type: "spring",
-                stiffness: 200,
-              }} 
               onClick={() => window.location.href = 'https://www.instagram.com/pamparorumar/'}
             >
               <FaSquareInstagram color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
@@ -177,6 +195,13 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 type: "spring",
                 stiffness: 200,
                 rotate: 0,
+                transition: {
+                  delay: 1,
+                  duration: 1,
+                  ease: "easeInOut",
+                  type: "spring",
+                  stiffness: 200,
+                }
               }}
               whileHover={{
                 opacity: 0.5,
@@ -187,7 +212,6 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 rotate: 120,
               }}
               transition={{
-                delay: 1,
                 duration: 1,
                 ease: "easeInOut",
                 type: "spring",

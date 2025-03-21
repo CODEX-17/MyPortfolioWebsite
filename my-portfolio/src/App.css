@@ -8,14 +8,11 @@
   src: url('./assets/fonts/light.ttf');
 }
 
-
 :root {
   --gray: #20272f;
   --black: #171c22;
   --green: #2ad883;
 }
-
-
 
 * {
   margin: 0;
@@ -24,6 +21,7 @@
 
 body, html{
   height: 100vh;
+  max-height: 100vh;
   min-height: 100vh;
   width: 100vw;
   font-family: normal;
@@ -32,12 +30,6 @@ body, html{
   margin: 0;
 }
 
-#root {
-  width: 100vw;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-}
 
 .content {
   width: 100%;
@@ -81,6 +73,9 @@ h1 {
 
 nav {
   height: 80px;
+  max-height: 80px;
+  min-height: 80px;
+  width: 100%;
   backdrop-filter: blur(100px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: transparent;
@@ -91,11 +86,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
   align-self: flex-start;
 }
-
-
 
 nav img {
   width: 50px;

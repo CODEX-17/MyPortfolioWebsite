@@ -7,11 +7,16 @@ import { motion } from "framer-motion";
 import { GoHomeFill } from "react-icons/go";
 import { IoMdSunny } from "react-icons/io";
 import { MdDarkMode } from "react-icons/md";
+import { useNavigate } from 'react-router-dom'
+import GitHubCommits from './GithubCommits'
+
+
 
 const ProjectsPage = () => {
 
   const { theme, handleTheme } = useContext(ThemeContext)
   const darkMode = theme === 'dark' ? true : false 
+  const navigate = useNavigate()
 
   const [selected, setSelected] = useState('all')
 
@@ -31,7 +36,12 @@ const ProjectsPage = () => {
       <div className="container">
         <div className="header">
           <div className="d-flex w-100 align-items-center justify-content-between">
-            <GoHomeFill color={ darkMode ? COLORS.white : COLORS.dark } size={25}/>
+            <GoHomeFill 
+              color={ darkMode ? COLORS.white : COLORS.dark } 
+              size={25}
+              cursor={'pointer'}
+              onClick={() => navigate('/')}
+            />
             <h3 style={{ color: darkMode ? COLORS.white : COLORS.dark }}>My Projects</h3>
             <motion.button
                 initial={{
