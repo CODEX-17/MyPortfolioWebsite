@@ -18,7 +18,6 @@ import IonicIcon from '../../assets/images/ionic-icons.png'
 import GitIcon from '../../assets/images/git-icons.png'
 import { COLORS } from '../../constants/colors'
 
-
 const Tech = ({ darkMode }) => {
 
   const techList = [

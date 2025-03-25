@@ -14,10 +14,8 @@ import {
   MdOutlineDesignServices,
   MdOutlinePhonelink 
 } from "react-icons/md";
-
-import GitHubCommits from './GithubCommits'
-
-
+import GridMotion from '../components/GridMotion/GridMotion';
+import eSchoolLoginPic from '../assets/images/e-schoolapp-login.jpg'
 
 const ProjectsPage = () => {
 
@@ -25,6 +23,37 @@ const ProjectsPage = () => {
   const darkMode = theme === 'dark' ? true : false 
   const navigate = useNavigate()
 
+  // note: you'll need to make sure the parent container of this component is sized properly
+const items = [
+  'Item 1',
+  <div key='jsx-item-1'><img className='img-display' src={eSchoolLoginPic} alt="" /></div>,
+  <div key='jsx-item-1'><img className='img-display' src={eSchoolLoginPic} alt="" /></div>,
+  <div key='jsx-item-1'><img className='img-display' src={eSchoolLoginPic} alt="" /></div>,
+  <div key='jsx-item-1'><img className='img-display' src={eSchoolLoginPic} alt="" /></div>,
+  'https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'Item 2',
+  <div key='jsx-item-2'>Custom JSX Content</div>,
+  'Item 4',
+  <div key='jsx-item-2'>Custom JSX Content</div>,
+  'https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'Item 5',
+  <div key='jsx-item-2'>Custom JSX Content</div>,
+  'Item 7',
+  <div key='jsx-item-2'>Custom JSX Content</div>,
+  'https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'Item 8',
+  <div key='jsx-item-2'>Custom JSX Content</div>,
+  'Item 10',
+  <div key='jsx-item-3'>Custom JSX Content</div>,
+  'https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'Item 11',
+  <div key='jsx-item-2'>Custom JSX Content</div>,
+  'Item 13',
+  <div key='jsx-item-4'>Custom JSX Content</div>,
+  'https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'Item 14',
+  // Add more items as needed
+];
   
 
   const menuItems = [
@@ -108,9 +137,16 @@ const ProjectsPage = () => {
               }
             </motion.button>
           </div>
+          {
+            window.innerWidth >= 1024 &&
+            <div style={{ height: 500, width: '100%', marginBottom: 20 }}> 
+              <GridMotion items={items} />
+            </div>
+          }
           
+
           <div 
-            className='menu-list gap-5 mt-5 mb-2 '
+            className='menu-list gap-5 mt-2 mb-2 '
             style={{ color: darkMode ? COLORS.white : COLORS.dark }}
           >
             {menuItems.map((item, index) => (
@@ -142,7 +178,8 @@ const ProjectsPage = () => {
             ))}
           </div>
         </div>
-  
+       
+
         <div className='projects-card-list'>
 
           <div className="card">

@@ -1,7 +1,7 @@
 import React from 'react'
 import './Projects.css'
 import { FaReact } from "react-icons/fa";
-import { motion } from 'framer-motion'
+import { color, motion } from 'framer-motion'
 import { SiExpress } from "react-icons/si";
 import { TbBrandMysql } from "react-icons/tb";
 import { GrLinkNext } from "react-icons/gr";
@@ -26,7 +26,7 @@ const Projects = ({ projectsRef, darkMode }) => {
             <p className="fs-6" style={{ color: darkMode ? COLORS.white : COLORS.dark }}>Highlights Projects</p>
         </div>
         <div className='body-project-page'>
-            <div className='projects-card-list'>
+            <div className='projects-card-list position-relative'>
                 <motion.div 
                     initial={{ opacity: 1, scale: .5 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -193,9 +193,9 @@ const Projects = ({ projectsRef, darkMode }) => {
             </div>
 
             <motion.div 
-                initial={{ opacity: 0, x: -100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                style={{ color: darkMode ? '#fff' : COLORS.dark, }}
+                initial={{ x: -100 }}
+                whileInView={{ x: 0 }}
+                style={{ color: darkMode ? COLORS.white : COLORS.dark }}
                 transition={{ type: "spring", duration: 0.5, stiffness: 200 }}
                 className='mt-4 w-100 d-flex align-items-center justify-content-center'
             >
@@ -209,9 +209,17 @@ const Projects = ({ projectsRef, darkMode }) => {
                     See more projects
                     
                 </motion.p>
-                <GrLinkNext/>
+                <GrLinkNext style={{ color: darkMode ? COLORS.white : COLORS.dark, zIndex:200 }}/>
             </motion.div>
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className={`${ darkMode ? "bottom-gradient-dark" : "bottom-gradient-light"}`}
+       
+            ></motion.div>
         </div>
+        
     </div>
   )
 }
