@@ -67,6 +67,7 @@ h1 {
 .sidebar-menu {
   width: 100%;
   z-index: 200;
+  background-color: transparent;
 }
 
 /* nav CSS */

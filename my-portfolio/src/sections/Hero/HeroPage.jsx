@@ -1,5 +1,5 @@
 import React from 'react'
-import { delay, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { HiOutlineDownload } from "react-icons/hi";
 import { 
     FaGithub, 
@@ -11,132 +11,112 @@ import { BsTelegram } from "react-icons/bs";
 import rumar from '../../assets/images/rumar-green-bg.png';
 import './HeroPage.css'
 import { COLORS } from '../../constants/colors';
+import ClickSpark from '../../components/ClickSpark/ClickSpark';
 
 const HeroPage = ({ heroRef, darkMode }) => {
 
   return (
-    <div className='content-hero-section' ref={heroRef}>
-      <div className='container d-flex align-items-center row' id='content-hero-section' style={{ height: '90%', backgroundColor: 'transparent' }}>
+    <ClickSpark
+      sparkColor={ darkMode ? COLORS.white : COLORS.dark }
+      sparkSize={10}
+      sparkRadius={15}
+      sparkCount={8}
+      duration={400}
+    >
+      <div className='content-hero-section' ref={heroRef}>
         <div 
-          className='left-side-hero col-md-7'
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            ease: 'easeOut',
-          }}
+          className='container d-flex align-items-center row' 
+          id='content-hero-section' 
+          style={{ height: '90%', backgroundColor: 'transparent' }}
         >
-          <motion.h2 
-            className='fs-3' 
-            style={{ color: !darkMode ? '#171c22' : 'white' }} 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
-          ><b>Hi!</b>, I'm</motion.h2>
-          <h1 
-            className='fs-1'
-            style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}
-          >Rumar Pamparo</h1>
-          <motion.p 
-            style={{ color: !darkMode ? '#171c22' : 'white' }} 
-            className='fs-6'
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
-          >A fresh graduate and <b>Fullstack Web Developer</b> based in the Philippines. I have a passion for building web applications, freelancing, and solving complex problems as I grow in my career.</motion.p>
-          
-          <button 
-            style={{ 
-              color: darkMode ? '#171c22' : 'white', 
-              backgroundColor: darkMode ? COLORS.green : COLORS.darkGreen 
+          <div 
+            className='left-side-hero col-md-7 col-sm-12'
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              ease: 'easeOut',
             }}
           >
-            <motion.div
-              initial={{ y: -5 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
-              style={{ display: "inline-block" }}
-            >
-              <HiOutlineDownload size={15} />
-            </motion.div>
-            {" "}Download CV
-          </button>
-          
-          <div className='d-flex gap-2 mt-5'>
-            <motion.div
-              initial={{ rotate: 120 }}
-              whileInView={{ 
-                type: "spring",
-                stiffness: 200,
-                rotate: 0,
-                transition: {
-                  delay: 0.2,
-                  duration: 1,
-                  ease: "easeInOut",
-                  type: "spring",
-                  stiffness: 200,
-                }
-               }}
-              whileHover={{
-                opacity: 0.5,
-                rotate: 120,
-              }}
-              whileTap={{
-                opacity: 0.5,
-                rotate: 120,
-              }}
-              transition={{
-                duration: 1,
-                ease: "easeInOut",
-                type: "spring",
-                stiffness: 200,
-              }} 
-              onClick={() => window.location.href = 'https://github.com/CODEX-17'}
-            >
-              <FaGithub color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'}/>
-            </motion.div>
+            <motion.h2 
+              className='fs-3' 
+              style={{ color: !darkMode ? '#171c22' : 'white' }} 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+            ><b>Hi!</b>, I'm</motion.h2>
+            <h1 
+              className='fs-1'
+              style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}
+            >Rumar Pamparo</h1>
+
+            <motion.p 
+              style={{ color: !darkMode ? '#171c22' : 'white' }} 
+              className='fs-6'
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+            >A fresh graduate and <b>Fullstack Web Developer</b> based in the Philippines. I have a passion for building web applications, freelancing, and solving complex problems as I grow in my career.</motion.p>
             
-            <motion.div
-             initial={{ rotate: 120 }}
-             whileInView={{
-               type: "spring",
-               stiffness: 200,
-               rotate: 0,
-               transition: {
-                delay: 0.4,
-                duration: 1,
-                ease: "easeInOut",
-                type: "spring",
-                stiffness: 200,
-              }
-             }}
-             whileHover={{
-               opacity: 0.2,
-               rotate: 120,
-             }}
-             whileTap={{
-               opacity: 0.5,
-               rotate: 120,
-             }}
-             transition={{
-               duration: 1,
-               ease: "easeInOut",
-               type: "spring",
-               stiffness: 200,
-             }} 
-             onClick={() => window.location.href = 'https://www.facebook.com/rumar.pamparo'}
+            <button 
+              style={{ 
+                color: darkMode ? '#171c22' : 'white', 
+                backgroundColor: darkMode ? COLORS.green : COLORS.darkGreen 
+              }}
             >
-              <FaFacebook color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
-            </motion.div>
-
-            <motion.div
+              <motion.div
+                initial={{ y: -5 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
+                style={{ display: "inline-block" }}
+              >
+                <HiOutlineDownload size={15} />
+              </motion.div>
+              {" "}Download CV
+            </button>
+            
+            <div className='d-flex gap-2 mt-5'>
+              <motion.div
+                initial={{ rotate: 120 }}
+                whileInView={{ 
+                  type: "spring",
+                  stiffness: 200,
+                  rotate: 0,
+                  transition: {
+                    delay: 0.2,
+                    duration: 1,
+                    ease: "easeInOut",
+                    type: "spring",
+                    stiffness: 200,
+                  }
+                }}
+                whileHover={{
+                  opacity: 0.5,
+                  rotate: 120,
+                }}
+                whileTap={{
+                  opacity: 0.5,
+                  rotate: 120,
+                }}
+                transition={{
+                  duration: 1,
+                  ease: "easeInOut",
+                  type: "spring",
+                  stiffness: 200,
+                }} 
+                onClick={() => window.location.href = 'https://github.com/CODEX-17'}
+              >
+                <FaGithub color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'}/>
+              </motion.div>
+              
+              <motion.div
               initial={{ rotate: 120 }}
               whileInView={{
                 type: "spring",
                 stiffness: 200,
                 rotate: 0,
                 transition: {
-                  delay: 0.6,
+                  delay: 0.4,
                   duration: 1,
                   ease: "easeInOut",
                   type: "spring",
@@ -144,7 +124,7 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 }
               }}
               whileHover={{
-                opacity: 0.5,
+                opacity: 0.2,
                 rotate: 120,
               }}
               whileTap={{
@@ -157,96 +137,131 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 type: "spring",
                 stiffness: 200,
               }} 
-              onClick={() => window.location.href = 'https://www.linkedin.com/in/rumar-pamparo-7613352b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app&fbclid=IwZXh0bgNhZW0CMTEAAR2gj4Gj5ofRHOjb2eb0RpvqPQs7p_hVh1eNUezI3fZzYW-DgZ34skAFIHw_aem_l79Dba71O87htwEywkKSJA'}
-            >
-              <IoLogoLinkedin color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
-            </motion.div>
+              onClick={() => window.location.href = 'https://www.facebook.com/rumar.pamparo'}
+              >
+                <FaFacebook color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
+              </motion.div>
 
-            <motion.div
-              initial={{ rotate: 120 }}
-              whileInView={{
-                type: "spring",
-                stiffness: 200,
-                rotate: 0,
-                transition: {
-                  delay: 0.8,
+              <motion.div
+                initial={{ rotate: 120 }}
+                whileInView={{
+                  type: "spring",
+                  stiffness: 200,
+                  rotate: 0,
+                  transition: {
+                    delay: 0.6,
+                    duration: 1,
+                    ease: "easeInOut",
+                    type: "spring",
+                    stiffness: 200,
+                  }
+                }}
+                whileHover={{
+                  opacity: 0.5,
+                  rotate: 120,
+                }}
+                whileTap={{
+                  opacity: 0.5,
+                  rotate: 120,
+                }}
+                transition={{
                   duration: 1,
                   ease: "easeInOut",
                   type: "spring",
                   stiffness: 200,
-                }
-              }}
-              whileHover={{
-                opacity: 0.5,
-                rotate: 120,
-              }}
-              whileTap={{
-                opacity: 0.5,
-                rotate: 120,
-              }}
-              onClick={() => window.location.href = 'https://www.instagram.com/pamparorumar/'}
-            >
-              <FaSquareInstagram color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
-            </motion.div>
+                }} 
+                onClick={() => window.location.href = 'https://www.linkedin.com/in/rumar-pamparo-7613352b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app&fbclid=IwZXh0bgNhZW0CMTEAAR2gj4Gj5ofRHOjb2eb0RpvqPQs7p_hVh1eNUezI3fZzYW-DgZ34skAFIHw_aem_l79Dba71O87htwEywkKSJA'}
+              >
+                <IoLogoLinkedin color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
+              </motion.div>
 
-            <motion.div
-              initial={{ rotate: 120 }}
-              whileInView={{
-                type: "spring",
-                stiffness: 200,
-                rotate: 0,
-                transition: {
-                  delay: 1,
+              <motion.div
+                initial={{ rotate: 120 }}
+                whileInView={{
+                  type: "spring",
+                  stiffness: 200,
+                  rotate: 0,
+                  transition: {
+                    delay: 0.8,
+                    duration: 1,
+                    ease: "easeInOut",
+                    type: "spring",
+                    stiffness: 200,
+                  }
+                }}
+                whileHover={{
+                  opacity: 0.5,
+                  rotate: 120,
+                }}
+                whileTap={{
+                  opacity: 0.5,
+                  rotate: 120,
+                }}
+                onClick={() => window.location.href = 'https://www.instagram.com/pamparorumar/'}
+              >
+                <FaSquareInstagram color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
+              </motion.div>
+
+              <motion.div
+                initial={{ rotate: 120 }}
+                whileInView={{
+                  type: "spring",
+                  stiffness: 200,
+                  rotate: 0,
+                  transition: {
+                    delay: 1,
+                    duration: 1,
+                    ease: "easeInOut",
+                    type: "spring",
+                    stiffness: 200,
+                  }
+                }}
+                whileHover={{
+                  opacity: 0.5,
+                  rotate: 120,
+                }}
+                whileTap={{
+                  opacity: 0.5,
+                  rotate: 120,
+                }}
+                transition={{
                   duration: 1,
                   ease: "easeInOut",
                   type: "spring",
                   stiffness: 200,
-                }
-              }}
-              whileHover={{
-                opacity: 0.5,
-                rotate: 120,
-              }}
-              whileTap={{
-                opacity: 0.5,
-                rotate: 120,
-              }}
+                }} 
+                onClick={() => window.location.href = 'https://t.me/C_0_D_3_X'}
+              >
+
+                <BsTelegram color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
+              </motion.div>
+            </div>
+          </div>
+          <div className='right-side-hero col-md-5 col-sm-12 '>
+
+            <motion.img
+              src={rumar}
+              alt="Rumar Pamparo" 
+              className="profile-img"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.1 }}
               transition={{
-                duration: 1,
-                ease: "easeInOut",
-                type: "spring",
-                stiffness: 200,
-              }} 
-              onClick={() => window.location.href = 'https://t.me/C_0_D_3_X'}
-            >
-
-              <BsTelegram color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
-            </motion.div>
+                duration: 0.3,
+                ease: [0, 0.71, 0.2, 1.01],
+                scale: {
+                  type: "spring",
+                  damping: 5,
+                  stiffness: 100,
+                  restDelta: 0.001
+                }
+              }}
+            />
           </div>
         </div>
-        <div className='right-side-hero col-md-5 '>
-          <motion.img
-            src={rumar}
-            alt="Rumar Pamparo" 
-            className="profile-img"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{
-              duration: 0.3,
-              ease: [0, 0.71, 0.2, 1.01],
-              scale: {
-                type: "spring",
-                damping: 5,
-                stiffness: 100,
-                restDelta: 0.001
-              }
-            }}
-          />
-        </div>
       </div>
-    </div>
+    </ClickSpark>
   )
 }
 

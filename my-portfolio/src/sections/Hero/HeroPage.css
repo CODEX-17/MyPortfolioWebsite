@@ -19,6 +19,8 @@
     justify-content: flex-start;
 }
 
+
+
 .left-side-hero button {
     font-family: bold;
     width: 200px;
@@ -70,6 +72,12 @@
 }
   
   /* HERO PAGE CSS */
+
+@media (max-width: 1024px) {
+    .right-side-hero img {
+        height: 450px;
+    }
+}
 
 @media (max-width: 768px) {
 

@@ -7,6 +7,7 @@ import { COLORS } from '../../constants/colors';
 import { SiCssdesignawards } from "react-icons/si";
 import { HiSpeakerphone } from "react-icons/hi";
 import { FaLaptopCode } from "react-icons/fa";
+import TiltedCard from '../../components/TiltedCard/TiltedCard';
 
 const About = ({ aboutRef, darkMode }) => {
   return (
@@ -34,7 +35,20 @@ const About = ({ aboutRef, darkMode }) => {
             transition={{ delay: 0.5, type: "spring", stiffness: 200, duration: 1 }}
             className='content-about-section-container col-lg-4 col-md-6 col-12'
         >
-            <img src={!darkMode ? logoDefault : logoWhite} alt="logo"/>
+            <TiltedCard
+                imageSrc={!darkMode ? logoDefault : logoWhite}
+                altText="Rumar Pamparo Logo"
+                captionText="RP(Rumar Pamparo) Logo"
+                containerHeight="300px"
+                containerWidth="300px"
+                imageHeight="300px"
+                imageWidth="300px"
+                rotateAmplitude={12}
+                scaleOnHover={1.2}
+                showMobileWarning={false}
+                showTooltip={true}
+                displayOverlayContent={true}
+            />
         </motion.div>
 
         <motion.div
