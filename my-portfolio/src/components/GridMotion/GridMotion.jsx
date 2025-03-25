@@ -70,7 +70,7 @@ const GridMotion = ({ items = [], gradientColor = "black" }) => {
           {[...Array(4)].map((_, rowIndex) => (
             <div
               key={rowIndex}
-              className="row"
+              className="rows"
               ref={(el) => (rowRefs.current[rowIndex] = el)} // Set each row's ref
             >
               {[...Array(7)].map((_, itemIndex) => {
