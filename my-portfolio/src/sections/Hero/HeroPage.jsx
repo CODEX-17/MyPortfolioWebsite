@@ -12,8 +12,11 @@ import rumar from '../../assets/images/rumar-green-bg.png';
 import './HeroPage.css'
 import { COLORS } from '../../constants/colors';
 import ClickSpark from '../../components/ClickSpark/ClickSpark';
+import { useNavigate } from 'react-router-dom';
 
 const HeroPage = ({ heroRef, darkMode }) => {
+
+  const navigate = useNavigate()
 
   return (
     <ClickSpark
@@ -63,6 +66,7 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 color: darkMode ? '#171c22' : 'white', 
                 backgroundColor: darkMode ? COLORS.green : COLORS.darkGreen 
               }}
+              onClick={() => window.open('/assets/resume/resume.pdf', '_blank')}
             >
               <motion.div
                 initial={{ y: -5 }}
