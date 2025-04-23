@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { motion } from 'framer-motion';
 import { HiOutlineDownload } from "react-icons/hi";
 import { 
@@ -8,19 +8,23 @@ import {
 import { IoLogoLinkedin } from "react-icons/io5";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { BsTelegram } from "react-icons/bs";
-import rumar from '../../assets/images/rumar-green-bg.png';
 import './HeroPage.css'
 import { COLORS } from '../../constants/colors';
 import ClickSpark from '../../components/ClickSpark/ClickSpark';
 import { useNavigate } from 'react-router-dom';
+import { ThemeContext } from '../../../context/ThemeContext';
+import { images } from '../../assets/imagePath';
 
-const HeroPage = ({ heroRef, darkMode }) => {
+const HeroPage = ({ heroRef }) => {
 
   const navigate = useNavigate()
+  
+  const { theme, handleTheme } = useContext(ThemeContext)
+  const themeColors = theme === 'dark' ? COLORS.dark : COLORS.light
 
   return (
     <ClickSpark
-      sparkColor={ darkMode ? COLORS.white : COLORS.dark }
+      sparkColor={ themeColors.background }
       sparkSize={10}
       sparkRadius={15}
       sparkCount={8}
@@ -32,7 +36,7 @@ const HeroPage = ({ heroRef, darkMode }) => {
           id='content-hero-section' 
           style={{ height: '90%', backgroundColor: 'transparent' }}
         >
-          <div 
+          <motion.div 
             className='left-side-hero col-md-7 col-sm-12'
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -43,18 +47,18 @@ const HeroPage = ({ heroRef, darkMode }) => {
           >
             <motion.h2 
               className='fs-3' 
-              style={{ color: !darkMode ? '#171c22' : 'white' }} 
+              style={{ color: themeColors.text }} 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
             ><b>Hi!</b>, I'm</motion.h2>
             <h1 
               className='fs-1'
-              style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}
+              style={{ color: themeColors.green }}
             >Rumar Pamparo</h1>
 
             <motion.p 
-              style={{ color: !darkMode ? '#171c22' : 'white' }} 
+              style={{ color: themeColors.text }} 
               className='fs-6'
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -63,8 +67,8 @@ const HeroPage = ({ heroRef, darkMode }) => {
             
             <button 
               style={{ 
-                color: darkMode ? '#171c22' : 'white', 
-                backgroundColor: darkMode ? COLORS.green : COLORS.darkGreen 
+                color: themeColors.background,
+                backgroundColor: themeColors.green 
               }}
               onClick={() => window.open('/assets/resume/resume.pdf', '_blank')}
             >
@@ -84,7 +88,6 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 initial={{ rotate: 120 }}
                 whileInView={{ 
                   type: "spring",
-                  stiffness: 200,
                   rotate: 0,
                   transition: {
                     delay: 0.2,
@@ -110,14 +113,13 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 }} 
                 onClick={() => window.location.href = 'https://github.com/CODEX-17'}
               >
-                <FaGithub color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'}/>
+                <FaGithub color={themeColors.icon} size={25} cursor={'pointer'}/>
               </motion.div>
               
               <motion.div
               initial={{ rotate: 120 }}
               whileInView={{
                 type: "spring",
-                stiffness: 200,
                 rotate: 0,
                 transition: {
                   delay: 0.4,
@@ -143,14 +145,13 @@ const HeroPage = ({ heroRef, darkMode }) => {
               }} 
               onClick={() => window.location.href = 'https://www.facebook.com/rumar.pamparo'}
               >
-                <FaFacebook color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
+                <FaFacebook color={themeColors.icon} size={25} cursor={'pointer'} />
               </motion.div>
 
               <motion.div
                 initial={{ rotate: 120 }}
                 whileInView={{
                   type: "spring",
-                  stiffness: 200,
                   rotate: 0,
                   transition: {
                     delay: 0.6,
@@ -176,14 +177,13 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 }} 
                 onClick={() => window.location.href = 'https://www.linkedin.com/in/rumar-pamparo-7613352b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app&fbclid=IwZXh0bgNhZW0CMTEAAR2gj4Gj5ofRHOjb2eb0RpvqPQs7p_hVh1eNUezI3fZzYW-DgZ34skAFIHw_aem_l79Dba71O87htwEywkKSJA'}
               >
-                <IoLogoLinkedin color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
+                <IoLogoLinkedin color={themeColors.icon} size={25} cursor={'pointer'} />
               </motion.div>
 
               <motion.div
                 initial={{ rotate: 120 }}
                 whileInView={{
                   type: "spring",
-                  stiffness: 200,
                   rotate: 0,
                   transition: {
                     delay: 0.8,
@@ -203,14 +203,13 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 }}
                 onClick={() => window.location.href = 'https://www.instagram.com/pamparorumar/'}
               >
-                <FaSquareInstagram color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
+                <FaSquareInstagram color={themeColors.icon} size={25} cursor={'pointer'} />
               </motion.div>
 
               <motion.div
                 initial={{ rotate: 120 }}
                 whileInView={{
                   type: "spring",
-                  stiffness: 200,
                   rotate: 0,
                   transition: {
                     delay: 1,
@@ -237,14 +236,14 @@ const HeroPage = ({ heroRef, darkMode }) => {
                 onClick={() => window.location.href = 'https://t.me/C_0_D_3_X'}
               >
 
-                <BsTelegram color={!darkMode ? '#171c22' : 'white'} size={25} cursor={'pointer'} />
+                <BsTelegram color={themeColors.icon} size={25} cursor={'pointer'} />
               </motion.div>
             </div>
-          </div>
+          </motion.div>
           <div className='right-side-hero col-md-5 col-sm-12 '>
 
             <motion.img
-              src={rumar}
+              src={images.rumarPicture}
               alt="Rumar Pamparo" 
               className="profile-img"
               initial={{ opacity: 0, scale: 0.5 }}

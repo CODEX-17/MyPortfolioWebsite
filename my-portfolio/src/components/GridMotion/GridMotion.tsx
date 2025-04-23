@@ -1,10 +1,13 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import "./GridMotion.css";
+import React from "react";
 
-const GridMotion = ({ items = [], gradientColor = "black" }) => {
+const GridMotion = ({ items }: { items: (string | JSX.Element)[] }) => {
+
+  const gradientColor = "black"
   const gridRef = useRef(null);
-  const rowRefs = useRef([]); // Array of refs for each row
+  const rowRefs = useRef<(HTMLDivElement | null)[]>([]); // Array of refs for each row
   const mouseXRef = useRef(window.innerWidth / 2);
 
   // Ensure the grid has 28 items (4 rows x 7 columns) by default

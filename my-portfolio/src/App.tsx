@@ -2,7 +2,6 @@ import { useRef, useState, useEffect, useContext } from 'react';
 import ClickSpark from './components/ClickSpark/ClickSpark';
 import './App.css';
 import { motion } from 'framer-motion';
-
 import Sidebar from './components/Sidebar';
 import { useInView } from "react-intersection-observer";
 import { ThemeContext } from '../context/ThemeContext';
@@ -15,7 +14,7 @@ import Footer from './sections/Footer/Footer';
 import { COLORS } from './constants/colors';
 import React from 'react';
 import NavigationBar from './components/NavigationBar/NavigationBar';
-import { NavigationTypes } from './types/navigation-types';
+import { NavigationTypes } from './types/types';
 
 
 
@@ -96,7 +95,6 @@ function App() {
           <div className="sidebar-menu">
             <Sidebar 
               setIsShowSideBar={setIsShowSideBar} 
-              darkMode={darkMode}
               scrollToSection={scrollToSection}
               sectionHeroRef={sectionHeroRef}
               sectionAboutRef={sectionAboutRef}
@@ -135,10 +133,7 @@ function App() {
             transition={{ duration: 0.5, ease: 'easeInOut' }}
             
           >
-            <HeroPage
-              heroRef={heroRef}
-              darkMode={darkMode}
-            />
+            <HeroPage heroRef={heroRef}/>
           </motion.section>
 
           <motion.section 
@@ -155,10 +150,7 @@ function App() {
               transition: { duration: 1 }
             }}
           >
-            <About
-              aboutRef={aboutRef}
-              darkMode={darkMode}
-            />
+            <About aboutRef={aboutRef}/>
               
           </motion.section>
 
@@ -172,7 +164,6 @@ function App() {
           >
             <Projects 
               projectsRef={projectsRef} 
-              darkMode={darkMode}
             />
           </motion.section>
 
@@ -182,9 +173,7 @@ function App() {
             animate={{ backgroundColor: themeColors.background }}
             transition={{ duration: 0.5, ease: 'easeInOut' }} 
           >
-            <Tech
-              darkMode={darkMode}
-            />
+            <Tech/>
           </motion.section>
 
           <motion.section 
@@ -194,18 +183,14 @@ function App() {
             animate={{ backgroundColor: themeColors.background }}
             transition={{ duration: 0.5, ease: 'easeInOut' }} 
           >
-            <Contact
-              contactRef={contactRef}
-              darkMode={darkMode}
-            />
+            <Contact contactRef={contactRef} />
           </motion.section>
 
           <footer 
             className='footer' 
-            style={{ backgroundColor: darkMode ? COLORS.green : COLORS.dark.backgoundGreen }}
+            style={{ backgroundColor: themeColors.green }}
           >
             <Footer
-              darkMode={darkMode}
               scrollToSection={scrollToSection}
               sectionHeroRef={sectionHeroRef}
               sectionAboutRef={sectionAboutRef}

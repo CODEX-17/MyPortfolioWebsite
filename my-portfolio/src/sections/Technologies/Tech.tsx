@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Tech.css'
 import reactIcon from '../../assets/images/react-icon.png'
 import PHPIcon from '../../assets/images/php-icons.png'
@@ -17,8 +17,12 @@ import CanvaIcons from '../../assets/images/canva-icons.png'
 import IonicIcon from '../../assets/images/ionic-icons.png'
 import GitIcon from '../../assets/images/git-icons.png'
 import { COLORS } from '../../constants/colors'
+import { ThemeContext } from '../../../context/ThemeContext'
 
-const Tech = ({ darkMode }) => {
+const Tech = () => {
+
+  const { theme, handleTheme } = useContext(ThemeContext)
+  const themeColors = theme === 'dark' ? COLORS.dark : COLORS.light
 
   const techList = [
     {
@@ -108,7 +112,7 @@ const Tech = ({ darkMode }) => {
         <div className='head-tech-section'>
             <h1 
               className='title' 
-              style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}
+              style={{ color: themeColors.green }}
             >Technologies I use.</h1>
         </div>
         <div className='body-tech-section row'>
@@ -127,7 +131,7 @@ const Tech = ({ darkMode }) => {
         <div className='text-center mt-2'>
           <h1 
             className='title fs-5'
-            style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}
+            style={{ color: themeColors.green }}
           >...and many others!</h1>
         </div>
         </div>

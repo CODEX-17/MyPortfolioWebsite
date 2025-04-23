@@ -52,7 +52,7 @@
   left: 0;
   right: 0;
   height: 50px;
-  background: linear-gradient(to bottom, #171c22, transparent);
+  background: linear-gradient(to bottom, #060606, transparent);
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
@@ -63,7 +63,7 @@
   left: 0;
   right: 0;
   height: 100px;
-  background: linear-gradient(to top, #171c22, transparent);
+  background: linear-gradient(to top, #060606, transparent);
   pointer-events: none;
   transition: opacity 0.3s ease;
 }

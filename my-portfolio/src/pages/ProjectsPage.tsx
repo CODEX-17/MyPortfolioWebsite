@@ -60,19 +60,19 @@ const ProjectsPage = () => {
   const menuItems = [
     {
       title: 'All',
-      icon: <MdOutlinePhonelink color={ themeColors.background } size={20}/>
+      icon: <MdOutlinePhonelink color={ themeColors.icon } size={20}/>
     },
     {
       title: 'Website',
-      icon: <MdComputer color={ themeColors.background } size={20}/>
+      icon: <MdComputer color={ themeColors.icon } size={20}/>
     },
     {
       title: 'Mobile',
-      icon: <MdPhoneAndroid color={ themeColors.background } size={20}/>
+      icon: <MdPhoneAndroid color={ themeColors.icon } size={20}/>
     },
     {
       title: 'Digital Artwork',
-      icon: <MdOutlineDesignServices color={ themeColors.background } size={20}/>
+      icon: <MdOutlineDesignServices color={ themeColors.icon } size={20}/>
     },
   ]
 
@@ -100,12 +100,12 @@ const ProjectsPage = () => {
         <div className="header">
           <div className="d-flex w-100 align-items-center justify-content-between">
             <GoHomeFill 
-              color={ themeColors.background } 
+              color={ themeColors.icon } 
               size={25}
               cursor={'pointer'}
               onClick={() => navigate('/')}
             />
-            <h3 style={{ color: themeColors.background }}>My Projects</h3>
+            <h3 style={{ color: themeColors.text }}>My Projects</h3>
             <motion.button
                 initial={{
                   opacity: 0,
@@ -160,7 +160,7 @@ const ProjectsPage = () => {
                       className={selected === item.title ? "active" : ""}
                       style={{ color: 
                         selected === item.title ? 
-                          (themeColors.background) : (
+                          (themeColors.text) : (
                             'gray'
                           )}}
                     >{item.title}</p>
@@ -183,20 +183,20 @@ const ProjectsPage = () => {
 
         <div className='projects-card-list'>
 
-          <div className="card" style={{ backgroundColor: '#1E2939'}}>
+          <div className="card" style={{ backgroundColor: themeColors.card }}>
             <div className="image-container">
               <img src="" alt="" />
             </div>
             
-            <h4 style={{ color: '#fff' }}>E-SchoolApp</h4>
+            <h4 style={{ color: themeColors.text }}>E-SchoolApp</h4>
           </div>
 
-          <div className="card" style={{ backgroundColor: '#2A3B50'}}>
+          <div className="card" style={{ backgroundColor: themeColors.cardActived}}>
             <div className="image-container">
               <img src="" alt="" />
             </div>
             
-            <h4 style={{ color: '#fff' }}>E-SchoolApp</h4>
+            <h4 style={{ color: themeColors.text }}>E-SchoolApp</h4>
           </div>
 
           <div className="card">

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Projects.css'
 import { FaReact } from "react-icons/fa";
 import { color, motion } from 'framer-motion'
@@ -10,10 +10,13 @@ import { useNavigate } from 'react-router-dom';
 import eSchoolLoginPic from '../../assets/images/e-schoolApp-thumbnail.jpg'
 import scholarshipPic from '../../assets/images/scholarship-thumbnail.jpg'
 import NFRDIPic from '../../assets/images/nfrdi-thumbnail.jpg'
+import { ThemeContext } from '../../../context/ThemeContext';
 
 
-const Projects = ({ projectsRef, darkMode }) => {
+const Projects = ({ projectsRef }) => {
 
+  const { theme, handleTheme } = useContext(ThemeContext)
+  const themeColors = theme === 'dark' ? COLORS.dark : COLORS.light
   const navigate = useNavigate()
 
   return (
@@ -21,9 +24,9 @@ const Projects = ({ projectsRef, darkMode }) => {
         <div className='head-project-page'>
             <h1 
                 className='title' 
-                style={{ color: darkMode ? COLORS.green : COLORS.darkGreen }}
+                style={{ color: themeColors.green }}
             >My Projects.</h1>
-            <p className="fs-6" style={{ color: darkMode ? COLORS.white : COLORS.dark }}>Highlights Projects</p>
+            <p className="fs-6" style={{ color: themeColors.background }}>Highlights Projects</p>
         </div>
         <div className='body-project-page'>
             <div className='projects-card-list position-relative'>
@@ -41,7 +44,7 @@ const Projects = ({ projectsRef, darkMode }) => {
                     <div 
                         className='image-container'
                     >
-                        <img 
+                        <motion.img 
                             initial={{ opacity: 1, zIndex: 4 }}
                             whileHover={{ opacity: 0.5, zIndex: 0 }}
                             src={eSchoolLoginPic} 
@@ -195,7 +198,7 @@ const Projects = ({ projectsRef, darkMode }) => {
             <motion.div 
                 initial={{ x: -100 }}
                 whileInView={{ x: 0 }}
-                style={{ color: darkMode ? COLORS.white : COLORS.dark }}
+                style={{ color: themeColors.text }}
                 transition={{ type: "spring", duration: 0.5, stiffness: 200 }}
                 className='mt-4 w-100 d-flex align-items-center justify-content-center'
             >
@@ -209,13 +212,13 @@ const Projects = ({ projectsRef, darkMode }) => {
                     See more projects
                     
                 </motion.p>
-                <GrLinkNext style={{ color: darkMode ? COLORS.white : COLORS.dark, zIndex:200 }}/>
+                <GrLinkNext style={{ color: themeColors.text, zIndex:200 }}/>
             </motion.div>
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className={`${ darkMode ? "bottom-gradient-dark" : "bottom-gradient-light"}`}
+                className={`${ theme === 'dark' ? "bottom-gradient-dark" : "bottom-gradient-light"}`}
        
             ></motion.div>
         </div>
