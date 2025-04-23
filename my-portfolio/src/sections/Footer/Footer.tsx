@@ -4,6 +4,7 @@ import { COLORS } from '../../constants/colors'
 import { MdOutlineCopyright } from "react-icons/md";
 import { FaCode } from "react-icons/fa";
 import { motion } from 'framer-motion';
+import { images } from '../../assets/imagePath';
 
 const Footer = ({ 
     scrollToSection,
@@ -19,7 +20,7 @@ const Footer = ({
                 className="d-flex flex-column"
                 onClick={() => window.location.href = 'https://github.com/CODEX-17/MyPortfolioWebsite.git'}
             >
-                <img src={'../../assets/images/rp-white.png'} alt="logo" />
+                <img src={images.logoWhite} alt="logo" />
                 <motion.h3 
                     className='fs-6' 
                     style={{ userSelect: 'none', cursor: 'pointer' }}
