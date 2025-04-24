@@ -108,8 +108,8 @@ function App() {
         <motion.nav
           className="nav h-20 px-5"
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0}}
-          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          animate={{ opacity: 1, y: 0, backgroundColor: themeColors.background }}
+          transition={{ duration: 0.5, ease: 'easeInOut', transition: 'opacity 0.3s ease' }}
           style={{ backgroundColor: themeColors.background }}
         >
          <NavigationBar 

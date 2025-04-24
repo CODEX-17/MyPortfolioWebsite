@@ -67,14 +67,14 @@
     justify-content: flex-start;
 }
   
-.right-side-hero img {
+.profile-img{
     height: 600px;
 }
   
   /* HERO PAGE CSS */
 
 @media (max-width: 1024px) {
-    .right-side-hero img {
+    .profile-img {
         height: 450px;
     }
 }
@@ -113,7 +113,7 @@
         order: 1;
     }
 
-    .right-side-hero img{
+    .profile-img {
         height: 350px;
     }
     

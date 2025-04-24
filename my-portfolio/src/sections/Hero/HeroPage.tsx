@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useCallback, useContext, useMemo } from 'react'
 import { motion } from 'framer-motion';
 import { HiOutlineDownload } from "react-icons/hi";
 import { 
@@ -14,13 +14,57 @@ import ClickSpark from '../../components/ClickSpark/ClickSpark';
 import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from '../../../context/ThemeContext';
 import { images } from '../../assets/imagePath';
+import { IconMotion } from './IconMotion/IconMotion';
+
+
 
 const HeroPage = ({ heroRef }) => {
 
-  const navigate = useNavigate()
-  
   const { theme, handleTheme } = useContext(ThemeContext)
-  const themeColors = theme === 'dark' ? COLORS.dark : COLORS.light
+  
+  const themeColors = useMemo(() => {
+    return theme === 'dark' ? COLORS.dark : COLORS.light;
+  }, [theme])
+
+  const iconList = [
+    {
+      icon: <FaGithub color={themeColors.icon} size={25} cursor={'pointer'}/>,
+      link: 'https://github.com/CODEX-17'
+    },
+    {
+      icon: <FaFacebook color={themeColors.icon} size={25} cursor={'pointer'} />,
+      link: 'https://www.facebook.com/rumar.pamparo'
+    },
+    {
+      icon: <IoLogoLinkedin color={themeColors.icon} size={25} cursor={'pointer'} />,
+      link: 'https://www.linkedin.com/in/rumar-pamparo-7613352b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app&fbclid=IwZXh0bgNhZW0CMTEAAR2gj4Gj5ofRHOjb2eb0RpvqPQs7p_hVh1eNUezI3fZzYW-DgZ34skAFIHw_aem_l79Dba71O87htwEywkKSJA'
+    },
+    {
+      icon: <FaSquareInstagram color={themeColors.icon} size={25} cursor={'pointer'} />,
+      link: 'https://www.instagram.com/pamparorumar/'
+    },
+    {
+      icon: <BsTelegram color={themeColors.icon} size={25} cursor={'pointer'} />,
+      link: 'https://t.me/C_0_D_3_X'
+    },
+  ]
+
+  const profileImgMotionProps = useMemo(() => ({
+    initial: { opacity: 0, scale: 0.5 },
+    animate: { opacity: 1, scale: 1 },
+    whileInView: { opacity: 1, scale: 1 },
+    whileHover: { scale: 1.1 },
+    transition: {
+      duration: 0.3,
+      ease: [0, 0.71, 0.2, 1.01],
+      scale: {
+        type: "spring",
+        damping: 5,
+        stiffness: 100,
+        restDelta: 0.001,
+      }
+    }
+  }), []);
 
   return (
     <ClickSpark
@@ -84,160 +128,28 @@ const HeroPage = ({ heroRef }) => {
             </button>
             
             <div className='d-flex gap-2 mt-5'>
-              <motion.div
-                initial={{ rotate: 120 }}
-                whileInView={{ 
-                  type: "spring",
-                  rotate: 0,
-                  transition: {
-                    delay: 0.2,
-                    duration: 1,
-                    ease: "easeInOut",
-                    type: "spring",
-                    stiffness: 200,
-                  }
-                }}
-                whileHover={{
-                  opacity: 0.5,
-                  rotate: 120,
-                }}
-                whileTap={{
-                  opacity: 0.5,
-                  rotate: 120,
-                }}
-                transition={{
-                  duration: 1,
-                  ease: "easeInOut",
-                  type: "spring",
-                  stiffness: 200,
-                }} 
-                onClick={() => window.location.href = 'https://github.com/CODEX-17'}
-              >
-                <FaGithub color={themeColors.icon} size={25} cursor={'pointer'}/>
-              </motion.div>
+
+              {
+                iconList.map((item, index) => {
+
+                  const delay = parseFloat(`0.${index + 2}`)
               
-              <motion.div
-              initial={{ rotate: 120 }}
-              whileInView={{
-                type: "spring",
-                rotate: 0,
-                transition: {
-                  delay: 0.4,
-                  duration: 1,
-                  ease: "easeInOut",
-                  type: "spring",
-                  stiffness: 200,
+                  return(
+                    <IconMotion
+                      key={index}
+                      delay={delay}
+                      icon={item.icon}
+                      url={item.link}
+                      color={themeColors.icon}
+                    />
+                  )
                 }
-              }}
-              whileHover={{
-                opacity: 0.2,
-                rotate: 120,
-              }}
-              whileTap={{
-                opacity: 0.5,
-                rotate: 120,
-              }}
-              transition={{
-                duration: 1,
-                ease: "easeInOut",
-                type: "spring",
-                stiffness: 200,
-              }} 
-              onClick={() => window.location.href = 'https://www.facebook.com/rumar.pamparo'}
-              >
-                <FaFacebook color={themeColors.icon} size={25} cursor={'pointer'} />
-              </motion.div>
+                  
+                )
+              }
 
-              <motion.div
-                initial={{ rotate: 120 }}
-                whileInView={{
-                  type: "spring",
-                  rotate: 0,
-                  transition: {
-                    delay: 0.6,
-                    duration: 1,
-                    ease: "easeInOut",
-                    type: "spring",
-                    stiffness: 200,
-                  }
-                }}
-                whileHover={{
-                  opacity: 0.5,
-                  rotate: 120,
-                }}
-                whileTap={{
-                  opacity: 0.5,
-                  rotate: 120,
-                }}
-                transition={{
-                  duration: 1,
-                  ease: "easeInOut",
-                  type: "spring",
-                  stiffness: 200,
-                }} 
-                onClick={() => window.location.href = 'https://www.linkedin.com/in/rumar-pamparo-7613352b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app&fbclid=IwZXh0bgNhZW0CMTEAAR2gj4Gj5ofRHOjb2eb0RpvqPQs7p_hVh1eNUezI3fZzYW-DgZ34skAFIHw_aem_l79Dba71O87htwEywkKSJA'}
-              >
-                <IoLogoLinkedin color={themeColors.icon} size={25} cursor={'pointer'} />
-              </motion.div>
-
-              <motion.div
-                initial={{ rotate: 120 }}
-                whileInView={{
-                  type: "spring",
-                  rotate: 0,
-                  transition: {
-                    delay: 0.8,
-                    duration: 1,
-                    ease: "easeInOut",
-                    type: "spring",
-                    stiffness: 200,
-                  }
-                }}
-                whileHover={{
-                  opacity: 0.5,
-                  rotate: 120,
-                }}
-                whileTap={{
-                  opacity: 0.5,
-                  rotate: 120,
-                }}
-                onClick={() => window.location.href = 'https://www.instagram.com/pamparorumar/'}
-              >
-                <FaSquareInstagram color={themeColors.icon} size={25} cursor={'pointer'} />
-              </motion.div>
-
-              <motion.div
-                initial={{ rotate: 120 }}
-                whileInView={{
-                  type: "spring",
-                  rotate: 0,
-                  transition: {
-                    delay: 1,
-                    duration: 1,
-                    ease: "easeInOut",
-                    type: "spring",
-                    stiffness: 200,
-                  }
-                }}
-                whileHover={{
-                  opacity: 0.5,
-                  rotate: 120,
-                }}
-                whileTap={{
-                  opacity: 0.5,
-                  rotate: 120,
-                }}
-                transition={{
-                  duration: 1,
-                  ease: "easeInOut",
-                  type: "spring",
-                  stiffness: 200,
-                }} 
-                onClick={() => window.location.href = 'https://t.me/C_0_D_3_X'}
-              >
-
-                <BsTelegram color={themeColors.icon} size={25} cursor={'pointer'} />
-              </motion.div>
+              
+            
             </div>
           </motion.div>
           <div className='right-side-hero col-md-5 col-sm-12 '>
@@ -246,20 +158,7 @@ const HeroPage = ({ heroRef }) => {
               src={images.rumarPicture}
               alt="Rumar Pamparo" 
               className="profile-img"
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              whileHover={{ scale: 1.1 }}
-              transition={{
-                duration: 0.3,
-                ease: [0, 0.71, 0.2, 1.01],
-                scale: {
-                  type: "spring",
-                  damping: 5,
-                  stiffness: 100,
-                  restDelta: 0.001
-                }
-              }}
+              {...profileImgMotionProps}
             />
           </div>
         </div>

@@ -14,6 +14,11 @@ const NavigationBar = ({ currentSection, scrollToSection, setIsShowSideBar }) =>
   const { theme, handleTheme } = useContext(ThemeContext)
   const themeColors = theme === 'dark' ? COLORS.dark : COLORS.light
   const imageIcon = theme === 'dark' ? images.logoWhite : images.logoDefault
+
+  const screenWidth = window.innerWidth
+
+  console.log(screenWidth)
+
   interface ItemsInterface {
     name: string,
     value: NavigationTypes,
@@ -40,9 +45,10 @@ const NavigationBar = ({ currentSection, scrollToSection, setIsShowSideBar }) =>
 
 
   return (
-    <>
+    <div className='nav-content'>
       <motion.img 
         src={imageIcon} 
+        className='logo-img'
         alt="Logo"  
         width={50}
         whileHover={{
@@ -56,32 +62,56 @@ const NavigationBar = ({ currentSection, scrollToSection, setIsShowSideBar }) =>
         style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}
       />
       
-      <div className="logo d-flex align-items-center gap-5">
+      <div className="logo d-flex align-items-center gap-lg-5 gap-md-3">
     
-          {itemList.map((item, index) => {
-              const isActive = item.value === currentSection
-              return(
-                <button 
-                  key={index}
-                  className='navigation-button'
-                  style={{ 
-                    backgroundColor: isActive ? 'rgba(128, 128, 128, 0.100)' : '', border: 'none',
-                    color: themeColors.text,
-                  }}
-                  onClick={() => scrollToSection(item.value)}
-                >{item.name}</button>
-              )
-            }
-          )}
-
-          <button 
-            className='hamburgerIcon' 
-            onClick={() => setIsShowSideBar(true)}
-            
-          >
-            <TiThMenu size={20} color={themeColors.background}/>
-          </button>
-        
+          {
+            screenWidth > 425 ?
+              itemList.map((item, index) => {
+                const isActive = item.value === currentSection
+                return(
+                  <button 
+                    key={index}
+                    className='navigation-button'
+                    style={{ 
+                      backgroundColor: isActive ? 'rgba(128, 128, 128, 0.100)' : '', border: 'none',
+                      color: themeColors.text,
+                    }}
+                    onClick={() => scrollToSection(item.value)}
+                  >{item.name}</button>
+                )
+              }
+            ) :
+            <motion.button
+              initial={{
+                opacity: 0,
+                scale: 0,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                transition: { duration: 0.5 },
+              }}
+              whileHover={{
+                opacity: 0.5,
+                scale: 1,
+              }}
+              whileTap={{
+                opacity: 0.5,
+                scale: 1,
+              }}
+              transition={{
+                duration: 0.5,
+                type: 'spring',
+                stiffness: 300, 
+                damping: 20
+              }}  
+              className='hamburgerIcon' 
+              onClick={() => setIsShowSideBar(true)}
+            >
+              <TiThMenu size={20} color={themeColors.icon}/>
+            </motion.button>
+          }
+          
           <motion.button
               initial={{
                 opacity: 0,
@@ -89,7 +119,7 @@ const NavigationBar = ({ currentSection, scrollToSection, setIsShowSideBar }) =>
               }}
               animate={{
                 opacity: 1,
-                rotate: 300,
+                rotate: 0,
                 transition: { duration: 1 },
               }}
               whileHover={{
@@ -101,8 +131,10 @@ const NavigationBar = ({ currentSection, scrollToSection, setIsShowSideBar }) =>
                 rotate: 120,
               }}
               transition={{
-                duration: 0.3,
-                ease: "easeInOut",
+                duration: 0.5,
+                type: 'spring',
+                stiffness: 300, 
+                damping: 20
               }} 
               style={{ backgroundColor: 'transparent' }}
               onClick={() => handleTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -115,7 +147,7 @@ const NavigationBar = ({ currentSection, scrollToSection, setIsShowSideBar }) =>
           </motion.button>
 
       </div>
-    </>
+    </div>
   )
 }
 

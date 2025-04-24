@@ -73,7 +73,7 @@ const About = ({ aboutRef }) => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
-                style={{ color: theme }}
+                style={{ color: themeColors.green }}
             >What I Do?</motion.h3>
 
             <div className='about-card-list'>
