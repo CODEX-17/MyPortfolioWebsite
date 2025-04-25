@@ -36,8 +36,8 @@
   
   .about-card-list {
     display: flex;
-    flex-direction: column;
     width: 100%;
+    gap: 20px;
     align-items: center;
     justify-content: center;
     
@@ -51,6 +51,7 @@
   
   .content-about-section-container p {
     font-size: .8rem;
+    text-align: center;
   }
   
   .content-about-section-container b {
@@ -60,7 +61,7 @@
   
   .content-about-section p {
     color: white;
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
   
   .content-about-section h3 {
@@ -71,25 +72,29 @@
   
   .about-card {
     width: 80%;
+    min-width: 250px;
     height: auto;
+    min-height: 250px;
     border-radius: 10px;
-    padding: 20px;
+    padding: 10px;
     border: 2px solid var(--green);
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
     cursor: pointer;
+    text-align: center;
   }
   
   .about-card h4 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-family: bold;
     margin: 0;
   }
   
   .about-card p {
-    font-size: 1rem;
+    font-size: .9rem;
   }
 
   @media (max-width: 1440px) {
@@ -97,14 +102,15 @@
     .title {
       font-size: 2rem;
     }
-  
-    .content-about-section-container p {
-      font-size: 1rem;
-    }
-  
+
     .about-card p {
       font-size: 1rem;
     }
+
+    .content-about-section .row {
+      flex-direction: column;
+    }
+  
   }
 
   @media (max-width: 1024px) {
@@ -112,9 +118,16 @@
     .title {
       font-size: 2rem;
     }
-  
-    .content-about-section-container p {
-      font-size: 1rem;
+
+    .content-about-section-head {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+    .content-about-section-head h1 {
+      font-size: 2.5rem;
     }
   
     .content-about-section-container img {
@@ -137,8 +150,7 @@
     }
 
     .content-about-section-head h1{
-        font-size: 1.3rem;
-        margin-bottom: 5%;
+        font-size: 2rem;
       }
     
       .content-about-section-body {
@@ -157,22 +169,20 @@
         width: 40%;
       }
     
-      .content-about-section-container p {
-        text-align: center;
-        font-size: 1rem;
+      .about-card-list {
+        flex-direction: column;
       }
-    
+      
       .about-card {
-        padding: 10px;
+        padding: 20px;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 20px;
-        flex-direction: row;
       }
     
       .about-card p{
-        font-size: .8rem;
-        text-align: start;
+        font-size: 1rem;
+        text-align: center;
       }
   }
   
@@ -180,6 +190,14 @@
   
     .content-about-section-head {
       justify-content: center;
+    }
+
+  }
+
+  @media (max-width: 375px) {
+  
+    .content-about-section-container p{
+      font-size: 1rem;
     }
 
   }

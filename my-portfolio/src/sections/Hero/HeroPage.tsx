@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useMemo } from 'react'
+import React, { memo, useCallback, useContext, useMemo } from 'react'
 import { motion } from 'framer-motion';
 import { HiOutlineDownload } from "react-icons/hi";
 import { 
@@ -64,11 +64,11 @@ const HeroPage = ({ heroRef }) => {
         restDelta: 0.001,
       }
     }
-  }), []);
+  }), [])
 
   return (
     <ClickSpark
-      sparkColor={ themeColors.background }
+      sparkColor={ themeColors.icon }
       sparkSize={10}
       sparkRadius={15}
       sparkCount={8}
@@ -167,5 +167,5 @@ const HeroPage = ({ heroRef }) => {
   )
 }
 
-export default HeroPage
+export default memo(HeroPage)
 
