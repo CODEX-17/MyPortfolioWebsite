@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
     font-family: 'normal';
+    overflow: hidden;
 }
 
 .left-side-hero {
@@ -18,7 +19,6 @@
     align-items: flex-start;
     justify-content: flex-start;
 }
-
 
 
 .left-side-hero button {

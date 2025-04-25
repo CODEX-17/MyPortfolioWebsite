@@ -20,11 +20,10 @@ const Contact = ({ contactRef }) => {
     const message = watch('message', '')
 
     const onSubmit = (e) => {
-    
         const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
         const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
         const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
+    
         emailjs
           .send(
             serviceID,
@@ -38,12 +37,12 @@ const Contact = ({ contactRef }) => {
           )
           .then(() => {
             alert("Message sent successfully!");
-            reset()
+            reset();
           })
           .catch((error) => {
             console.error("Failed to send email:", error);
           });
-    }
+    };
 
   return ( 
     <div className='content-contact-section container' ref={contactRef}>

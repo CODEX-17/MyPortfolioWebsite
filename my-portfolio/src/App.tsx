@@ -120,10 +120,7 @@ function App() {
         </motion.nav>
         
 
-        <div 
-          className='content' 
-        >
-
+        <div className='content'>
           <motion.section 
             className='hero-section' 
             data-section="hero-section"

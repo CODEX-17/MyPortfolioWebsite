@@ -1,19 +1,19 @@
 declare module '*.png' {
-    const value: string;
-    export default value;
-  }
-  
+    const filePath: string;
+    export default filePath;
+}
+
 declare module '*.jpg' {
-    const value: string;
-    export default value;
+    const jpgSrc: string;
+    export default jpgSrc;
 }
 
 declare module '*.jpeg' {
-    const value: string;
-    export default value;
+    const src: string;
+    export default src;
 }
 
 declare module '*.svg' {
-    const value: string;
-    export default value;
+    const src: string;
+    export default src;
 }
