@@ -113,8 +113,9 @@ const About = ({ aboutRef }) => {
                                 key={index}
                                 className='about-card' 
                                 initial={{ opacity: 0, y: 200 }}
-                                whileInView={{ opacity: 1, y: 0, transition: { delay: index > 0 ? index - 0.9 : index } }}
+                                whileInView={{ opacity: 1, y: 0, transition: { delay: parseFloat(`0.${index + 2}`) } }}
                                 whileHover={{ backgroundColor: themeColors.cardActived, borderColor: 'transparent' }}
+                                whileTap= {{ rotate: 10, transition: { type: 'spring', stiffness: 300} }}
                                 style={{ 
                                     color: themeColors.green,
                                     borderColor: themeColors.green,

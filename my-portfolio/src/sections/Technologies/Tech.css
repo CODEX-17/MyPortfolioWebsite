@@ -36,10 +36,6 @@
     transition: background-color 0.5s ease-in-out;
 }
 
-.body-tech-section .card:hover {
-    background-color: rgb(219, 219, 219);
-}
-
 .card img {
     height: 25px;
 }

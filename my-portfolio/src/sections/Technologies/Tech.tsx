@@ -99,6 +99,7 @@ const Tech = () => {
     initial: { rotate: 5 },
     whileInView: { rotate: 0, transition: { delay: parseFloat(`0.${index + 2}`), type: 'spring', stiffness: 300} },
     whileHover: { rotate: 5 },
+    whileTap: { rotate: 5, transition: { type: 'spring', stiffness: 300} },
     transition: { type: 'spring', stiffness: 300 }
   }),[])
 
