@@ -17,6 +17,9 @@ import IonicIcon from '../assets/images/ionic-icons.png'
 import GitIcon from '../assets/images/git-icons.png'
 import TypeScriptIcon from '../assets/svg/typescript-svgrepo-com.svg'
 import GithubIcon from '../assets/svg/github-svgrepo-com.svg'
+import eSchoolLoginPic from '../assets/images/e-schoolApp-thumbnail.jpg'
+import scholarshipPic from '../assets/images/scholarship-thumbnail.jpg'
+import NFRDIPic from '../assets/images/nfrdi-thumbnail.jpg'
 
 export const images = {
     logoDefault,
@@ -38,4 +41,7 @@ export const images = {
     IonicIcon,
     GitIcon,
     TypeScriptIcon,
+    eSchoolLoginPic,
+    scholarshipPic,
+    NFRDIPic,
 }
