@@ -96,10 +96,6 @@ function App() {
             <Sidebar 
               setIsShowSideBar={setIsShowSideBar} 
               scrollToSection={scrollToSection}
-              sectionHeroRef={sectionHeroRef}
-              sectionAboutRef={sectionAboutRef}
-              sectionProjectsRef={sectionProjectsRef}
-              sectionContactRef={sectionContactRef}
             />
           </div>
           
@@ -187,12 +183,7 @@ function App() {
             className='footer' 
             style={{ backgroundColor: themeColors.green }}
           >
-            <Footer
-              scrollToSection={scrollToSection}
-              sectionHeroRef={sectionHeroRef}
-              sectionAboutRef={sectionAboutRef}
-              sectionProjectsRef={sectionProjectsRef}
-            />
+            <Footer scrollToSection={scrollToSection} />
           </footer>
         
         </div>

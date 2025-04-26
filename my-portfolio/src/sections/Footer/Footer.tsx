@@ -6,12 +6,7 @@ import { FaCode } from "react-icons/fa";
 import { motion } from 'framer-motion';
 import { images } from '../../assets/imagePath';
 
-const Footer = ({ 
-    scrollToSection,
-    sectionAboutRef,
-    sectionProjectsRef,
-    sectionHeroRef
- }) => {
+const Footer = ({ scrollToSection }) => {
 
   return (
     <div className='content-footer-section'>
@@ -33,9 +28,9 @@ const Footer = ({
             <div className="d-flex gap-4">
                 <div className="d-flex flex-column">
                     <h1>Important Links</h1>
-                    <p onClick={() => scrollToSection(sectionHeroRef, 'hero-section')}>Home</p>
-                    <p onClick={() => scrollToSection(sectionProjectsRef, 'projects-section')}>Porjects</p>
-                    <p onClick={() => scrollToSection(sectionAboutRef, 'about-section')}>About me</p>
+                    <p onClick={() => scrollToSection('hero-section')}>Home</p>
+                    <p onClick={() => scrollToSection('projects-section')}>Porjects</p>
+                    <p onClick={() => scrollToSection('about-section')}>About me</p>
                 </div>
                 <div className="d-flex flex-column">
                     <h1>Social</h1>
