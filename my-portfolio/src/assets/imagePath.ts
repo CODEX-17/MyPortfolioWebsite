@@ -1,6 +1,6 @@
 import logoDefault from '../assets/images/rp.png';
 import logoWhite from '../assets/images/rp-white.png'
-import rumarPicture from './images/rumar-green-bg.png'
+import rumarPicture from './images/rumar-green-bg.webp'
 import reactIcon from '../assets/images/react-icon.png'
 import PHPIcon from '../assets/images/php-icons.png'
 import JSIcon from '../assets/images/javascript-icons.png'
