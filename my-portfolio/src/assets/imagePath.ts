@@ -17,9 +17,10 @@ import IonicIcon from '../assets/images/ionic-icons.png'
 import GitIcon from '../assets/images/git-icons.png'
 import TypeScriptIcon from '../assets/svg/typescript-svgrepo-com.svg'
 import GithubIcon from '../assets/svg/github-svgrepo-com.svg'
-import eSchoolLoginPic from '../assets/images/e-schoolApp-thumbnail.jpg'
-import scholarshipPic from '../assets/images/scholarship-thumbnail.jpg'
-import NFRDIPic from '../assets/images/nfrdi-thumbnail.jpg'
+import eSchoolLoginPic from '../assets/images/e-schoolApp-thumbnail.webp'
+import scholarshipPic from '../assets/images/scholarship-thumbnail.webp'
+import NFRDIPic from '../assets/images/nfrdi-thumbnail.webp'
+import eSchoolAppLogo from './images/e-school-app-logo.webp'
 
 export const images = {
     logoDefault,
@@ -44,4 +45,5 @@ export const images = {
     eSchoolLoginPic,
     scholarshipPic,
     NFRDIPic,
+    eSchoolAppLogo,
 }

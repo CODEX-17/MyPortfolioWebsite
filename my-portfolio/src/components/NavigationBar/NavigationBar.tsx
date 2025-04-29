@@ -17,7 +17,6 @@ const NavigationBar = ({ currentSection, scrollToSection, setIsShowSideBar }) =>
 
   const screenWidth = window.innerWidth
 
-  console.log(screenWidth)
 
   interface ItemsInterface {
     name: string,
@@ -43,7 +42,6 @@ const NavigationBar = ({ currentSection, scrollToSection, setIsShowSideBar }) =>
     },
   ]
 
-
   return (
     <div className='nav-content'>
       <motion.img 
@@ -62,7 +60,7 @@ const NavigationBar = ({ currentSection, scrollToSection, setIsShowSideBar }) =>
         style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}
       />
       
-      <div className="logo d-flex align-items-center gap-lg-5 gap-md-3">
+      <div className="d-flex align-items-center gap-lg-5 gap-md-3 position-relative">
     
           {
             screenWidth > 425 ?

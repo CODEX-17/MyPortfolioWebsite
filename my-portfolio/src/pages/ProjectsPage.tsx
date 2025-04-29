@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useMemo, useState } from 'react'
 import './ProjectsPage.css'
 import Footer from '../sections/Footer/Footer'
 import { ThemeContext } from '../../context/ThemeContext'
@@ -15,6 +15,10 @@ import {
   MdOutlinePhonelink 
 } from "react-icons/md";
 import GridMotion from '../components/GridMotion/GridMotion';
+import Card from '../components/Card/Card'
+import { projects as projectList } from '../data/projectList'
+import { images } from '../assets/imagePath'
+
 
 const ProjectsPage = () => {
 
@@ -28,9 +32,9 @@ const ProjectsPage = () => {
     <div key='jsx-item-1'>
       <img className='img-display' src={'../assets/images/e-schoolapp-login.jpg'} alt="" />
     </div>,
-    <div key='jsx-item-1'><img className='img-display' src={'../assets/images/e-schoolapp-login.jpg'} alt="" /></div>,
-    <div key='jsx-item-1'><img className='img-display' src={'../assets/images/e-schoolapp-login.jpg'} alt="" /></div>,
-    <div key='jsx-item-1'><img className='img-display' src={'../assets/images/e-schoolapp-login.jpg'} alt="" /></div>,
+    <div key='jsx-item-1'>dsa</div>,
+    <div key='jsx-item-1'><img className='image-thumbnail' src={images.scholarshipPic} alt="" /></div>,
+    <div key='jsx-item-1'><img className='image-thumbnail' src={images.scholarshipPic} alt="" /></div>,
     'https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'Item 2',
     <div key='jsx-item-2'>Custom JSX Content</div>,
@@ -171,7 +175,7 @@ const ProjectsPage = () => {
                   <motion.div
                     layoutId="underline"
                     className="underline"
-                    style={{ backgroundColor: themeColors.background }}
+                    style={{ backgroundColor: themeColors.icon }}
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
                 )}
@@ -183,79 +187,26 @@ const ProjectsPage = () => {
 
         <div className='projects-card-list'>
 
-          <div className="card" style={{ backgroundColor: themeColors.card }}>
-            <div className="image-container">
-              <img src="" alt="" />
-            </div>
-            
-            <h4 style={{ color: themeColors.text }}>E-SchoolApp</h4>
-          </div>
-
-          <div className="card" style={{ backgroundColor: themeColors.cardActived}}>
-            <div className="image-container">
-              <img src="" alt="" />
-            </div>
-            
-            <h4 style={{ color: themeColors.text }}>E-SchoolApp</h4>
-          </div>
-
-          <div className="card">
-            <div className="image-container">
-              <img src="" alt="" />
-            </div>
-            
-            <h4>E-SchoolApp</h4>
-          </div>
-          <div className="card">
-            <div className="image-container">
-              <img src="" alt="" />
-            </div>
-            
-            <h4>E-SchoolApp</h4>
-          </div>
-          <div className="card">
-            <div className="image-container">
-              <img src="" alt="" />
-            </div>
-            
-            <h4>E-SchoolApp</h4>
-          </div>
-          <div className="card">
-            <div className="image-container">
-              <img src="" alt="" />
-            </div>
-            
-            <h4>E-SchoolApp</h4>
-          </div>
-          <div className="card">
-            <div className="image-container">
-              <img src="" alt="" />
-            </div>
-            
-            <h4>E-SchoolApp</h4>
-          </div>
-          <div className="card">
-            <div className="image-container">
-              <img src="" alt="" />
-            </div>
-            
-            <h4>E-SchoolApp</h4>
-          </div>
-          <div className="card">
-            <div className="image-container">
-              <img src="" alt="" />
-            </div>
-            
-            <h4>E-SchoolApp</h4>
-          </div>
-          <div className="card">
-            <div className="image-container">
-              <img src="" alt="" />
-            </div>
-            
-            <h4>E-SchoolApp</h4>
-          </div>
-
+          {
+            projectList.map((item, index) => (
+              <motion.div
+                initial={{ opacity: 0, y: 200 }}
+                whileInView={{ opacity: 1, y: 0, transition: { delay: parseFloat(`0.${index + 2}`) } }}
+                whileTap= {{ rotate: 10, transition: { type: 'spring', stiffness: 300} }}
+              >
+                <Card
+                  key={index}
+                  width='auto' 
+                  height='300px'
+                  title={item.title}
+                  description={item.description}
+                  thumbnail={item.thumbnail}
+                  icon={item.icon}
+                />
+              </motion.div>
+            ))
+          }
+          
 
         </div>
    

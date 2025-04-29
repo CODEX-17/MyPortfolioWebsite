@@ -8,6 +8,7 @@ export const projects = [
         features: 'Create Classes, Posting of assignments and Activities, Posting of learning materials,  Create Quiz, Real-time Chat.',
         repository: 'https://github.com/CODEX-17/E-SchoolApp.git',
         thumbnail: images.eSchoolLoginPic,
+        icon: images.eSchoolAppLogo,
     },
     {
         title: 'Scholarhip Management System',
@@ -16,6 +17,7 @@ export const projects = [
         features: 'Account creation, admin posting and updates, dashboard for monitoring scholarships, available slots, and program details.',
         repository: 'https://github.com/CODEX-17/SCHOLARSHIP-APPLICATION-AND-TRACKING-MANAGEMENT-SYSTEM.git',
         thumbnail: images.scholarshipPic,
+        icon: images.eSchoolAppLogo,
     },
     {
         title: 'NFRDI Procurement Dashboard',
@@ -24,5 +26,6 @@ export const projects = [
         features: 'Manages procurement data, bidding, and alternative methods, providing an overview with options to add, edit, and delete records.',
         repository: 'https://github.com/CODEX-17/NFRDI-Procurement-Dashboard.git',
         thumbnail: images.NFRDIPic,
-    },
+        icon: images.eSchoolAppLogo,
+    }
 ]
