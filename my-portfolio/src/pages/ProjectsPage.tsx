@@ -3,7 +3,7 @@ import './ProjectsPage.css'
 import Footer from '../sections/Footer/Footer'
 import { ThemeContext } from '../../context/ThemeContext'
 import { COLORS } from '../constants/colors'
-import { motion } from "framer-motion";
+import { motion, LazyMotion, domAnimation } from "framer-motion";
 import { GoHomeFill } from "react-icons/go";
 import { IoMdSunny } from "react-icons/io";
 import { useNavigate } from 'react-router-dom'
@@ -18,6 +18,7 @@ import GridMotion from '../components/GridMotion/GridMotion';
 import Card from '../components/Card/Card'
 import { projects as projectList } from '../data/projectList'
 import { images } from '../assets/imagePath'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
 const ProjectsPage = () => {
@@ -28,36 +29,43 @@ const ProjectsPage = () => {
 
   // note: you'll need to make sure the parent container of this component is sized properly
   const items = [
-    'Item 1',
-    <div key='jsx-item-1'>
-      <img className='img-display' src={'../assets/images/e-schoolapp-login.jpg'} alt="" />
-    </div>,
-    <div key='jsx-item-1'>dsa</div>,
-    <div key='jsx-item-1'><img className='image-thumbnail' src={images.scholarshipPic} alt="" /></div>,
-    <div key='jsx-item-1'><img className='image-thumbnail' src={images.scholarshipPic} alt="" /></div>,
-    'https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'Item 2',
-    <div key='jsx-item-2'>Custom JSX Content</div>,
-    'Item 4',
-    <div key='jsx-item-2'>Custom JSX Content</div>,
-    'https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'Item 5',
-    <div key='jsx-item-2'>Custom JSX Content</div>,
-    'Item 7',
-    <div key='jsx-item-2'>Custom JSX Content</div>,
-    'https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'Item 8',
-    <div key='jsx-item-2'>Custom JSX Content</div>,
-    'Item 10',
-    <div key='jsx-item-3'>Custom JSX Content</div>,
-    'https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'Item 11',
-    <div key='jsx-item-2'>Custom JSX Content</div>,
-    'Item 13',
-    <div key='jsx-item-4'>Custom JSX Content</div>,
-    'https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'Item 14',
-    // Add more items as needed
+    
+    <img className='img-display h-100 position-absolute' src={images.eSchoolAppLogo} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.rumarPicture} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.scholarshipPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.NFRDIPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolAppLogo} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.rumarPicture} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.scholarshipPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.NFRDIPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
+    <img className='img-display h-100 position-absolute' src={images.eSchoolLoginPic} alt="" />,
   ];
   
 
@@ -183,10 +191,8 @@ const ProjectsPage = () => {
             ))}
           </div>
         </div>
-       
 
         <div className='projects-card-list'>
-
           {
             projectList.map((item, index) => (
               <motion.div

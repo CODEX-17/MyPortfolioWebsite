@@ -135,13 +135,14 @@ const HeroPage = ({ heroRef }) => {
                   const delay = parseFloat(`0.${index + 2}`)
               
                   return(
-                    <IconMotion
-                      key={index}
-                      delay={delay}
-                      icon={item.icon}
-                      url={item.link}
-                      color={themeColors.icon}
-                    />
+                    <div key={index}>
+                      <IconMotion
+                        delay={delay}
+                        icon={item.icon}
+                        url={item.link}
+                        color={themeColors.icon}
+                      />
+                    </div>
                   )
                 }
                   

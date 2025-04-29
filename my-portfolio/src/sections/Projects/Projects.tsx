@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import './Projects.css'
 import { FaReact } from "react-icons/fa";
-import { color, motion } from 'framer-motion'
+import { LazyMotion, domAnimation, motion } from 'framer-motion'
 import { SiExpress } from "react-icons/si";
 import { TbBrandMysql } from "react-icons/tb";
 import { GrLinkNext } from "react-icons/gr";
@@ -19,6 +19,7 @@ const Projects = ({ projectsRef }) => {
   const navigate = useNavigate()
 
   return (
+    <LazyMotion features={domAnimation}>
      <div className='content-projects-section' ref={projectsRef}>
         <div className='head-project-page'>
             <h1 
@@ -32,6 +33,7 @@ const Projects = ({ projectsRef }) => {
                 {
                     projectList.map((item, index) => (
                         <motion.div 
+                            key={index}
                             initial={{ opacity: 1, scale: .5 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ type: "spring", duration: 1 }}
@@ -120,7 +122,8 @@ const Projects = ({ projectsRef }) => {
             ></motion.div>
         </div>
         
-    </div>
+     </div>
+    </LazyMotion>
   )
 }
 

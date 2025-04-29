@@ -1,7 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import "./GridMotion.css";
 import React from "react";
+import { ThemeContext } from "../../../context/ThemeContext";
+import { COLORS } from "../../constants/colors";
 
 const GridMotion = ({ items }: { items: (string | JSX.Element)[] }) => {
 
@@ -9,6 +11,9 @@ const GridMotion = ({ items }: { items: (string | JSX.Element)[] }) => {
   const gridRef = useRef(null);
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]); // Array of refs for each row
   const mouseXRef = useRef(window.innerWidth / 2);
+
+  const { theme } = useContext(ThemeContext)
+  const themeColor = theme === "dark" ? COLORS.dark : COLORS.light ; // Set the background color based on the theme
 
   // Ensure the grid has 28 items (4 rows x 7 columns) by default
   const totalItems = 28;
@@ -82,7 +87,7 @@ const GridMotion = ({ items }: { items: (string | JSX.Element)[] }) => {
                   <div key={itemIndex} className="row__item">
                     <div
                       className="row__item-inner"
-                      style={{ backgroundColor: "red", position: 'relative' }}
+                      style={{ backgroundColor: themeColor.background, position: 'relative' }}
                     >
                       {typeof content === "string" &&
                       content.startsWith("http") ? (
@@ -97,10 +102,13 @@ const GridMotion = ({ items }: { items: (string | JSX.Element)[] }) => {
                         ></div>
                       ) : (
                         <div className="row__item-content" style={{
-                          backgroundImage: `url(${content})`,
                           width: '100%',
+                          height: '100%',
                           overflow: "hidden",
-                          position: 'absolute',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          position: 'relative',
                         }}>{content}</div>
                       )}
                     </div>

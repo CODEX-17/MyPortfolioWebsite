@@ -2,20 +2,18 @@ import { motion } from "framer-motion";
 import React, { useCallback } from "react";
 
 interface IconMotionPropType {
-    key: number
     delay: number
     icon: any
     url: string
     color: string
 }
 
-export const IconMotion = ({ key, delay = 0.2, icon, url, color }: IconMotionPropType) => {
+export const IconMotion = ({ delay = 0.2, icon, url, color }: IconMotionPropType) => {
     
     const openLink = useCallback(() => window.location.href = url, [url]);
   
     return (
       <motion.div
-        key={key}
         initial={{ rotate: 120 }}
         whileInView={{
           rotate: 0,

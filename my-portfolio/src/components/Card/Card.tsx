@@ -1,5 +1,4 @@
 import React, { memo, useContext, useState } from 'react'
-import { images } from '../../assets/imagePath'
 import { ThemeContext } from '../../../context/ThemeContext'
 import { COLORS } from '../../constants/colors'
 import './Card.css'
