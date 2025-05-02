@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { ThemeContextProvider } from '../context/ThemeContext.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ProjectsPage from './pages/ProjectsPage.js'
+import ProjectsPage from './pages/ProjectPage/ProjectsPage.js'
 import './App.css'
 import PDFViewer from './pages/PDFViewer.jsx'
 

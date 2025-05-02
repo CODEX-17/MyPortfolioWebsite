@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useMemo, useState } from 'react'
 import './ProjectsPage.css'
-import Footer from '../sections/Footer/Footer'
-import { ThemeContext } from '../../context/ThemeContext'
-import { COLORS } from '../constants/colors'
+import Footer from '../../sections/Footer/Footer'
+import { ThemeContext } from '../../../context/ThemeContext'
+import { COLORS } from '../../constants/colors'
 import { motion, LazyMotion, domAnimation } from "framer-motion";
 import { GoHomeFill } from "react-icons/go";
 import { IoMdSunny } from "react-icons/io";
@@ -14,10 +14,10 @@ import {
   MdOutlineDesignServices,
   MdOutlinePhonelink 
 } from "react-icons/md";
-import GridMotion from '../components/GridMotion/GridMotion';
-import Card from '../components/Card/Card'
-import { projects as projectList } from '../data/projectList'
-import { images } from '../assets/imagePath'
+import GridMotion from '../../components/GridMotion/GridMotion';
+import Card from '../../components/Card/Card'
+import { projects as projectList } from '../../data/projectList'
+import { images } from '../../assets/imagePath'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
@@ -217,9 +217,9 @@ const ProjectsPage = () => {
         </div>
    
       </div>
-      {/* <footer style={{ backgroundColor: themeColors.green }}>
+      <footer className='footer'>
         <Footer/>
-      </footer> */}
+      </footer>
     </motion.div>
   )
 }

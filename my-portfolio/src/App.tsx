@@ -181,9 +181,9 @@ function App() {
 
           <footer 
             className='footer' 
-            style={{ backgroundColor: themeColors.green }}
+            style={{ backgroundColor: themeColors.background }}
           >
-            <Footer scrollToSection={scrollToSection} />
+            <Footer/>
           </footer>
         
         </div>

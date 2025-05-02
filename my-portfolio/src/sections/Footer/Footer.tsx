@@ -1,50 +1,39 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Footer.css'
 import { COLORS } from '../../constants/colors'
 import { MdOutlineCopyright } from "react-icons/md";
-import { FaCode } from "react-icons/fa";
 import { motion } from 'framer-motion';
-import { images } from '../../assets/imagePath';
+import { ThemeContext } from '../../../context/ThemeContext';
+import { socialMediaLinks } from '../../data/socialMediaLinks';
 
-const Footer = ({ scrollToSection }) => {
+const Footer = () => {
+
+  const { theme, handleTheme } = useContext(ThemeContext)
+  const themeColors = theme === 'dark' ? COLORS.dark : COLORS.light
+
+  const links = socialMediaLinks()
 
   return (
     <div className='content-footer-section'>
-        <div className="d-flex w-100 justify-content-between align-items-center pl-4 pr-4">
-            <div 
-                className="d-flex flex-column"
-                onClick={() => window.location.href = 'https://github.com/CODEX-17/MyPortfolioWebsite.git'}
-            >
-                <img src={images.logoWhite} alt="logo" />
-                <motion.h3 
-                    className='fs-6' 
-                    style={{ userSelect: 'none', cursor: 'pointer' }}
-                    initial={{ color: COLORS.white }}
-                    whileHover={{ opacity: 0.5 }}
-                    whileTap={{ opacity: 0.5 }}
-                >Source Code <FaCode/>
-                </motion.h3>
-            </div>
-            <div className="d-flex gap-4">
-                <div className="d-flex flex-column">
-                    <h1>Important Links</h1>
-                    <p onClick={() => scrollToSection('hero-section')}>Home</p>
-                    <p onClick={() => scrollToSection('projects-section')}>Porjects</p>
-                    <p onClick={() => scrollToSection('about-section')}>About me</p>
-                </div>
-                <div className="d-flex flex-column">
-                    <h1>Social</h1>
-                    <p onClick={() => window.location.href = 'https://github.com/CODEX-17'}>Github</p>
-                    <p onClick={() => window.location.href = 'https://www.facebook.com/rumar.pamparo'}>Facebook</p>
-                    <p onClick={() => window.location.href = 'https://www.instagram.com/pamparorumar/'}>Instagram</p>
-                </div>
-            </div>
+        <div className="d-flex gap-2 align-items-center">
+            {
+              links.map((item, index) => (
+                <motion.div
+                  key={index} 
+                  className='footer-icon' 
+                  onClick={() => window.open(item.url, '_blank')}
+                >
+                  {item.icon('100%')}
+                </motion.div>
+                
+              ))
+            }
+            
         </div>
-        <div className='w-100 d-flex align-items-center justify-content-end'>
-            <h3 className='fs-6'>
-                <MdOutlineCopyright/>2025 Rumar Pamparo,All right reserved.
-            </h3>            
-        </div>
+        <h3 className='fs-6 mb-2' style={{color: themeColors.text}}>
+            <MdOutlineCopyright/>2025 Rumar Pamparo.
+        </h3> 
+         
     </div>
   )
 }
