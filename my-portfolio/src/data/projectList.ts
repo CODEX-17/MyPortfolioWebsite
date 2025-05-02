@@ -9,6 +9,7 @@ export const projects = [
         repository: 'https://github.com/CODEX-17/E-SchoolApp.git',
         thumbnail: images.eSchoolLoginPic,
         icon: images.eSchoolAppLogo,
+        project_type: 'web',
     },
     {
         title: 'Scholarhip Management System',
@@ -17,7 +18,8 @@ export const projects = [
         features: 'Account creation, admin posting and updates, dashboard for monitoring scholarships, available slots, and program details.',
         repository: 'https://github.com/CODEX-17/SCHOLARSHIP-APPLICATION-AND-TRACKING-MANAGEMENT-SYSTEM.git',
         thumbnail: images.scholarshipPic,
-        icon: images.eSchoolAppLogo,
+        icon: images.scholarshipLogo,
+        project_type: 'web',
     },
     {
         title: 'NFRDI Procurement Dashboard',
@@ -26,6 +28,18 @@ export const projects = [
         features: 'Manages procurement data, bidding, and alternative methods, providing an overview with options to add, edit, and delete records.',
         repository: 'https://github.com/CODEX-17/NFRDI-Procurement-Dashboard.git',
         thumbnail: images.NFRDIPic,
-        icon: images.eSchoolAppLogo,
+        icon: images.NFRDILogo,
+        project_type: 'web',
+    },
+    {
+        title: 'Hours Calculator',
+        subtitle: '(Web Application)',
+        description: `A web-based system that calculates the total hours rendered during On-the-Job Training (OJT), tailored for student trainees.`,
+        features: 'Tracks daily logs, computes total OJT hours, and generates downloadable reports based on the format required by the student’s school.',
+        repository: 'https://github.com/CODEX-17/Hours-Calculator-V2.git',
+        thumbnail: images.hourCalThumbnail,
+        icon: images.hourCalLogo,
+        project_type: 'web',
     }
+
 ]

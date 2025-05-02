@@ -51,7 +51,6 @@ const Card = ({
   const cardMaxHeight = maxHeight ? maxHeight : 'none'
 
 
-
   return (
     <div 
         className={`customize-card ${className}` }
@@ -67,6 +66,7 @@ const Card = ({
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        onClick={() => setHovered(!hovered)}
     >
         <div className={ theme === 'dark' ? 'gradient-effect-dark' : 'gradient-effect-light' }>
         </div>
@@ -95,7 +95,7 @@ const Card = ({
                 className='logo mb-2'
             /> 
             <h4 style={{ color: themeColors.text }}>{title}</h4>
-            <p style={{ color: themeColors.text }}>{shortenSentence(description, 100)}</p>
+            <p style={{ color: themeColors.text }}>{shortenSentence(description, hovered ? 100 : 50)}</p>
         </div>
     </div>
   )

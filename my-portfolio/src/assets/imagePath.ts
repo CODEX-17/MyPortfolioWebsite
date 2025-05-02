@@ -21,8 +21,18 @@ import eSchoolLoginPic from '../assets/images/e-schoolApp-thumbnail.webp'
 import scholarshipPic from '../assets/images/scholarship-thumbnail.webp'
 import NFRDIPic from '../assets/images/nfrdi-thumbnail.webp'
 import eSchoolAppLogo from './images/e-school-app-logo.webp'
+import hourCalLogo from './images/hours-cal-logo.png'
+import NFRDILogo from './images/nfrdi-logo.png'
+import scholarshipLogo from './images/scholarship-logo.png'
+import smartLibraryLogo from './images/smart-lib-logo.png'
+import hourCalThumbnail from './images/hours-cal-thumbnail.webp'
 
 export const images = {
+    hourCalThumbnail,
+    smartLibraryLogo,
+    hourCalLogo,
+    NFRDILogo,
+    scholarshipLogo,
     logoDefault,
     logoWhite,
     rumarPicture,

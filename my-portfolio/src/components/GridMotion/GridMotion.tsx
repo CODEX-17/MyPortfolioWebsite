@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { memo, useContext, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import "./GridMotion.css";
 import React from "react";
@@ -124,4 +124,4 @@ const GridMotion = ({ items }: { items: (string | JSX.Element)[] }) => {
   );
 };
 
-export default GridMotion;
+export default memo(GridMotion);
