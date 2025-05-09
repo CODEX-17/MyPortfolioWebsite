@@ -5,6 +5,7 @@ import "./Card.css";
 import { shortenSentence } from "../../utils/shortenWord";
 import { BiGitRepoForked } from "react-icons/bi";
 import { MdViewCozy } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 interface CardPropsType {
   width?: string;
@@ -40,6 +41,8 @@ const Card = ({
   const { theme, handleTheme } = useContext(ThemeContext);
   const themeColors = theme === "dark" ? COLORS.dark : COLORS.light;
   const [hovered, setHovered] = useState(false);
+
+  const navigate = useNavigate();
 
   const screenWidth = window.innerWidth;
 
@@ -111,6 +114,7 @@ const Card = ({
                 backgroundColor: COLORS.dark.background,
                 color: COLORS.light.background,
               }}
+              onClick={() => navigate("/view-project")}
             >
               <MdViewCozy size={15} />
               View
