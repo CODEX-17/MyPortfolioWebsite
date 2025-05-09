@@ -1,17 +1,23 @@
-import React, { useRef } from 'react';
-import emailjs from 'emailjs-com';
+import React, { useRef } from "react";
+import emailjs from "emailjs-com";
+
+const serviceID = import.meta.env.VITE_SERVICE_ID;
+const templateID = import.meta.env.VITE_TEMPLATE_ID;
+const publicKey = import.meta.env.VITE_PUBLIC_KEY;
 
 const email = () => {
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_p0ohq6o', 'template_6f4kw5h', form.current, 'WHumULzKE5Yl110BI')
-      .then((result) => {
-          console.log('Email sent successfully:', result.text);
-      }, (error) => {
-          console.log('Email failed:', error.text);
-      });
+    emailjs.sendForm(serviceID, templateID, form.current, publicKey).then(
+      (result) => {
+        console.log("Email sent successfully:", result.text);
+      },
+      (error) => {
+        console.log("Email failed:", error.text);
+      }
+    );
   };
 
   return (
