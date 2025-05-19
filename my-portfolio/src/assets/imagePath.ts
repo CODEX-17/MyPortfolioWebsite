@@ -27,8 +27,12 @@ import scholarshipLogo from "./images/scholarship-logo.png";
 import smartLibraryLogo from "./images/smart-lib-logo.png";
 import hourCalThumbnail from "./images/hours-cal-thumbnail.webp";
 import smartLibraryThumbnail from "./images/smart-lib-thumbnail.webp";
+import separThumbnail from "./images/separ_thumbnail.png";
+import separLogo from "./images/separ_logo.png";
 
 export const images = {
+  separThumbnail,
+  separLogo,
   smartLibraryThumbnail,
   hourCalThumbnail,
   smartLibraryLogo,

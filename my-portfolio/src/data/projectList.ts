@@ -60,4 +60,15 @@ export const projects = [
     icon: images.hourCalLogo,
     project_type: "web",
   },
+  {
+    title: "Separ Book App",
+    subtitle: "(Mobile Application)",
+    description: `A mobile application built using React Native and Expo, designed to help users read and interact with the sacred book of Yahuweh. It features verse tracking, offline reading, and a ranking system based on user reading activity.`,
+    features:
+      "Read divine verses from the Separ of Yahuweh, track user ranking based on the number of verses read, full offline support using Expo local database, verse search and navigation, optional light/dark mode and notifications, clean and intuitive UI.",
+    repository: "https://github.com/CODEX-17/Separ_Book_Mobile_App.git",
+    thumbnail: images.separThumbnail,
+    icon: images.separLogo,
+    project_type: "mobile",
+  },
 ];
